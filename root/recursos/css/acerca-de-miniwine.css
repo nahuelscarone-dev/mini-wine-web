@@ -41,6 +41,10 @@
     border-radius: 0 0 15px 15px;
 }
 
+.mvv-informacion__titulo {
+    margin-top: 0;
+}
+
 .mvv-informacion--mision {
     background-color: var(--bordo-oscuro);
 }
