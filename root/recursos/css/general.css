@@ -52,7 +52,6 @@ h3, h4 {
 
 p {
     font-size: var(--parrafo);
-    text-align: justify;
 }
 
 input, textarea, select, label {
