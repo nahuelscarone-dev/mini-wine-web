@@ -54,6 +54,77 @@
     background-color: var(--marron);
 }
 
+.seccion-delivery {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Aseguramos que el contenedor use flex vertical para celular */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.seccion-delivery__titulo, 
+.seccion-delivery__subtitulo {
+    color: var(--bordo);
+    text-shadow: var(--titulo-sombra);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    /* Ajustamos el tamaño para que no desborde en pantallas chicas */
+    font-size: 1.8rem; 
+}
+
+.seccion-delivery__texto {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.seccion-delivery__lista {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    /* Bajamos a 1.2rem; 2rem es demasiado para celular */
+    font-size: 1.2rem; 
+}
+
+.seccion-delivery__lista li {
+    margin-bottom: 0.8rem;
+    border-left: 3px solid var(--bordo); 
+    padding-left: 10px;
+}
+
+/* El mapa en celular */
+.contenedor-ubicacion {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Usamos tu sombra si tienes una variable, o una sutil */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+iframe {
+    width: 100%;
+    display: block;
+    border: none;
+}
+
+/* Configuracion de Flexbox */
+.seccion-delivery__contenedor {
+    display: flex;
+    flex-direction: column; /* Móvil: Uno abajo del otro */
+    gap: 40px; /* Espacio entre el texto y el mapa */
+}
+
+/* Tarjeta del mapa para que no pierda el estilo que te gustó */
+.seccion-delivery__tarjeta-mapa {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 @media (min-width: 1024px) {
 
     .contenedor {
@@ -72,5 +143,16 @@
 
     .producto-informacion {
         border-radius: 0 15px 15px 0;
+    }
+    .seccion-delivery__contenedor {
+        display: flex;
+        flex-direction: row; /* Aquí ocurre la magia del escritorio */
+        align-items: flex-start;
+        gap: 4rem;
+    }
+
+    .seccion-delivery__info, 
+    .contenedor-ubicacion {
+        flex: 1; /* Mitad y mitad */
     }
 }
