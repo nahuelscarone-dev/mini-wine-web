@@ -244,6 +244,45 @@ header > a {
     z-index: 1;
 }
 
+.contenedor-ubicacion{
+    margin-top: 20px;
+    width:100%;
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+    width: 100%; 
+    border: none;
+}
+.seccion-delivery {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.seccion-delivery__titulo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Configuracion de Flexbox */
+.seccion-delivery__contenedor {
+    display: flex;
+    flex-direction: column; /* Móvil: Uno abajo del otro */
+    gap: 40px; /* Espacio entre el texto y el mapa */
+}
+
+/* Tarjeta del mapa para que no pierda el estilo que te gustó */
+.seccion-delivery__tarjeta-mapa {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Tablet */
 @media (min-width: 768px) {
     :root {
