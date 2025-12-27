@@ -57,56 +57,86 @@
 .seccion-delivery {
     padding: 2rem;
     max-width: 1200px;
-    margin-top: -2.5rem;
-    /* Aseguramos que el contenedor use flex vertical para celular */
+    margin: 0 auto; /* Centrado horizontal */
+    /* Mantenemos tu ajuste manual si lo necesitas por el gap del main */
+    margin-top: -2.5rem; 
+    
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem; /* Un poco más de aire entre elementos */
 }
 
+/* TÍTULOS */
+/* Usamos las variables globales para fuente y tamaño */
+.seccion-delivery__titulo {
+    font-family: "Noto Serif", serif; /* Aseguramos la fuente del diseño */
+    font-size: var(--titulo);         /* Usa los 4.5rem o 5rem definidos en :root */
+    color: var(--bordo);
+    text-shadow: var(--titulo-sombra);
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-.seccion-delivery__texto {
+.seccion-delivery__subtitulo {
+    font-family: "Noto Serif", serif;
+    font-size: var(--subtitulo);
+    color: var(--bordo);
+    text-shadow: var(--titulo-sombra);
+    margin-bottom: 1.5rem;
+}
+
+/* TEXTOS Y PÁRRAFOS */
+.seccion-delivery__texto,
+.seccion-delivery__mensaje {
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--parrafo); /* Se adapta a 2rem (20px) según tu variable global */
+    line-height: 1.5;          /* Mejora la lectura */
+    color: black;              /* O el color base que uses */
     text-align: left;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-bottom: 3rem;
 }
 
+/* LISTA DE BARRIOS */
 .seccion-delivery__lista {
     list-style: none;
-    text-align: left;
     padding: 0;
-    margin: 0;
-    /* Bajamos a 1.2rem; 2rem es demasiado para celular */
-    font-size: 1.4rem; 
+    margin: -1.5rem 0;
+    margin-bottom: auto;
+    text-align: left;
+    
+    /* Usamos var(--parrafo) para consistencia, o un pelín menos si 2rem es gigante para lista */
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--parrafo); 
 }
 
 .seccion-delivery__lista li {
-    margin-bottom: 0.8rem;
-    border-left: 3px solid var(--bordo); 
-    padding-left: 10px;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    /* Usamos tu variable de color para el borde */
+    border-left: 4px solid var(--bordo); 
+}
+
+/* MAPA (MÓVIL) */
+.seccion-delivery__tarjeta-mapa {
+    width: 100%;
+    height: 250px; /* Un poco más alto que 175px para que sea útil en móvil */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 1px -1px 10px 10px rgba(0,0,0,0.05); /* Sombra similar a tu header pero sutil */
 }
 
 iframe {
     width: 100%;
+    height: 100%;
     display: block;
     border: none;
 }
-
-/* Configuracion de Flexbox */
-.seccion-delivery__contenedor {
-    display: flex;
-    flex-direction: column; /* Móvil: Uno abajo del otro */
-    gap: 2rem; /* Espacio entre el texto y el mapa */
+.seccion-delivery__mapa {
+    margin-top: 2rem;       /* Empujamos todo hacia abajo */
+    padding-top: 2rem;      /* Espacio interior */
+    border-top: 1px solid rgba(0,0,0,0.1); /* Una línea gris suave separadora */
+    width: 100%;            /* Aseguramos que la línea cruce toda la pantalla */
 }
-
-/* Tarjeta del mapa para que no pierda el estilo que te gustó */
-.seccion-delivery__tarjeta-mapa {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 @media (min-width: 1024px) {
 
     .contenedor {
@@ -126,14 +156,38 @@ iframe {
     .producto-informacion {
         border-radius: 0 15px 15px 0;
     }
+
+    .seccion-delivery {
+        padding: 4rem 2rem;
+    }
+
     .seccion-delivery__contenedor {
-        flex-direction: row; /* PC: Lado a lado */
-        align-items: flex-start; /* Alinea el contenido arriba */
+        display: flex;
+        flex-direction: row; 
+        gap: 8rem; /* Espacio generoso para que no se vea apretado */
+        
+        /* ALINEACIÓN: flex-start asegura que la primera línea de texto 
+           de la izq y la del mapa empiecen a la misma altura exacta */
+        align-items: flex-start; 
     }
 
-    .seccion-delivery__info, .seccion-delivery__mapa {
-        flex: 1; /* Ocupa la mitad */
-        align-items: start;
+    .seccion-delivery__info, 
+    .seccion-delivery__mapa {
+        flex: 1; 
+        display: flex;
+        flex-direction: column;
+        
+        /* CORRECCIÓN: Quitamos el borde, el margen y el padding extra de móvil */
+        border-top: none; 
+        margin-top: 0;
+        padding-top: 0;
     }
 
+    /* El mapa en escritorio */
+    .seccion-delivery__tarjeta-mapa {
+        width: 100%;
+        height: 45rem; /* Altura elegante para PC (450px) */
+        flex-grow: 0;  /* No dejamos que se estire, mantenemos la forma rectangular */
+    }
+    
 }
