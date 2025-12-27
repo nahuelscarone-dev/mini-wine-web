@@ -52,7 +52,6 @@ h3, h4 {
 
 p {
     font-size: var(--parrafo);
-    text-align: justify;
 }
 
 input, textarea, select, label {
@@ -223,15 +222,12 @@ header > a {
 }
 
 .seccion-introduccion__parrafo {
-    font-size: var(--subtitulo);
-    text-align: center;
-}
-
-.seccion-introduccion__parrafo {
     position: absolute;   /* permite que quede encima de la imagen */
     z-index: 2;
     color: white;
-    padding: 2rem;
+    padding: 10%;
+    font-size: var(--subtitulo);
+    text-align: center;
 }
 
 .imagen-fondo {

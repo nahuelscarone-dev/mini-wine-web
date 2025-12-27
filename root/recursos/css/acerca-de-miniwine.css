@@ -35,21 +35,25 @@
     width: 100%;
 }
 
-.articulo-mvv__informacion {
+.mvv-informacion {
     padding: 4rem;
     color: white;
     border-radius: 0 0 15px 15px;
 }
 
-.articulo-mvv__informacion--mision {
+.mvv-informacion__titulo {
+    margin-top: 0;
+}
+
+.mvv-informacion--mision {
     background-color: var(--bordo-oscuro);
 }
 
-.articulo-mvv__informacion--vision {
+.mvv-informacion--vision {
     background-color: var(--marron);
 }
 
-.articulo-mvv__informacion--valores {
+.mvv-informacion--valores {
     background-color: var(--naranja);
 }
 
@@ -69,7 +73,7 @@
         border-radius: 15px 0 0 15px;
     }
 
-    .articulo-mvv__informacion {
+    .mvv-informacion {
         border-radius: 0 15px 15px 0;
     }
 }
