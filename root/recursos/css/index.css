@@ -109,7 +109,7 @@
     border-left: 4px solid var(--bordo); 
 }
 
-/* MAPA (MÓVIL) */
+/* MAPA*/
 .seccion-delivery__tarjeta-mapa {
     width: 100%;
     height: 250px; /* Un poco más alto que 175px para que sea útil en móvil */
@@ -130,29 +130,27 @@ iframe {
     border-top: 1px solid rgba(0,0,0,0.1); /* Una línea gris suave separadora */
     width: 100%;            /* Aseguramos que la línea cruce toda la pantalla */
 }
-/* 1. La sección padre: Le damos aire y color de fondo */
+
 .seccion-sumar-bodega {
     padding: 0 10%;        /* Espacio arriba/abajo y a los costados */
     text-align: center;        /* Centramos todo el contenido */         /* Flexbox ayuda a centrar el contenedor hijo */
     justify-content: center;
 }
 
-/* 2. El contenedor interno */
 .seccion-sumar-bodega__contenedor {
     max-width: 700px;
     width: 100%;
     
-    /* AGREGÁ ESTO: */
-    margin: 0 auto;  /* 0 arriba/abajo, AUTO a los costados */
+  
+    margin: 0 auto;  
 
-    /* El resto dejalo igual */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-/* 3. El título: Grande y con color de marca */
+/*El título: Grande y con color de marca */
 .seccion-sumar-bodega__titulo {
     text-align: center;
     font-size: var(--titulo);
@@ -162,15 +160,15 @@ iframe {
     font-family: "Noto Serif", serif;      
 }
 
-/* 4. El texto descriptivo */
+/*El texto descriptivo */
 .seccion-sumar-bodega__texto {
     font-size: var(--parrafo);
-    line-height: 1.6;          /* Facilita la lectura */
+    line-height: 1.6;
     margin-bottom: 20px;
     text-align: justify;
 }
 
-/* 5. El botón (Input) */
+
 .seccion-sumar-bodega__boton {
     width: 100%;
     padding: 1.5rem;
@@ -237,18 +235,18 @@ iframe {
         height: 45rem; /* Altura elegante para PC (450px) */
         flex-grow: 0;  /* No dejamos que se estire, mantenemos la forma rectangular */
     }
- /* 1. Damos más aire a la sección completa */
+ /*Damos más aire a la sección completa */
     .seccion-sumar-bodega {
         gap:10rem;
         padding:0;
     }
 
-    /* 2. Controlamos el ancho para que no se estire infinito */
+    /*Controlamos el ancho para que no se estire infinito */
     .seccion-sumar-bodega__contenedor {
         max-width: 800px; /* Permitimos que sea un poco más ancho en PC */
     }
 
-    /* 3. Aumentamos el tamaño de la letra para aprovechar la pantalla */
+    /*Aumentamos el tamaño de la letra para aprovechar la pantalla */
     .seccion-sumar-bodega__texto {
         line-height: 1.8;  /* Más espaciado entre líneas */
         margin-bottom: 30px;
@@ -274,5 +272,5 @@ iframe {
     background-color: #5a232b; /* Un tono vino más oscuro al pasar el mouse */
     border-color: #5a232b;
     cursor: pointer;
-}
+    }
 }
