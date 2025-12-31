@@ -43,7 +43,7 @@
 .seccion-filtros {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 4rem;
     margin-top: -3rem;
     margin-bottom: -3rem;
 }
@@ -138,7 +138,7 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 850px) {
     .seccion-filtros {
         flex-direction: column;
     }
