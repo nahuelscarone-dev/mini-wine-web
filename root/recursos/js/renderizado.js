@@ -12,7 +12,7 @@ function renderizarCatalogo(arreglo, $contenedor) {
                     <h2 class="tarjeta-producto__bodega">${element.bodega}</h2>
                     <p class="tarjeta-producto__parrafo">${element.descripcion}</p>
 
-                    <div class="tarjeta-producto__footer"
+                    <div class="tarjeta-producto__footer">
                         <p class="tarjeta-producto__precio">$${element.precio}</p>
                         <img class="tarjeta-producto__boton-carrito" src="${element.imagen['boton-carrito']}"</>
                     </div>
