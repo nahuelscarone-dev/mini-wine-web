@@ -8,6 +8,7 @@ $formularioContacto.addEventListener("submit", (evento) => {
     const $nombre = document.getElementById('id-nombre').value.trim();
     const $email = document.getElementById('id-email').value.trim();
     const $telefono = document.getElementById('id-telefono').value.trim();
+    const $motivoContacto = document.getElementById('id-motivo').value.trim();
     const $comentario = document.getElementById('id-comentario').value.trim();
 
     const mensajeSumaTuViñedo = `Mensaje proveniente de *Contacto*:
@@ -17,6 +18,8 @@ $formularioContacto.addEventListener("submit", (evento) => {
     *•Email*: ${$email}
 
     *•Teléfono*: ${$telefono}
+
+    *•Motivo de contacto: ${$motivoContacto}
 
     *•Comentario*: 
     ${$comentario}
