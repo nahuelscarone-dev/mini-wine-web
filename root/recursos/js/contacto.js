@@ -4,6 +4,18 @@ const $contenedorErrores = document.getElementById("formulario__errores")
 const $formularioContacto = document.getElementById("formulario-contacto")
 const numeroWhatsApp = '5493518519953'; 
 
+document.addEventListener('DOMContentLoaded', ()=>{
+    const parametrosURL= new URLSearchParams(window.location.search)
+    const motivo= parametrosURL.get('motivo')
+
+    if(motivo==='bodega'){
+        const $selectMotivo= document.getElementById('id-motivo')
+        if ($selectMotivo){
+            $selectMotivo.value= "Quiero trabajar con Mini Wine"
+        }
+    }
+})
+
 $formularioContacto.addEventListener("submit", (evento) => {
     const $nombre = document.getElementById('id-nombre').value.trim();
     const $email = document.getElementById('id-email').value.trim();
