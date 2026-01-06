@@ -64,7 +64,8 @@
 
 .seccion-productos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    /* Cambia 30rem por 22rem (aprox 350px) para que entren más tarjetas lado a lado */
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr)); 
     justify-content: center;
     gap: 5rem;
 }
@@ -101,6 +102,9 @@
 
 .tarjeta-producto__imagen {
     width: 100%;
+    height: 300px;       /* <--- AGREGA ESTO: Define la altura de la foto */
+    object-fit: cover;   /* <--- AGREGA ESTO: Evita que la foto se deforme */
+    object-position: center;
 }
 
 .tarjeta-producto__contenedor-parrafo {
@@ -123,17 +127,23 @@
 }
 .tarjeta-producto__footer {
     display: flex;
-    justify-content: space-between; /* Precio a la izq, Botón a la der */
-    align-items: center; /* Alineados verticalmente al centro */
-    margin-top: 1rem; /* Un poco de aire arriba */
+    flex-direction: column; /* <--- CAMBIO CLAVE: Pone el precio arriba y botón abajo */
+    gap: 15px;              /* Espacio entre precio y botón */
+    width: 100%;            /* Asegura que use todo el ancho */
+    margin-top: 1rem;
 }
 
 /* El botón del carrito (IMPORTANTE: Darle tamaño) */
 .tarjeta-producto__boton-carrito {
-    width: 60px;  /* Ajusta este tamaño a tu gusto */
-    height: auto;
-    cursor: pointer; /* Manito al pasar el mouse */
-    transition: transform 0.2s ease; /* Animación suave */
+    display: flex;       /* ¡Clave! Hace que icono y texto se pongan lado a lado */
+    align-items: center; /* Centra el texto verticalmente respecto al icono */
+    
+    background-color: transparent; /* O el color de fondo que desees */
+    border: 1px solid #ccc;        /* Borde para darle forma rectangular */
+    border-radius: 5px;            /* Bordes ligeramente redondeados */
+    padding: 5px 10px;             /* Espacio interno del botón */
+    cursor: pointer;               /* Manito al pasar el mouse */
+    transition: all 0.3s ease;     /* Suavizar animaciones */
 }
 
 /* Efecto al pasar el mouse por encima del carrito */
@@ -141,39 +151,98 @@
     transform: scale(1.1); /* Se agranda un poquito */
 }
 
-/* Estilo del CONTENEDOR del botón (el círculo) */
 .tarjeta-producto__btn-agregar {
-    /* 1. Reseteamos los estilos feos por defecto de los buttons */
-    background-color: var(--bordo); /* Usamos tu color de marca */
-    border: none;
-    padding: 0; /* Quitamos relleno por defecto */
-
-    /* 2. Damos forma y tamaño */
-    width: 50px;  /* Un tamaño fácil de tocar con el dedo (mínimo recomendado 44-48px) */
-    height: 50px;
-    border-radius: 50%; /* Lo hace perfectamente redondo */
-
-    /* 3. Centramos el ícono adentro */
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    /* 4. Interacción y suavizado */
+    justify-content: center;
+    
+    width: 100%;          /* <--- CAMBIO CLAVE: Ocupa todo el ancho de la tarjeta */
+    
+    height: auto;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--bordo);
+    border: none;
     cursor: pointer;
-    transition: all 0.2s ease; /* Suaviza el hover y el click */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Una sombrita sutil para darle volumen */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .tarjeta-producto__icono-carrito {
-    width: 25px; /* El ícono debe ser más chico que el botón */
-    height: auto;
-    /* TRUCO: Esto invierte los colores. Si tu ícono es negro, lo vuelve blanco */
-    filter: invert(1) brightness(100%);
+    width: 2.8rem;
+    height: 2.8rem;
+    display: block;
+    object-fit: contain;
+    filter: invert(1); /* Truco: Esto vuelve el icono blanco si era negro */
+}
+.tarjeta-producto__parrafo-carrito {
+    margin: 0;
+    margin-left: 8px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff; /* BLANCO: para que resalte sobre el fondo bordo */
 }
 .tarjeta-producto__btn-agregar:active {
     background-color: var(--bordo-oscuro);
     transform: scale(0.95) translateY(0); /* Se achica un poquito como si lo hundieras */
     box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* La sombra se achica */
 }
+.btn-flotante-carrito {
+    position: fixed;        /* <--- MAGIA: Se queda fijo en la pantalla */
+    bottom: 30px;           /* Distancia desde abajo */
+    right: 30px;            /* Distancia desde la derecha */
+    
+    width: 65px;            /* Tamaño generoso para dedo (móvil) */
+    height: 65px;
+    border-radius: 50%;     /* Círculo perfecto */
+    
+    background-color: white; 
+    border: 2px solid var(--bordo); /* Borde del color de tu marca */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    z-index: 1000;          /* <--- IMPORTANTE: Asegura que flote sobre TODO */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para que parezca que flota */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.btn-flotante-carrito:hover {
+    transform: scale(1.1); /* Se agranda un poquito */
+}
+
+/* EL ÍCONO ADENTRO DEL BOTÓN */
+.btn-flotante-icono {
+    width: 30px;
+    height: 30px;
+    /* Si tu ícono es blanco y el fondo es blanco, inviértelo o usa uno de color */
+    /* filter: invert(0);  <-- Activa esto si no ves el ícono */
+}
+
+/* LA BURBUJITA CONTADORA (El número rojo) */
+.carrito-contador {
+    position: absolute;
+    top: -5px;              /* Se sale un poco hacia arriba */
+    right: -5px;            /* Se sale un poco hacia la derecha */
+    
+    background-color: var(--bordo); /* Fondo rojo/bordo */
+    color: white;           /* Número blanco */
+    
+    font-size: 0.8rem;
+    font-weight: bold;
+    
+    width: 25px;            /* Tamaño de la burbuja */
+    height: 25px;
+    border-radius: 50%;     /* Redonda */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white; /* Borde blanco para separarlo del botón grande */
+}
+
 @media (min-width: 768px) {
     .seccion-filtros__label {
         width: 30rem;
