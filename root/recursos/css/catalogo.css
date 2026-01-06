@@ -168,9 +168,10 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .tarjeta-producto__icono-carrito {
-    width: 20px;
-    height: 20px;
+    width: 2.8rem;
+    height: 2.8rem;
     display: block;
+    object-fit: contain;
     filter: invert(1); /* Truco: Esto vuelve el icono blanco si era negro */
 }
 .tarjeta-producto__parrafo-carrito {
