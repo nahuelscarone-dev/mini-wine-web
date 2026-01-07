@@ -1,7 +1,10 @@
 .contenedor-contenido-principal {
     max-width: 120rem;
     margin: 0 auto;
-    padding: 0 2.4rem;
+    padding: 80px 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 }
 
 .seccion-miniwine__titulo, .seccion-productos__titulo {
