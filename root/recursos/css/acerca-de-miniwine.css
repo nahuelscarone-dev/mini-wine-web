@@ -36,7 +36,7 @@
     background-color: var(--naranja);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
     .contenedor {
         grid-template-rows: repeat(3, 1fr);
