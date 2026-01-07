@@ -14,7 +14,7 @@
 
 .contenedor {
     display: grid;
-    gap: 4rem;
+    gap: 2.4rem;
 }
 
 .articulo-producto {
@@ -46,9 +46,10 @@
     background-color: var(--marron);
 }
 
-.seccion-delivery {
-    /* padding: 0 10%; */
+.seccion-delivery__contenedor {
     /* Mantenemos tu ajuste manual si lo necesitas por el gap del main */
+    display: grid;
+    gap: 2.4rem;
 }
 
 /* TÍTULOS */
@@ -59,7 +60,6 @@
     color: var(--bordo);
     text-shadow: var(--titulo-sombra);
     text-align: center;
-    margin-bottom: 2rem;
 }
 
 .seccion-delivery__subtitulo {
@@ -70,28 +70,10 @@
     margin-bottom: 1.5rem;
 }
 
-/* TEXTOS Y PÁRRAFOS */
-.seccion-delivery__texto,
-.seccion-delivery__mensaje {
-    font-family: "Open Sans", sans-serif;
-    font-size: var(--parrafo); /* Se adapta a 2rem (20px) según tu variable global */
-    line-height: 1.5;          /* Mejora la lectura */
-    color: black;              /* O el color base que uses */
-    text-align: left;
-    margin-bottom: 3rem;
-}
-
 /* LISTA DE BARRIOS */
 .seccion-delivery__lista {
     list-style: none;
-    padding: 0;
-    margin: -1.5rem 0;
-    margin-bottom: auto;
-    text-align: left;
-    
-    /* Usamos var(--parrafo) para consistencia, o un pelín menos si 2rem es gigante para lista */
-    font-family: "Open Sans", sans-serif;
-    font-size: var(--parrafo); 
+    margin: 1rem 0;   
 }
 
 .seccion-delivery__lista li {
@@ -102,6 +84,11 @@
 }
 
 /* MAPA*/
+
+.seccion-delivery__titulo-mapa {
+    margin-bottom: 1rem;
+}
+
 .seccion-delivery__tarjeta-mapa {
     width: 100%;
     height: 250px; /* Un poco más alto que 175px para que sea útil en móvil */
@@ -116,12 +103,7 @@ iframe {
     display: block;
     border: none;
 }
-.seccion-delivery__mapa {
-    margin-top: 2rem;       /* Empujamos todo hacia abajo */
-    padding-top: 2rem;      /* Espacio interior */
-    border-top: 1px solid rgba(0,0,0,0.1); /* Una línea gris suave separadora */
-    width: 100%;            /* Aseguramos que la línea cruce toda la pantalla */
-}
+
 
 .seccion-sumar-bodega {
     text-align: center;        /* Centramos todo el contenido */         /* Flexbox ayuda a centrar el contenedor hijo */
@@ -192,6 +174,17 @@ iframe {
     .producto-informacion {
         border-radius: 0 15px 15px 0;
     }
+
+    .seccion-delivery__contenedor {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* El mapa en escritorio */
+    .seccion-delivery__tarjeta-mapa {
+        width: 100%;
+        height: 45rem; /* Altura elegante para PC (450px) */
+        flex-grow: 0;  /* No dejamos que se estire, mantenemos la forma rectangular */
+    }
 }
 
 
@@ -201,34 +194,6 @@ iframe {
         grid-template-rows: repeat(2, 1fr);
     }
 
-    .seccion-delivery__contenedor {
-        display: flex;
-        flex-direction: row; 
-        gap: 8rem; /* Espacio generoso para que no se vea apretado */
-        
-        /* ALINEACIÓN: flex-start asegura que la primera línea de texto 
-           de la izq y la del mapa empiecen a la misma altura exacta */
-        align-items: flex-start; 
-    }
-
-    .seccion-delivery__info, 
-    .seccion-delivery__mapa {
-        flex: 1; 
-        display: flex;
-        flex-direction: column;
-        
-        /* CORRECCIÓN: Quitamos el borde, el margen y el padding extra de móvil */
-        border-top: none; 
-        margin-top: 0;
-        padding-top: 0;
-    }
-
-    /* El mapa en escritorio */
-    .seccion-delivery__tarjeta-mapa {
-        width: 100%;
-        height: 45rem; /* Altura elegante para PC (450px) */
-        flex-grow: 0;  /* No dejamos que se estire, mantenemos la forma rectangular */
-    }
  /*Damos más aire a la sección completa */
     .seccion-sumar-bodega {
         gap:10rem;
