@@ -16,7 +16,7 @@
 /* Lectura: 12 16 20 24 28 - Títulos: 32 40 48 */
 
     --navegacion: 1.6rem;
-    --parrafo: 2rem;
+    --parrafo: 1.6rem;
     --subtitulo: 3.2rem;
     --titulo: 4rem;
     --titulo-sombra: 0 0 0.07em rgba(0,0,0, 38%);
