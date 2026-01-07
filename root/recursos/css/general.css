@@ -24,9 +24,9 @@
     --ajusteViewport: calc(100dvh - 8rem);
 
     --bordo: #cb0101;
-    --bordo-oscuro: #3d0000;
-    --marron: #2e1d15;
-    --naranja: #491600;
+    --bordo-oscuro: #2e1515;
+    --marron: #2e1f15;
+    --naranja: rgb(73, 23, 0);
 }
 
 * {
