@@ -13,12 +13,13 @@
 :root {
     font-family: "Open Sans", sans-serif;
     
+/* Lectura: 12 16 20 24 28 - Títulos: 32 40 48 */
+
+    --navegacion: 1.6rem;
     --parrafo: 2rem;
-    --titulo: 4.5rem;
-    --subtitulo: 3.5rem;
-    --link: 2.3rem;
+    --subtitulo: 3.2rem;
+    --titulo: 4rem;
     --titulo-sombra: 0 0 0.07em rgba(0,0,0, 38%);
-    --input: 1.6rem;
     
     --ajusteViewport: calc(100dvh - 11rem);
 
@@ -54,7 +55,7 @@ p {
 }
 
 input, textarea, select, label {
-    font-size: var(--input);
+    font-size: var(--parrafo);
 }
 
 button {
@@ -74,7 +75,7 @@ a {
     text-decoration: none;
     color: black;
     height: 100%;
-    font-size: var(--link);
+    font-size: var(--navegacion);
 }
 
 main {
@@ -245,20 +246,20 @@ header > a {
 
 /* Tablet */
 @media (min-width: 768px) {
-    :root {
-        --parrafo: 2.5rem; /* Output para 2rem min y 3.5rem max */
+    /* :root {
+        --parrafo: 2.5rem; 
         --input: 1.8rem;
-        --titulo: 5rem; /*  */
+        --titulo: 5rem;
         --subtitulo: 4rem;
-    }
+    } */
 }
 
 /* Escritorio */
 @media (min-width: 1024px) {
 
-    :root {
-        --link: 2rem;
-    }
+    /* :root {
+        --navegacion: 2rem;
+    } */
 
     .navegacion__boton {
         display: none;
