@@ -31,15 +31,12 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     font-size: 62.5%; /* Transforma 1 rem a 10px. Previamente era 1 rem a 16px*/
-}
-
-body, h1, h2, p{
-    margin: 0;
-    padding: 0;
 }
 
 body {
@@ -54,6 +51,10 @@ h1, h2 {
     font-size: var(--titulo);
     text-align: center;
     margin-bottom: 2.4rem;
+}
+
+h3 {
+    margin-bottom: 2.4rem;  
 }
 
 h3, h4 {
