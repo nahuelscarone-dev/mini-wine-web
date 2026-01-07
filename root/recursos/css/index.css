@@ -21,11 +21,11 @@
 }
 
 .producto-informacion--packs {
-    background-color: var(--bordo-oscuro);
+    background-color: var(--marron);
 }
 
 .producto-informacion--individual {
-    background-color: var(--marron);
+    background-color: var(--bordo-oscuro);
 }
 
 .seccion-delivery__contenedor {
