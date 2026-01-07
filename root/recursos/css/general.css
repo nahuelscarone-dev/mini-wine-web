@@ -21,7 +21,7 @@
     --titulo: 4rem;
     --titulo-sombra: 0 0 0.07em rgba(0,0,0, 38%);
     
-    --ajusteViewport: calc(100dvh - 11rem);
+    --ajusteViewport: calc(100dvh - 8rem);
 
     --bordo: #cb0101;
     --bordo-oscuro: #3d0000;
@@ -91,14 +91,14 @@ button {
 header > a {
     display: flex;
     align-items: center;
-    padding: 2.5rem;
 }
 
 .cabecera {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 11rem;
+    height: 8rem;
+    padding: 2rem;
 
     position: sticky;
     top: 0;
@@ -124,7 +124,6 @@ header > a {
     all: unset;
     display: block;  
     cursor: pointer;
-    margin-right: 4rem;
     z-index: 999;
 }
 
@@ -273,7 +272,6 @@ header > a {
     .navegacion {
         display: flex;
         height: 100%;
-        padding-right: 5rem;
     }
 
     .navegacion__lista {
