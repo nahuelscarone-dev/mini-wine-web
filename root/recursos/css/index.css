@@ -178,6 +178,8 @@ iframe {
     border-color: #5a232b;
     cursor: pointer;
 }
+
+
 @media (min-width: 1024px) {
 
     .contenedor {
@@ -185,7 +187,7 @@ iframe {
     }
 
     .articulo-producto {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 3fr;
         grid-template-rows: auto;
         overflow: hidden;
     }
