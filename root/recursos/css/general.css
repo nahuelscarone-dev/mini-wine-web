@@ -37,6 +37,15 @@ html {
     font-size: 62.5%; /* Transforma 1 rem a 10px. Previamente era 1 rem a 16px*/
 }
 
+body, h1, h2, p{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffef;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "Noto Serif";
 }
@@ -44,6 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2 {
     font-size: var(--titulo);
     text-align: center;
+    margin-bottom: 2.4rem;
 }
 
 h3, h4 {
@@ -60,15 +70,6 @@ input, textarea, select, label {
 
 button {
     font-size: var(--parrafo);
-}
-
-body, h1, h2, p{
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: #ffffef;
 }
 
 a {
