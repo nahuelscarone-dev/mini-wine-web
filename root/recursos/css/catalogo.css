@@ -1,10 +1,3 @@
-.principal {
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    padding: 0 10%;
-}
-
 .hr {
     height: 0.1rem;
     width: 100%;
@@ -34,12 +27,6 @@
     flex-direction: column;
 }
 
-.seccion-titulo__titulo {
-    text-shadow: var(--titulo-sombra);
-    color: var(--bordo);
-    margin-top: 10rem;
-}
-
 .seccion-filtros {
     display: flex;
     flex-direction: row;
@@ -64,8 +51,7 @@
 
 .seccion-productos {
     display: grid;
-    /* Cambia 30rem por 22rem (aprox 350px) para que entren más tarjetas lado a lado */
-    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr)); 
     justify-content: center;
     gap: 5rem;
 }
@@ -79,58 +65,38 @@
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.45);
 }
 
+.tarjeta-producto__titulo {
+    text-align: left;
+    font-size: 3.2rem;
+    margin: 0;
+}
+
+.tarjeta-producto__bodega {
+    font-size: 2.4rem;
+    margin: 0;
+    text-shadow:var(--titulo-sombra);
+    color: var(--bordo); 
+}
+
+.tarjeta-producto__precio {
+    font-size: 2.4rem;
+}
+
 .tarjeta-producto__informacion {
     display: flex;
     flex-direction: column;
     padding: 5%;
-    gap: 2rem;
-}
-
-.tarjeta-producto__titulo {
-    font-size: 3rem;
-    color: var(--bordo);
-    text-shadow: var(--titulo-sombra);
-    text-align: left;
-}
-
-.tarjeta-producto__bodega{
-    font-size: 2.5rem;
-    color: var(--bordo);
-    text-shadow: var(--titulo-sombra);
-    text-align: left;
+    gap: 1rem;
 }
 
 .tarjeta-producto__imagen {
     width: 100%;
-    height: 300px;       /* <--- AGREGA ESTO: Define la altura de la foto */
-    object-fit: cover;   /* <--- AGREGA ESTO: Evita que la foto se deforme */
-    object-position: center;
 }
 
-.tarjeta-producto__contenedor-parrafo {
-    background-color: white;
-}
-
-.tarjeta-producto__parrafo {
-    font-size: 2rem;
-    text-align: left;
-}
-
-.tarjeta-producto__parrafo {
-    color: black;
-}
-.tarjeta-producto__precio {
-    font-size: 3rem;   /* Tamaño */
-    font-weight: bold; /* Negrita (hace lo mismo que strong visualmente) */
-    color: black;
-    margin: 0;         /* Para evitar espacios raros */
-}
-.tarjeta-producto__footer {
+.tarjeta-producto__btn-agregar {
     display: flex;
-    flex-direction: column; /* <--- CAMBIO CLAVE: Pone el precio arriba y botón abajo */
-    gap: 15px;              /* Espacio entre precio y botón */
-    width: 100%;            /* Asegura que use todo el ancho */
-    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 /* El botón del carrito (IMPORTANTE: Darle tamaño) */
@@ -151,22 +117,6 @@
     transform: scale(1.1); /* Se agranda un poquito */
 }
 
-.tarjeta-producto__btn-agregar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 100%;          /* <--- CAMBIO CLAVE: Ocupa todo el ancho de la tarjeta */
-    
-    height: auto;
-    padding: 12px;
-    border-radius: 8px;
-    background-color: var(--bordo);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
 .tarjeta-producto__icono-carrito {
     width: 2.8rem;
     height: 2.8rem;
@@ -180,11 +130,6 @@
     font-size: 1.5rem;
     font-weight: 600;
     color: #ffffff; /* BLANCO: para que resalte sobre el fondo bordo */
-}
-.tarjeta-producto__btn-agregar:active {
-    background-color: var(--bordo-oscuro);
-    transform: scale(0.95) translateY(0); /* Se achica un poquito como si lo hundieras */
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* La sombra se achica */
 }
 .btn-flotante-carrito {
     position: fixed;        /* <--- MAGIA: Se queda fijo en la pantalla */
@@ -250,11 +195,6 @@
 
     .boton-precios-mayoristas {
         width: auto;
-    }
-    .tarjeta-producto__btn-agregar:hover {
-    background-color: var(--bordo-oscuro); /* Se oscurece un poco al pasar el mouse */
-    transform: translateY(-2px); /* Se levanta un poquito */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* La sombra crece */
     }
 }
 

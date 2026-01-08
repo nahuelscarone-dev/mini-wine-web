@@ -66,7 +66,7 @@ h1, h2 {
 }
 
 h3 {
-    margin-bottom: 2.4rem;  
+    margin-bottom: 2.4rem; 
 }
 
 h3, h4 {
@@ -89,7 +89,7 @@ input, textarea, select, label, li {
     font-weight: bold;
     background-color: var(--bordo);
     color: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 1rem;
     border: none;
     cursor: pointer;
