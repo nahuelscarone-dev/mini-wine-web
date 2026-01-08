@@ -158,7 +158,8 @@ header > a {
     flex-direction: column;
     justify-content: center;
     gap: 5rem;
-    margin-top: 12rem;
+    margin-top: 8rem;
+    padding: 3rem;
 }
 
 .overlay-menu {
