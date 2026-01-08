@@ -33,41 +33,42 @@
     </header>
 
     <main class="principal">
-        <h1 class="seccion-titulo__titulo">Catálogo</h1>
+        <div class="contenedor-contenido-principal">
+            <h1 class="seccion-titulo__titulo">Catálogo</h1>
 
-        <div class="hr"></div>
+            <div class="hr"></div>
 
-        <section class="seccion-filtros">
-            <label class="seccion-filtros__label" for="id-presentacion">Presentación
-                <select class="seccion-filtros__select" name="presentacion" id="id-presentacion">
-                    <option value="0">Todos los productos</option>
-                    <option value="2">Packs de 2</option>
-                    <option value="4">Packs de 4</option>
-                    <option value="1">Individual</option>
+            <section class="seccion-filtros">
+                <label class="seccion-filtros__label" for="id-presentacion">Presentación
+                    <select class="seccion-filtros__select" name="presentacion" id="id-presentacion">
+                        <option value="0">Todos los productos</option>
+                        <option value="2">Packs de 2</option>
+                        <option value="4">Packs de 4</option>
+                        <option value="1">Individual</option>
+                    </select>
+                </label>
+
+                <label class="seccion-filtros__label" for="id-presentacion">Tipo de vino
+                    <select class="seccion-filtros__select" name="tipo-vino" id="id-tipo-vino">
+                        <option value="todos">Todos los tipos</option>
+                        <option value="tinto">Tinto</option>
+                        <option value="blanco">Blanco</option>
                 </select>
-            </label>
+                </label>
 
-            <label class="seccion-filtros__label" for="id-presentacion">Tipo de vino
-                <select class="seccion-filtros__select" name="tipo-vino" id="id-tipo-vino">
-                    <option value="todos">Todos los tipos</option>
-                    <option value="tinto">Tinto</option>
-                    <option value="blanco">Blanco</option>
-            </select>
-            </label>
+                <label class="seccion-filtros__label" for="id-bodega">Bodega
+                    <select class="seccion-filtros__select" name="bodega" id="id-bodega">
+                        <option value="todas">Todas las bodegas</option>
+                    </select>
+                </label>
+            </section>
 
-            <label class="seccion-filtros__label" for="id-bodega">Bodega
-                <select class="seccion-filtros__select" name="bodega" id="id-bodega">
-                    <option value="todas">Todas las bodegas</option>
-                </select>
-            </label>
-        </section>
+            <div class="hr"></div>
 
-        <div class="hr"></div>
+            <section class="seccion-productos" id="seccion-productos">
 
-        <section class="seccion-productos" id="seccion-productos">
-
-        </section>
-
+            </section>
+        </div>
     </main>
         <button id="btn-carrito-flotante" class="btn-flotante-carrito" aria-label="Ver carrito de compras">
             <img src="./recursos/imagenes/boton-carrito.svg" alt="Carrito" class="btn-flotante-icono">
