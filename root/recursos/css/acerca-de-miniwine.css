@@ -1,27 +1,6 @@
-.seccion-historia {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0rem 10%;
-    gap: 2rem;
-}
-
-.seccion-historia__titulo, .seccion-mvv__titulo {
-    color: var(--bordo);
-    text-shadow: var(--titulo-sombra);
-}
-
-.seccion-mvv {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-}
-
 .contenedor {
     display: grid;
-    gap: 4rem;
-    padding: 0 10%;
+    gap: 2.4rem;
 }
 
 .articulo-mvv {
@@ -57,7 +36,7 @@
     background-color: var(--naranja);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
     .contenedor {
         grid-template-rows: repeat(3, 1fr);

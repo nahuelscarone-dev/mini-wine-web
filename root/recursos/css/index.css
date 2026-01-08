@@ -1,28 +1,6 @@
-.seccion-miniwine {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0rem 10%;
-    gap: 2rem;
-}
-
-.seccion-miniwine__titulo, .seccion-productos__titulo {
-    color: var(--bordo);
-    text-shadow: var(--titulo-sombra);
-}
-
-.seccion-productos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4rem;
-    padding: 0rem 10%;
-}
-
 .contenedor {
     display: grid;
-    gap: 4rem;
+    gap: 2.4rem;
 }
 
 .articulo-producto {
@@ -42,64 +20,24 @@
     border-radius: 0 0 15px 15px;
 }
 
-.producto-informacion__titulo {
-    margin-top: 0;
-}
-
 .producto-informacion--packs {
-    background-color: var(--bordo-oscuro);
-}
-
-.producto-informacion--individual {
     background-color: var(--marron);
 }
 
-.seccion-delivery {
-    padding: 0 10%;
+.producto-informacion--individual {
+    background-color: var(--bordo-oscuro);
+}
+
+.seccion-delivery__contenedor {
     /* Mantenemos tu ajuste manual si lo necesitas por el gap del main */
-}
-
-/* TÍTULOS */
-/* Usamos las variables globales para fuente y tamaño */
-.seccion-delivery__titulo {
-    font-family: "Noto Serif", serif; /* Aseguramos la fuente del diseño */
-    font-size: var(--titulo);         /* Usa los 4.5rem o 5rem definidos en :root */
-    color: var(--bordo);
-    text-shadow: var(--titulo-sombra);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.seccion-delivery__subtitulo {
-    font-family: "Noto Serif", serif;
-    font-size: var(--subtitulo);
-    color: var(--bordo);
-    text-shadow: var(--titulo-sombra);
-    margin-bottom: 1.5rem;
-}
-
-/* TEXTOS Y PÁRRAFOS */
-.seccion-delivery__texto,
-.seccion-delivery__mensaje {
-    font-family: "Open Sans", sans-serif;
-    font-size: var(--parrafo); /* Se adapta a 2rem (20px) según tu variable global */
-    line-height: 1.5;          /* Mejora la lectura */
-    color: black;              /* O el color base que uses */
-    text-align: left;
-    margin-bottom: 3rem;
+    display: grid;
+    gap: 2.4rem;
 }
 
 /* LISTA DE BARRIOS */
 .seccion-delivery__lista {
     list-style: none;
-    padding: 0;
-    margin: -1.5rem 0;
-    margin-bottom: auto;
-    text-align: left;
-    
-    /* Usamos var(--parrafo) para consistencia, o un pelín menos si 2rem es gigante para lista */
-    font-family: "Open Sans", sans-serif;
-    font-size: var(--parrafo); 
+    margin: 1rem 0;   
 }
 
 .seccion-delivery__lista li {
@@ -110,6 +48,11 @@
 }
 
 /* MAPA*/
+
+.seccion-delivery__titulo-mapa {
+    margin-bottom: 1rem;
+}
+
 .seccion-delivery__tarjeta-mapa {
     width: 100%;
     height: 250px; /* Un poco más alto que 175px para que sea útil en móvil */
@@ -124,81 +67,25 @@ iframe {
     display: block;
     border: none;
 }
-.seccion-delivery__mapa {
-    margin-top: 2rem;       /* Empujamos todo hacia abajo */
-    padding-top: 2rem;      /* Espacio interior */
-    border-top: 1px solid rgba(0,0,0,0.1); /* Una línea gris suave separadora */
-    width: 100%;            /* Aseguramos que la línea cruce toda la pantalla */
-}
 
 .seccion-sumar-bodega {
-    padding: 0 10%;        /* Espacio arriba/abajo y a los costados */
-    text-align: center;        /* Centramos todo el contenido */         /* Flexbox ayuda a centrar el contenedor hijo */
-    justify-content: center;
-}
-
-.seccion-sumar-bodega__contenedor {
-    max-width: 700px;
-    width: 100%;
-    
-  
-    margin: 0 auto;  
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
 }
 
-/*El título: Grande y con color de marca */
-.seccion-sumar-bodega__titulo {
-    text-align: center;
-    font-size: var(--titulo);
-    text-shadow:var(--titulo-sombra);
-    color: var(--bordo);    
-    margin-bottom: 2rem;  
-    font-family: "Noto Serif", serif;      
+.boton--suma-tu-bodega {
+    margin-top: 4rem;
 }
 
 /*El texto descriptivo */
-.seccion-sumar-bodega__texto {
-    font-size: var(--parrafo);
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: justify;
-}
 
-
-.seccion-sumar-bodega__boton {
-    width: 100%;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    margin-top: 1rem;
-    font-family: sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;          /* Texto blanco para buen contraste */
-    border: 1px solid #722f37;
-    background-color: #722f37;
-}
-
-.seccion-sumar-bodega__boton:hover {
-     background-color: #5a232b; /* Un tono vino más oscuro al pasar el mouse */
-    border-color: #5a232b;
-    cursor: pointer;
-}
-@media (min-width: 1024px) {
-
-    .contenedor {
-        grid-template-rows: repeat(2, 1fr);
-    }
-
+@media (min-width: 768px) {
     .articulo-producto {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 3fr;
         grid-template-rows: auto;
         overflow: hidden;
     }
-
     .articulo-producto__imagen {
         border-radius: 15px 0 0 15px;
     }
@@ -208,25 +95,7 @@ iframe {
     }
 
     .seccion-delivery__contenedor {
-        display: flex;
-        flex-direction: row; 
-        gap: 8rem; /* Espacio generoso para que no se vea apretado */
-        
-        /* ALINEACIÓN: flex-start asegura que la primera línea de texto 
-           de la izq y la del mapa empiecen a la misma altura exacta */
-        align-items: flex-start; 
-    }
-
-    .seccion-delivery__info, 
-    .seccion-delivery__mapa {
-        flex: 1; 
-        display: flex;
-        flex-direction: column;
-        
-        /* CORRECCIÓN: Quitamos el borde, el margen y el padding extra de móvil */
-        border-top: none; 
-        margin-top: 0;
-        padding-top: 0;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     /* El mapa en escritorio */
@@ -235,42 +104,15 @@ iframe {
         height: 45rem; /* Altura elegante para PC (450px) */
         flex-grow: 0;  /* No dejamos que se estire, mantenemos la forma rectangular */
     }
- /*Damos más aire a la sección completa */
-    .seccion-sumar-bodega {
-        gap:10rem;
-        padding:0;
-    }
+}
 
-    /*Controlamos el ancho para que no se estire infinito */
-    .seccion-sumar-bodega__contenedor {
-        max-width: 800px; /* Permitimos que sea un poco más ancho en PC */
+
+@media (min-width: 1024px) {
+
+    .contenedor {
+        grid-template-rows: repeat(2, 1fr);
     }
 
     /*Aumentamos el tamaño de la letra para aprovechar la pantalla */
-    .seccion-sumar-bodega__texto {
-        line-height: 1.8;  /* Más espaciado entre líneas */
-        margin-bottom: 30px;
-    }
 
-   .seccion-sumar-bodega__contenedor {
-        align-items: center;
-    }
-
-    .seccion-sumar-bodega__boton {
-        width: auto;
-        min-width: 350px;
-        
-        background-color: #722f37; /* Color Vino (Bordó) para combinar con el título */
-        color: #ffffff;            /* Texto blanco para buen contraste */
-        border: 1px solid #722f37; /* Borde del mismo color para definición */
-        /* CAMBIOS PARA QUE SE VEA GRANDE */
-        padding: 1.8rem 4rem; /* Más espacio interno, botón más alto y ancho */
-        font-size: 1.5rem;    /* Letra mucho más grande (aprox 24px) */
-        letter-spacing: 1px;  /* Un poquito de aire entre letras ayuda a leer en mayúsculas */
-    }
-    .seccion-sumar-bodega__boton:hover {
-    background-color: #5a232b; /* Un tono vino más oscuro al pasar el mouse */
-    border-color: #5a232b;
-    cursor: pointer;
-    }
 }

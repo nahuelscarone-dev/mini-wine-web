@@ -32,42 +32,50 @@
     </header>
 
     <main class="principal principal--contacto">
-        <section class="seccion-informacion">
-            <h1>Contacto</h1>
-            <p class="formulario__parrafo">¿Quieres obtener más información? Completa el formulario con tus datos y tu mensaje será enviado por Whatsapp.</p>
-        </section>
-        
-        <form class="formulario" id="formulario-contacto">
 
-            <p class="formulario__errores" id="formulario__errores"></p>
-            
-            <label class="formulario__label" for="id-nombre">Nombre
-                <input class="formulario__campo" id="id-nombre" name="nombre" type="text" required>
-            </label>
+        <div class="contenedor-contenido-principal">
+            <section class="seccion-formulario">
+                
+                <div class="informacion">
+                    <h1>Contacto</h1>
+                    <p class="formulario__parrafo">¿Quieres obtener más información? Completa el formulario con tus datos y tu mensaje será enviado por Whatsapp.</p>
+                </div>
+                
+                <form class="formulario" id="formulario-contacto">
 
-            <label class="formulario__label" for="id-email">Email
-                <input class="formulario__campo" id="id-email" name="email" type="email" placeholder="ejemplo@email.com" required> 
-            </label>
+                    <p class="formulario__errores" id="formulario__errores"></p>
+                    
+                    <label class="formulario__label" for="id-nombre">Nombre
+                        <input class="formulario__campo" id="id-nombre" name="nombre" type="text" required>
+                    </label>
 
-            <label class="formulario__label" for="id-telefono">Teléfono
-                <input class="formulario__campo" id="id-telefono" name="telefono" type="tel" placeholder="+54 9 11 1234-5678" required>
-            </label>
+                    <label class="formulario__label" for="id-email">Email
+                        <input class="formulario__campo" id="id-email" name="email" type="email" placeholder="ejemplo@email.com" required> 
+                    </label>
 
-            <label class="formulario__label" for="id-motivo">Motivo de contacto
-                <select class="formulario__campo" name="motivo" id="id-motivo" required>
-                    <option disabled selected>---</option>
-                    <option>Quiero obtener los precios mayoristas</option>
-                    <option>Quiero trabajar con Mini Wine</option>
-                    <option>Otra consulta</option>
-                </select>
-            </label>
+                    <label class="formulario__label" for="id-telefono">Teléfono
+                        <input class="formulario__campo" id="id-telefono" name="telefono" type="tel" placeholder="+54 9 11 1234-5678" required>
+                    </label>
 
-            <label class="formulario__label" for="id-comentario">Comentario
-                <textarea class="formulario__campo formulario__campo--textarea" id="id-comentario" name="comentario" required></textarea>
-            </label>
+                    <label class="formulario__label" for="id-motivo">Motivo de contacto
+                        <select class="formulario__campo" name="motivo" id="id-motivo" required>
+                            <option disabled selected>---</option>
+                            <option>Quiero obtener los precios mayoristas</option>
+                            <option>Quiero trabajar con Mini Wine</option>
+                            <option>Otra consulta</option>
+                        </select>
+                    </label>
 
-            <button class="formulario__boton" type="submit">Enviar</button>
-        </form>
+                    <label class="formulario__label" for="id-comentario">Comentario
+                        <textarea class="formulario__campo formulario__campo--textarea" id="id-comentario" name="comentario" required></textarea>
+                    </label>
+
+                    <button class="boton--formulario boton" type="submit">Enviar</button>
+                </form>
+            </section>
+
+        </div>
+
 
         <div class="overlay"></div>
     

@@ -13,27 +13,45 @@
 :root {
     font-family: "Open Sans", sans-serif;
     
-    --parrafo: 2rem;
-    --titulo: 4.5rem;
-    --subtitulo: 3.5rem;
-    --link: 2.3rem;
-    --titulo-sombra: 0 0 0.07em rgba(0,0,0, 38%);
-    --input: 1.6rem;
+/* Lectura: 12 16 20 24 28 - Títulos: 32 40 48 */
+
+    --navegacion: 1.6rem;
+    --parrafo: 1.6rem;
+    --subtitulo: 3.2rem;
+    --titulo: 4rem;
+    --titulo-sombra: 0 0 0.07em rgba(0, 0, 0, 0.30);
+    --sombra-header-footer: 1px 0px 10px 1px rgba(0, 0, 0, 0.13);
     
-    --ajusteViewport: calc(100dvh - 11rem);
+    --ajusteViewport: calc(100dvh - 8rem);
 
     --bordo: #cb0101;
-    --bordo-oscuro: #3d0000;
-    --marron: #2e1d15;
-    --naranja: #491600;
+    --bordo-oscuro: #2e1515;
+    --marron: #2e1f15;
+    --naranja: rgb(73, 23, 0);
+    --rojo: #b80000;
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     font-size: 62.5%; /* Transforma 1 rem a 10px. Previamente era 1 rem a 16px*/
+}
+
+body {
+    background: #ffffef;
+}
+
+.contenedor-contenido-principal {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 80px 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,6 +61,13 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2 {
     font-size: var(--titulo);
     text-align: center;
+    margin-bottom: 2.4rem;
+    text-shadow:var(--titulo-sombra);
+    color: var(--bordo); 
+}
+
+h3 {
+    margin-bottom: 2.4rem; 
 }
 
 h3, h4 {
@@ -53,34 +78,33 @@ p {
     font-size: var(--parrafo);
 }
 
-input, textarea, select, label {
-    font-size: var(--input);
-}
-
-button {
+input, textarea, select, label, li {
     font-size: var(--parrafo);
 }
 
-body, h1, h2, p{
-    margin: 0;
-    padding: 0;
+.boton {
+    display: inline-block;
+    font-size: var(--parrafo);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--rojo);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
 }
 
-body {
-    background: #ffffef;
+.boton:hover {
+    background-color: #800000;
 }
 
 a {
     text-decoration: none;
     color: black;
     height: 100%;
-    font-size: var(--link);
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 10rem;
+    font-size: var(--navegacion);
 }
 
 button {
@@ -90,22 +114,22 @@ button {
 header > a {
     display: flex;
     align-items: center;
-    padding: 2.5rem;
 }
 
 .cabecera {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 11rem;
+    height: 8rem;
+    padding: 2rem;
 
     position: sticky;
     top: 0;
     background-color: #ffffff;
 
-    box-shadow: 1px -1px 10px 10px rgba(0,0,0,0.16);
-    -webkit-box-shadow: 1px -1px 10px 10px rgba(0,0,0,0.16);
-    -moz-box-shadow: 1px -1px 10px 10px rgba(0,0,0,0.16);
+    box-shadow: var(--sombra-header-footer);
+    -webkit-box-shadow: var(--sombra-header-footer);
+    -moz-box-shadow: var(--sombra-header-footer);
 
     z-index: 10;
 }
@@ -123,7 +147,6 @@ header > a {
     all: unset;
     display: block;  
     cursor: pointer;
-    margin-right: 4rem;
     z-index: 999;
 }
 
@@ -136,7 +159,8 @@ header > a {
     flex-direction: column;
     justify-content: center;
     gap: 5rem;
-    margin-top: 12rem;
+    margin-top: 8rem;
+    padding: 3rem;
 }
 
 .overlay-menu {
@@ -183,20 +207,18 @@ header > a {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
+    padding: 2rem;
 
     background-color: #ffffff;
-    box-shadow: 1px -1px 10px 10px rgba(0,0,0,0.16);
-    -webkit-box-shadow: 1px -1px 10px 10px rgba(0,0,0,0.16);
-    -moz-box-shadow: 1px -1px 10px 10px rgba(0,0,0,0.16);
-
-    margin-top: 10rem;
+    box-shadow: var(--sombra-header-footer);
+    -webkit-box-shadow: var(--sombra-header-footer);
+    -moz-box-shadow: var(--sombra-header-footer);
 }
 
 .pie__informacion {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .pie__link {
@@ -245,19 +267,23 @@ header > a {
 
 /* Tablet */
 @media (min-width: 768px) {
-    :root {
-        --parrafo: 2.5rem; /* Output para 2rem min y 3.5rem max */
+    /* :root {
+        --parrafo: 2.5rem; 
         --input: 1.8rem;
-        --titulo: 5rem; /*  */
+        --titulo: 5rem;
         --subtitulo: 4rem;
-    }
+    } */
 }
 
 /* Escritorio */
 @media (min-width: 1024px) {
 
-    :root {
-        --link: 2rem;
+    /* :root {
+        --navegacion: 2rem;
+    } */
+
+    .cabecera {
+        justify-content: space-around;
     }
 
     .navegacion__boton {
@@ -272,7 +298,6 @@ header > a {
     .navegacion {
         display: flex;
         height: 100%;
-        padding-right: 5rem;
     }
 
     .navegacion__lista {
