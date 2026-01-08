@@ -280,6 +280,10 @@ header > a {
         --navegacion: 2rem;
     } */
 
+    .cabecera {
+        justify-content: space-around;
+    }
+
     .navegacion__boton {
         display: none;
     } 
