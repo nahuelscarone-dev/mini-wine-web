@@ -19,7 +19,7 @@
     --parrafo: 1.6rem;
     --subtitulo: 3.2rem;
     --titulo: 4rem;
-    --titulo-sombra: 0 0 0.07em rgba(0,0,0, 38%);
+    --titulo-sombra: 0 0 0.07em rgba(0, 0, 0, 0.30);
     --sombra-header-footer: 1px 0px 10px 1px rgba(0, 0, 0, 0.13);
     
     --ajusteViewport: calc(100dvh - 8rem);
