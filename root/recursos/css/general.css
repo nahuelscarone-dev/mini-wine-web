@@ -188,8 +188,8 @@ header > a {
 .navegacion__item a.activo {
     font-weight: 800;
     color: var(--navegacion);
-    border-bottom: 2px solid var(--bordo);
 }
+
 .navegacion--abierta {
     position: fixed;
     top: 0;
@@ -205,6 +205,9 @@ header > a {
 .navegacion__item:hover a {
     border-bottom: 2px solid var(--bordo);
     color: var(--bordo);
+}
+.navegacion__item:hover a.activo {
+    border-bottom: none; /* Evita que aparezca la línea roja encima del punto */
 }
 
 .pie {
