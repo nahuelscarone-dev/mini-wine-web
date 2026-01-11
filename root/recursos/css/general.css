@@ -185,7 +185,11 @@ header > a {
 .navegacion__item {
     list-style-type: none;
 }
-
+.navegacion__item a.activo {
+    font-weight: 800;
+    color: var(--navegacion);
+    border-bottom: 2px solid var(--bordo);
+}
 .navegacion--abierta {
     position: fixed;
     top: 0;
