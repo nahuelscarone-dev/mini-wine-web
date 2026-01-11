@@ -37,6 +37,24 @@ function cargarFiltroBodegas(productos)
         }
     })
 }
+
+function cargarFiltroTipoVinos(productos){
+    $filtroTipoVino.innerHTML= '<option value= "todos">Todas las bodegas</option>'
+
+    const listaTiposVinos= productos.map(producto=>producto.tipo)
+
+       const tiposVinoUnicos = [...new Set(listaTiposVinos)]
+    
+    tiposVinoUnicos.forEach(tipoVino=>{
+        if(tipoVino){
+            const option= document.createElement('option')
+            option.value= tipoVino
+            option.textContent= tipoVino
+            $filtroTipoVino.appendChild(option)
+        }
+    })
+}
+cargarFiltroTipoVinos(datos)
 cargarFiltroBodegas(datos)
 function filtrarProductos() {
 
