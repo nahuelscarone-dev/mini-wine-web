@@ -98,18 +98,12 @@
 }
 
 .tarjeta-producto__tipo-vino {
-    font-size: 1.6rem;         /* Un tamaño legible pero sutil */
-    text-transform: uppercase; /* Fuerza MAYÚSCULAS automáticamente */
-    font-weight: 800;          /* Bien negrita */
-    letter-spacing: 0.2rem;    /* Separa las letras (toque elegante) */
-    color: #777;               /* Gris oscuro para jerarquía */
-    margin-top: 0.5rem;        /* Un poquito de aire arriba */
-    margin-bottom: 1.5rem;     /* Espacio antes de la descripción */
-    
-    /* Opcional: una línea lateral para decorarlo */
+    font-size: 1.6rem;         
+    text-transform: uppercase;       
+    letter-spacing: 0.2rem;    
+    color: #777;                    
     border-left: 3px solid var(--bordo);
     padding-left: 1rem;
-    line-height: 1;
 }
 .boton--agregar-al-carrito {
     display: flex;
