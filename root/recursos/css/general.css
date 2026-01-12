@@ -195,7 +195,6 @@ header > a {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 30rem;
     display: flex; 
     flex-direction: column;
     background-color: white;
