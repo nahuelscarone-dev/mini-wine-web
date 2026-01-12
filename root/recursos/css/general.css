@@ -185,21 +185,20 @@ header > a {
 .navegacion__item {
     list-style-type: none;
 }
-.navegacion__item a.activo {
-    font-weight: 800;
-    color: var(--navegacion);
-}
 
 .navegacion--abierta {
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
-    width: 30rem;
     display: flex; 
     flex-direction: column;
     background-color: white;
     z-index: 950;
+}
+
+.navegacion__item a.activo {
+    font-weight: bold;
 }
 
 .navegacion__item:hover a {
