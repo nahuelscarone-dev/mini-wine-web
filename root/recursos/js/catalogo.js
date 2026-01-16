@@ -1,5 +1,6 @@
 import { obtenerDatos } from "./datos.js";
 import { renderizarCatalogo } from "./renderizado.js";
+import { agregarAlCarrito } from "./carrito.js";
 
 const datos = await obtenerDatos("./datos/catalogo.json");
 const $contenedor = document.getElementById("seccion-productos")
@@ -14,6 +15,31 @@ $filtroPresentacion.addEventListener("change", () => {
 
 $filtroTipoVino.addEventListener("change", filtrarProductos)
 $filtroBodega.addEventListener("change", filtrarProductos)
+function agregarListenersBotonesCarrito() {
+    // 1. Seleccionar todos los botones con la clase específica que pusimos en renderizado.js
+    const botonesAgregar = document.querySelectorAll('.btn-agregar-carrito');
+
+    botonesAgregar.forEach(boton => {
+        // 2. Añadir un listener para el evento 'click' a cada botón
+        boton.addEventListener('click', (e) => {
+            // 3. Obtener el ID del producto desde el atributo data-id del botón
+            const idProducto = e.target.dataset.id;
+
+            // 4. Buscar el objeto producto completo en nuestro array 'datos'
+            // Usamos '==' para comparar por si el ID es número y el dataset es string
+            const productoSeleccionado = datos.find(producto => producto.id == idProducto);
+
+            // 5. Si encontramos el producto, llamamos a la función del carrito
+            if (productoSeleccionado) {
+                agregarAlCarrito(productoSeleccionado);
+                console.log(`Producto agregado: ${productoSeleccionado.nombre}`);
+                // Opcional: Podrías abrir el carrito aquí si lo deseas
+                // import { abrirCarrito } from "./carrito.js";
+                // abrirCarrito();
+            }
+        });
+    });
+}
 
 function cargarFiltroBodegas(productos)
 {
@@ -39,7 +65,7 @@ function cargarFiltroBodegas(productos)
 }
 
 function cargarFiltroTipoVinos(productos){
-    $filtroTipoVino.innerHTML= '<option value= "todos">Todas las bodegas</option>'
+    $filtroTipoVino.innerHTML= '<option value= "todos">Todos los tipos</option>'
 
     const listaTiposVinos= productos.map(producto=>producto.tipo)
 
@@ -54,8 +80,6 @@ function cargarFiltroTipoVinos(productos){
         }
     })
 }
-cargarFiltroTipoVinos(datos)
-cargarFiltroBodegas(datos)
 function filtrarProductos() {
 
     const presentacionElegida = Number($filtroPresentacion.value)
@@ -87,6 +111,8 @@ function filtrarProductos() {
     }
 
     renderizarCatalogo(datosFiltrados, $contenedor)
+
+    agregarListenersBotonesCarrito()
 }
 
 function controlSelect() {
@@ -102,4 +128,6 @@ function controlSelect() {
     }
 }
 
+cargarFiltroTipoVinos(datos)
+cargarFiltroBodegas(datos)
 filtrarProductos();

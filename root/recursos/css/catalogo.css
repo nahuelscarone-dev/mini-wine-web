@@ -55,7 +55,7 @@
 
 .seccion-productos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
     justify-content: center;
     gap: 5rem;
 }
@@ -67,6 +67,9 @@
     box-shadow: var(--sombra-header-footer);
     -webkit-box-shadow: var(--sombra-header-footer);
     -moz-box-shadow: var(--sombra-header-footer);
+    /* Agregado para que el contenido se distribuya mejor */
+    display: flex;
+    flex-direction: column;
 }
 
 .tarjeta-producto__titulo {
@@ -78,8 +81,8 @@
 .tarjeta-producto__bodega {
     font-size: 2.4rem;
     margin: 0;
-    text-shadow:var(--titulo-sombra);
-    color: var(--bordo); 
+    text-shadow: var(--titulo-sombra);
+    color: var(--bordo);
 }
 
 .tarjeta-producto__precio {
@@ -91,6 +94,9 @@
     flex-direction: column;
     padding: 5%;
     gap: 1rem;
+    /* Agregado para que ocupe el alto disponible */
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .tarjeta-producto__imagen {
@@ -98,35 +104,39 @@
 }
 
 .tarjeta-producto__tipo-vino {
-    font-size: 1.6rem;         
-    text-transform: uppercase;       
-    letter-spacing: 0.2rem;    
-    color: #777;                    
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #777;
     border-left: 3px solid var(--bordo);
     padding-left: 1rem;
 }
-.boton--agregar-al-carrito {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-/* El botón del carrito (IMPORTANTE: Darle tamaño) */
-.tarjeta-producto__boton-carrito {
-    display: flex;       /* ¡Clave! Hace que icono y texto se pongan lado a lado */
+/* ==========================================================================
+   CORRECCIÓN AQUÍ: Actualizamos el selector a '.boton--agregar-al-carrito'
+   y le ponemos el color bordó y texto blanco.
+   ========================================================================== */
+.boton--agregar-al-carrito {
+    display: flex;       /* Clave! Hace que icono y texto se pongan lado a lado */
     align-items: center; /* Centra el texto verticalmente respecto al icono */
+    justify-content: center; /* Centra el contenido horizontalmente */
+
+    background-color: var(--bordo); /* COLOR DE FONDO: Bordó de tu marca */
+    color: white;                   /* COLOR DE TEXTO: Blanco */
     
-    background-color: transparent; /* O el color de fondo que desees */
-    border: 1px solid #ccc;        /* Borde para darle forma rectangular */
-    border-radius: 5px;            /* Bordes ligeramente redondeados */
-    padding: 5px 10px;             /* Espacio interno del botón */
-    cursor: pointer;               /* Manito al pasar el mouse */
-    transition: all 0.3s ease;     /* Suavizar animaciones */
+    border: none;        /* Sin borde */
+    border-radius: 5px;  /* Bordes redondeados */
+    padding: 10px;       /* Espacio interno */
+    cursor: pointer;     /* Manito al pasar el mouse */
+    transition: all 0.3s ease; /* Suavizar animaciones */
+    width: 100%;         /* Ocupa el ancho disponible */
+    gap: 10px;           /* Espacio entre icono y texto */
 }
 
 /* Efecto al pasar el mouse por encima del carrito */
-.tarjeta-producto__boton-carrito:hover {
-    transform: scale(1.1); /* Se agranda un poquito */
+.boton--agregar-al-carrito:hover {
+    transform: scale(1.05); /* Se agranda un poquito */
+    filter: brightness(0.9); /* Se oscurece un poco */
 }
 
 .tarjeta-producto__icono-carrito {
@@ -136,73 +146,73 @@
     object-fit: contain;
     filter: invert(1); /* Truco: Esto vuelve el icono blanco si era negro */
 }
+
 .tarjeta-producto__parrafo-carrito {
     margin: 0;
-    margin-left: 8px;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #ffffff; /* BLANCO: para que resalte sobre el fondo bordo */
+    color: white; /* BLANCO: para que resalte sobre el fondo bordo */
 }
+
+/* ==========================================================================
+   Estilos del botón flotante y contador (Sin cambios)
+   ========================================================================== */
 .btn-flotante-carrito {
-    position: fixed;        /* <--- MAGIA: Se queda fijo en la pantalla */
-    bottom: 30px;           /* Distancia desde abajo */
-    right: 30px;            /* Distancia desde la derecha */
-    
-    width: 65px;            /* Tamaño generoso para dedo (móvil) */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
     height: 65px;
-    border-radius: 50%;     /* Círculo perfecto */
-    
-    background-color: white; 
-    border: 2px solid var(--bordo); /* Borde del color de tu marca */
-    
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid var(--bordo);
     display: flex;
     justify-content: center;
     align-items: center;
-    
     cursor: pointer;
-    z-index: 1000;          /* <--- IMPORTANTE: Asegura que flote sobre TODO */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para que parezca que flota */
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
 
-/* Efecto al pasar el mouse */
 .btn-flotante-carrito:hover {
-    transform: scale(1.1); /* Se agranda un poquito */
+    transform: scale(1.1);
 }
 
-/* EL ÍCONO ADENTRO DEL BOTÓN */
 .btn-flotante-icono {
     width: 30px;
     height: 30px;
-    /* Si tu ícono es blanco y el fondo es blanco, inviértelo o usa uno de color */
-    /* filter: invert(0);  <-- Activa esto si no ves el ícono */
 }
 
-/* LA BURBUJITA CONTADORA (El número rojo) */
 .carrito-contador {
     position: absolute;
-    top: -5px;              /* Se sale un poco hacia arriba */
-    right: -5px;            /* Se sale un poco hacia la derecha */
-    
-    background-color: var(--bordo); /* Fondo rojo/bordo */
-    color: white;           /* Número blanco */
-    
+    top: -5px;
+    right: -5px;
+    background-color: var(--bordo);
+    color: white;
     font-size: 0.8rem;
     font-weight: bold;
-    
-    width: 25px;            /* Tamaño de la burbuja */
+    width: 25px;
     height: 25px;
-    border-radius: 50%;     /* Redonda */
-    
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid white; /* Borde blanco para separarlo del botón grande */
+    border: 2px solid white;
 }
 
-@media (min-width: 768px) {
-
+/* ==========================================================================
+   Estilo temporal para el botón de cerrar (solo para testing)
+   ========================================================================== */
+.carrito__boton-cerrar {
+    width: 20px;
+    height: 20px;
+    background-color: red; /* Color visible para probar */
+    border: none;
+    cursor: pointer;
 }
+
+@media (min-width: 768px) {}
 
 @media (min-width: 630px) {
     .seccion-filtros {
