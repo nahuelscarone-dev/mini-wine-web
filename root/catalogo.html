@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="./recursos/css/general.css">
     <link rel="stylesheet" href="./recursos/css/catalogo.css">
     <script type="module" src="./recursos/js/catalogo.js"></script>
-    <script src="./recursos/js/menu.js" defer></script>
+    <script src="./recursos/js/menu.js" defer></script>}
+    <script src="recursos/js/carrito.js" defer></script>
     <title>Mini Wine - Catálogo</title>
 </head>
 <body class="cuerpo">
@@ -67,7 +68,7 @@
             </section>
         </div>
     </main>
-        <button id="btn-carrito-flotante" class="btn-flotante-carrito" aria-label="Ver carrito de compras">
+        <button id="carrito-flotante" class="btn-flotante-carrito" aria-label="Ver carrito de compras">
             <img src="./recursos/imagenes/boton-carrito.svg" alt="Carrito" class="btn-flotante-icono">
             <span class="carrito-contador">0</span>
         </button>
@@ -75,7 +76,7 @@
         <dialog class="carrito">
             <header class="carrito__header">
                 <h2 class="carrito__titulo">Tu carrito (<span></span>)</h2>
-                <button class="carrito__boton"></button>
+                <button class="carrito__boton-cerrar"></button>
             </header>
 
             <div class="carrito__body">
@@ -149,16 +150,6 @@
             </footer>
         </dialog>
 
-        <!-- 
-            Dudas IA:
-            -Adentro de un section, van divs?
-            -El título del carrito, sería un h2? O sería un h3 o incluso un p?
-            -En cada tarjeta, el precio sería p o span?
-            -Tiene sentido que haya un "form"?
-            -El botón de submit, en este caso, tendría que estar afuera del form. Por lo que en realidad, el type no puede ser submit?
-            -Tiene sentido que haya 3 sections para el carrito? O sería mejor con divs? O incluso poner header, section, footer, o algo así?
-        -->
-
     <footer class="pie">
         <address class="pie__informacion">
             <a class="pie__link" href="https://www.instagram.com/miniwine_/" target="_blank" rel="noopener noreferrer">
@@ -174,3 +165,13 @@
     </footer>
 </body>
 </html>
+
+        <!-- 
+            Dudas IA:
+            -Adentro de un section, van divs?
+            -El título del carrito, sería un h2? O sería un h3 o incluso un p?
+            -En cada tarjeta, el precio sería p o span?
+            -Tiene sentido que haya un "form"?
+            -El botón de submit, en este caso, tendría que estar afuera del form. Por lo que en realidad, el type no puede ser submit?
+            -Tiene sentido que haya 3 sections para el carrito? O sería mejor con divs? O incluso poner header, section, footer, o algo así?
+        -->

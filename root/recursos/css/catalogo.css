@@ -199,6 +199,13 @@
     align-items: center;
     border: 2px solid white; /* Borde blanco para separarlo del botón grande */
 }
+.carrito__boton-cerrar {
+    width: 20px;
+    height: 20px;
+    background-color: red; /* O cualquier color visible */
+    border: none;
+    cursor: pointer;
+}
 
 @media (min-width: 768px) {
 
