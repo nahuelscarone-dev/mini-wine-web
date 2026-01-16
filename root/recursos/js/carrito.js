@@ -14,15 +14,10 @@ function guardarCarrito() {
 // ==================================================================
 // 2. SELECCIÓN DE ELEMENTOS DEL DOM
 // ==================================================================
-// Seleccionamos los elementos una sola vez al cargar el script
-
-// Elementos generales del carrito
 const dialogCarrito = document.querySelector('.carrito');
 const btnAbrirCarrito = document.querySelector('.btn-flotante-carrito');
-// NOTA: Asegúrate que en tu HTML el botón del header tenga esta clase:
 const btnCerrarCarrito = document.querySelector('.carrito__boton-cerrar');
 
-// Elementos internos del carrito para renderizar
 const contenedorProductos = document.querySelector('.carrito__productos');
 const spanCantidadTotal = document.querySelector('.carrito__titulo span');
 const spanPrecioTotal = document.querySelector('.carrito__total span');
@@ -43,14 +38,33 @@ function agregarAlCarrito(productoNuevo) {
         productoExistente.cantidad++;
     } else {
         // Si no existe, lo añadimos con cantidad 1
-        // Asegúrate de que productoNuevo tenga propiedades como id, nombre, precio, imagen.
         carrito.push({ ...productoNuevo, cantidad: 1 });
     }
 
-    // Después de modificar el estado, actualizamos la vista y guardamos
+    // ¡IMPORTANTE! Actualizar la vista y guardar después de agregar
     renderizarCarrito();
     guardarCarrito();
 }
+
+function actualizarCantidad(idProducto, accion) {
+    // CORRECCIÓN: Buscamos comparando item.id con el idProducto que recibimos
+    const producto = carrito.find(item => item.id == idProducto);
+
+    if (producto) {
+        if (accion === "sumar") {
+            producto.cantidad++;
+        } else if (accion === "restar") {
+            if (producto.cantidad > 1) {
+                producto.cantidad--;
+            }
+        }
+        
+        // CORRECCIÓN: Estas funciones deben estar DENTRO del if, no flotando afuera
+        renderizarCarrito();
+        guardarCarrito();
+    }
+}
+
 
 // Función para dibujar el carrito en el HTML
 function renderizarCarrito() {
@@ -66,20 +80,24 @@ function renderizarCarrito() {
         cantidadTotal += producto.cantidad;
         precioTotal += producto.precio * producto.cantidad;
 
-        // Crear la estructura de la tarjeta
+        const subtotalProducto= producto.precio*producto.cantidad
+
+        // Si la cantidad es 1, creamos un string con la palabra 'disabled'. 
+        // Si es mayor a 1, dejamos el string vacío.
+        const atributoDisabled = (producto.cantidad === 1) ? 'disabled' : '';
+
         const article = document.createElement('article');
         article.classList.add('carrito-tarjeta');
 
-        // Usar template literals para el contenido HTML
-        // NOTA: Asegúrate que tus objetos producto tengan .imagen, .nombre y .precio
-        article.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}" class="carrito-tarjeta__imagen">
+        // CORRECCIÓN IMAGEN: Usamos producto.imagen.src porque 'imagen' es un objeto
+    article.innerHTML = `
+            <img src="${producto.imagen.src}" alt="${producto.nombre}" class="carrito-tarjeta__imagen">
             <div class="carrito-tarjeta__info">
                 <h3 class="carrito-tarjeta__titulo">${producto.nombre}</h3>
-                <p class="carrito-tarjeta__precio">$${producto.precio}</p>
+                <p class="carrito-tarjeta__precio">$${subtotalProducto}</p>
             </div>
             <div class="carrito-tarjeta__cantidad">
-                <button class="carrito-tarjeta__boton-cantidad" data-accion="restar" data-id="${producto.id}">-</button>
+                <button class="carrito-tarjeta__boton-cantidad" data-accion="restar" data-id="${producto.id}"${atributoDisabled}>-</button>
                 <span class="carrito-tarjeta__cantidad-valor">${producto.cantidad}</span>
                 <button class="carrito-tarjeta__boton-cantidad" data-accion="sumar" data-id="${producto.id}">+</button>
             </div>
@@ -89,27 +107,37 @@ function renderizarCarrito() {
         contenedorProductos.appendChild(article);
     });
 
-    // 4. Actualizar los totales en el DOM (Header y Footer del carrito)
-    // Usamos '0' si no hay cantidad, para que no quede vacío
+    // 4. Actualizar los totales
     spanCantidadTotal.textContent = cantidadTotal || '0';
     spanPrecioTotal.textContent = `$${precioTotal.toFixed(2)}`;
 
-    // 5. Actualizar el contador del botón flotante también
+    // 5. Actualizar el contador flotante
     if (contadorFlotante) {
         contadorFlotante.textContent = cantidadTotal || '0';
     }
 
-    // 6. Añadir event listeners a los nuevos botones dinámicos
+    // 6. Añadir listeners a los botones recién creados
     agregarListenersProductos();
 }
 
-// --- PLACEHOLDER ---
-// Esta función es necesaria porque la llamas en renderizarCarrito.
-// Aquí deberás programar la lógica para que los botones de "+", "-" y "Eliminar" funcionen.
+// Función para escuchar los botones dentro del carrito
 function agregarListenersProductos() {
-    // TODO: Implementar la lógica para los botones dentro de las tarjetas.
-    // Por ahora la dejamos vacía para que el código no falle.
-    // console.log("Botones renderizados. Falta implementar sus listeners.");
+    const botonesCantidad = document.querySelectorAll('.carrito-tarjeta__boton-cantidad');
+
+    botonesCantidad.forEach(boton => {
+        // CORRECCIÓN: Cambiamos 'element' por 'e' para que coincida con e.target
+        boton.addEventListener('click', (e) => {
+            const id = e.target.dataset.id;
+            const accion = e.target.dataset.accion;
+
+            actualizarCantidad(id, accion);
+        });
+    });
+    
+    //Añadir lógica del botón eliminar
+    function eliminarProductoCarrito(){
+
+    }
 }
 
 
@@ -142,10 +170,8 @@ if (btnCerrarCarrito) {
     btnCerrarCarrito.addEventListener('click', cerrarCarrito);
 }
 
-// Opcional: Cerrar al hacer clic fuera del contenido del diálogo (en el backdrop)
 if (dialogCarrito) {
     dialogCarrito.addEventListener('click', (event) => {
-        // Comprueba si el clic fue en el elemento <dialog> directamente (el fondo)
         if (event.target === dialogCarrito) {
             cerrarCarrito();
         }
@@ -156,8 +182,6 @@ if (dialogCarrito) {
 // ==================================================================
 // 6. INICIALIZACIÓN
 // ==================================================================
-// Renderizamos el carrito al cargar la página por si había datos en localStorage
 renderizarCarrito();
 
-// Si usas módulos (type="module"), necesitas exportar la función para que la use catalogo.js
 export { agregarAlCarrito };
