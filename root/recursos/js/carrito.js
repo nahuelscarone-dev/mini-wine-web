@@ -10,7 +10,6 @@ function guardarCarrito() {
     localStorage.setItem('carritoCompras', JSON.stringify(carrito));
 }
 
-
 // ==================================================================
 // 2. SELECCIÓN DE ELEMENTOS DEL DOM
 // ==================================================================
@@ -22,7 +21,6 @@ const contenedorProductos = document.querySelector('.carrito__productos');
 const spanCantidadTotal = document.querySelector('.carrito__titulo span');
 const spanPrecioTotal = document.querySelector('.carrito__total span');
 const contadorFlotante = document.querySelector('.carrito-contador');
-
 
 // ==================================================================
 // 3. FUNCIONES LÓGICAS DEL CARRITO
@@ -58,13 +56,10 @@ function actualizarCantidad(idProducto, accion) {
                 producto.cantidad--;
             }
         }
-        
-        // CORRECCIÓN: Estas funciones deben estar DENTRO del if, no flotando afuera
         renderizarCarrito();
         guardarCarrito();
     }
 }
-
 
 // Función para dibujar el carrito en el HTML
 function renderizarCarrito() {
@@ -82,15 +77,14 @@ function renderizarCarrito() {
 
         const subtotalProducto= producto.precio*producto.cantidad
 
-        // Si la cantidad es 1, creamos un string con la palabra 'disabled'. 
+        // Si la cantidad es 1, creamos un string con la palabra 'disabled', esto al colocarlo en el renderizado nos bloquea el botón -. 
         // Si es mayor a 1, dejamos el string vacío.
         const atributoDisabled = (producto.cantidad === 1) ? 'disabled' : '';
 
         const article = document.createElement('article');
         article.classList.add('carrito-tarjeta');
 
-        // CORRECCIÓN IMAGEN: Usamos producto.imagen.src porque 'imagen' es un objeto
-    article.innerHTML = `
+        article.innerHTML = `
             <img src="${producto.imagen.src}" alt="${producto.nombre}" class="carrito-tarjeta__imagen">
             <div class="carrito-tarjeta__info">
                 <h3 class="carrito-tarjeta__titulo">${producto.nombre}</h3>
@@ -125,7 +119,7 @@ function agregarListenersProductos() {
     const botonesCantidad = document.querySelectorAll('.carrito-tarjeta__boton-cantidad');
 
     botonesCantidad.forEach(boton => {
-        // CORRECCIÓN: Cambiamos 'element' por 'e' para que coincida con e.target
+
         boton.addEventListener('click', (e) => {
             const id = e.target.dataset.id;
             const accion = e.target.dataset.accion;
@@ -135,11 +129,10 @@ function agregarListenersProductos() {
     });
     
     //Añadir lógica del botón eliminar
-    function eliminarProductoCarrito(){
+    // function eliminarProductoCarrito(){
 
-    }
+    // }
 }
-
 
 // ==================================================================
 // 4. FUNCIONES DEL POPUP (DIALOG)
@@ -156,7 +149,6 @@ function cerrarCarrito() {
         dialogCarrito.close();
     }
 }
-
 
 // ==================================================================
 // 5. EVENT LISTENERS PRINCIPALES
@@ -177,7 +169,6 @@ if (dialogCarrito) {
         }
     });
 }
-
 
 // ==================================================================
 // 6. INICIALIZACIÓN
