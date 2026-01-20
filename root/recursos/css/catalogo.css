@@ -207,8 +207,53 @@
     width: 50rem;
     margin-left: auto;
     border: none;
+    
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
 }
 
+.carrito__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrito__body {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    min-height: 0;
+}
+
+.carrito__formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrito__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrito__productos {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrito-tarjeta {
+    display: flex;
+    justify-content: space-between;
+    height: 15rem;
+}
+
+.carrito-tarjeta__imagen {
+    height: 100%;
+}
+
+.carrito-tarjeta__cantidad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media (min-width: 768px) {
 
