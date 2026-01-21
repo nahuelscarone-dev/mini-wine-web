@@ -74,11 +74,7 @@ h3, h4 {
     font-size: var(--subtitulo);
 }
 
-p {
-    font-size: var(--parrafo);
-}
-
-input, textarea, select, label, li {
+p, input, textarea, select, label, li {
     font-size: var(--parrafo);
 }
 
