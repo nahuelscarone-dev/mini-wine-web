@@ -257,7 +257,7 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid lightgray;
-    padding: 1rem;
+    padding: 1rem 0;
     gap: 1rem;
 }
 
@@ -419,6 +419,10 @@
 
 .carrito__total {
     font-weight: bold;
+}
+
+.carrito__total span {
+    color: var(--bordo);
 }
 
 @media (min-width: 768px) {
