@@ -96,6 +96,18 @@ p, input, textarea, select, label, li {
     background-color: #800000;
 }
 
+.boton--whatsapp {
+    background-color: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.boton--whatsapp:hover {
+   background-color: #17853f;
+}
+
 a {
     text-decoration: none;
     color: black;

@@ -250,6 +250,7 @@
 .carrito__productos {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2.4rem;
 }
 
 .carrito-tarjeta {
@@ -339,6 +340,65 @@
 .carrito__label {
     display: flex;
     flex-direction: column;
+    font-size: var(--parrafo);
+    font-weight: bold;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.carrito__fieldset {
+    border: none;
+}
+
+.carrito__fieldset--entrega {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito__radio-label {
+    width: 100%;
+    height: 5rem;
+    background-color: rgb(235, 235, 235);
+    font-weight: bold;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrito__radio-label:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.carrito__radio-label:has(.carrito__input-radio:checked) {
+    background: none;
+    border: 2px solid var(--rojo);
+    color: var(--rojo);
+
+}
+
+.carrito__input-radio {
+    display: none;
+}
+
+.carrito__input {
+    height: 4rem;
+    border-radius: 1rem;
+    border: 1px solid lightgray;
+    padding: 1rem;
+    font-family: "Open Sans";
+}
+
+.carrito__fieldset--telefono {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito__input--telefono {
+    width: 100%;
 }
 
 .carrito__footer {
@@ -350,6 +410,10 @@
 
 .carrito__header, .carrito__body, .carrito__footer {
     padding: 2rem;
+}
+
+.carrito__total {
+    font-weight: bold;
 }
 
 @media (min-width: 768px) {
