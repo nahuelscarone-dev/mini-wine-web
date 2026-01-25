@@ -15,6 +15,7 @@ $filtroPresentacion.addEventListener("change", () => {
 
 $filtroTipoVino.addEventListener("change", filtrarProductos)
 $filtroBodega.addEventListener("change", filtrarProductos)
+
 function agregarListenersBotonesCarrito() {
     // 1. Seleccionar todos los botones con la clase específica que pusimos en renderizado.js
     const botonesAgregar = document.querySelectorAll('.boton--agregar-al-carrito');
@@ -23,7 +24,7 @@ function agregarListenersBotonesCarrito() {
         // 2. Añadir un listener para el evento 'click' a cada botón
         boton.addEventListener('click', (e) => {
             // 3. Obtener el ID del producto desde el atributo data-id del botón
-            const idProducto = e.target.dataset.id;
+            const idProducto = e.currentTarget.dataset.id;
 
             // 4. Buscar el objeto producto completo en nuestro array 'datos'
             // Usamos '==' para comparar por si el ID es número y el dataset es string
