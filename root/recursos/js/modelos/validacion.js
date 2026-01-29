@@ -60,20 +60,4 @@ function validarCampos(nombre, email, telefono, comentario) {
     return errores
 }
 
-function crearMensajeWhatsapp(mensaje, numeroWhatsApp) {
-
-    // 3. Construye el mensaje con los datos (usando \n para saltos de línea)
-    // Se usa encodeURIComponent para manejar espacios y caracteres especiales de la URL.
-    const mensajeCodificado = encodeURIComponent(mensaje);
-
-    // 4. Crea la URL completa de WhatsApp
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-
-    // 5. Redirige al usuario a la URL de WhatsApp
-    // Usa window.location.href para la misma pestaña, o window.open(urlWhatsApp, '_blank') para una nueva pestaña.
-    window.open(urlWhatsApp, '_blank');
-    
-}
-
-
-export {mostrarMensajeError, crearMensajeWhatsapp}
+export {validarCampos}

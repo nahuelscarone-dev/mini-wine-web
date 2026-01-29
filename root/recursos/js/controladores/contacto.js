@@ -1,4 +1,6 @@
-import {validarCampos, } from "./validacion.js";
+import { mostrarMensajeError } from "../vistas/renderizado.js";
+import { validarCampos } from "../modelos/validacion.js";
+import { crearPlantillaMensajeContacto, crearLinkMensajeWhatsapp } from "../modelos/mensaje.js";
 
 const $contenedorErrores = document.getElementById("formulario__errores")
 const $formularioContacto = document.getElementById("formulario-contacto")
@@ -31,27 +33,19 @@ $formularioContacto.addEventListener("submit", (evento) => {
     const $motivoContacto = document.getElementById('id-motivo').value.trim();
     const $comentario = document.getElementById('id-comentario').value.trim();
 
-    const mensajeSumaTuViñedo = `Mensaje proveniente de *CONTACTO* del sitio de Mini Wine:
+    const errores = validarCampos($nombre, $email, $telefono, $comentario)
 
-    *•Motivo de contacto:* ${$motivoContacto}
+    mostrarMensajeError($contenedorErrores, errores)
 
-    *•Nombre*: ${$nombre}
+    if(errores.length === 0) {
 
-    *•Email*: ${$email}
+        const datosFormulario = {$nombre, $email, $telefono, $motivoContacto, $comentario}
 
-    *•Teléfono*: ${$telefono}
+        const textoMensaje = crearPlantillaMensajeContacto(datosFormulario)
 
-    *•Comentario*: 
-    ${$comentario}
-`
-    evento.preventDefault()
+        const urlWhatsApp = crearLinkMensajeWhatsapp(textoMensaje, numeroWhatsApp)
 
-    // const errores = mostrarMensajeError($contenedorErrores, $nombre, $email, $telefono, $comentario)
-
-    // const errores =
-
-    if(errores === 0) {
-        crearMensajeWhatsapp(mensajeSumaTuViñedo, numeroWhatsApp)
+        window.open(urlWhatsApp, '_blank');
     }
 })
 

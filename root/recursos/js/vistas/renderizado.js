@@ -28,9 +28,7 @@ function renderizarCatalogo(arreglo, $contenedor) {
     $contenedor.innerHTML = HTMLproductos;
 }
 
-function mostrarMensajeError(contenedorErrores, nombre, email, telefono, comentario) {
-
-    const errores = validarCampos(nombre, email, telefono, comentario)
+function mostrarMensajeError(contenedorErrores, errores) {
 
     if(errores.length === 0) {
         contenedorErrores.style.display = "none"
@@ -40,8 +38,6 @@ function mostrarMensajeError(contenedorErrores, nombre, email, telefono, comenta
         contenedorErrores.innerHTML = errores[0]
         contenedorErrores.style.color = "#ff4545";
     }
-
-    // return errores.length
 }
 
-export { renderizarCatalogo, mostrarMensajeError, preseleccionarMotivo };
+export { renderizarCatalogo, mostrarMensajeError};
