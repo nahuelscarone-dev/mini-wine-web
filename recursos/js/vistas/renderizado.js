@@ -129,7 +129,6 @@ function mostrarMensajeError(contenedorErrores, errores) {
         contenedorErrores.style.display = "block"
         contenedorErrores.innerHTML = errores[0]
         contenedorErrores.style.color = "#ff4545"
-        console.log("Prueba")
     }
 }
 
