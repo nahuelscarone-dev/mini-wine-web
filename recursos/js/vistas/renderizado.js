@@ -1,5 +1,5 @@
 function renderizarCatalogo(arreglo, $contenedor) {
-    let HTMLproductos = "";
+    let HTMLproductos = ""
     arreglo.forEach(element => {
 
         const HTMLproducto = `
@@ -20,17 +20,17 @@ function renderizarCatalogo(arreglo, $contenedor) {
                     </button>
                 </div>
             </article>
-        `;
+        `
 
-        HTMLproductos += HTMLproducto;
-    });
+        HTMLproductos += HTMLproducto
+    })
 
-    $contenedor.innerHTML = HTMLproductos;
+    $contenedor.innerHTML = HTMLproductos
 }
 
 function renderizarCarrito(carrito, contenedorProductos, spanCantidadTotal, spanPrecioTotal, contadorFlotante) {
 
-    contenedorProductos.innerHTML = ''
+    contenedorProductos.innerHTML = ""
 
     let cantidadTotal = 0
     let precioTotal = 0
@@ -41,8 +41,8 @@ function renderizarCarrito(carrito, contenedorProductos, spanCantidadTotal, span
 
         const subtotalProducto = producto.precio * producto.cantidad
 
-        const article = document.createElement('article')
-        article.classList.add('carrito-tarjeta')
+        const article = document.createElement("article")
+        article.classList.add("carrito-tarjeta")
 
         article.innerHTML = `
             <img src="${producto.imagen.src}" alt="${producto.nombre}" class="carrito-tarjeta__imagen">
@@ -104,7 +104,7 @@ function cargarFiltroCatalogo(productos, $filtro, textoOpcionDefault, propiedad)
     valoresSinRepetir.forEach(valor => {
 
         if(valor){
-            const option = document.createElement('option') 
+            const option = document.createElement("option") 
             option.value = valor
             option.textContent = valor
             $filtro.appendChild(option)
@@ -128,8 +128,9 @@ function mostrarMensajeError(contenedorErrores, errores) {
     } else {
         contenedorErrores.style.display = "block"
         contenedorErrores.innerHTML = errores[0]
-        contenedorErrores.style.color = "#ff4545";
+        contenedorErrores.style.color = "#ff4545"
+        console.log("Prueba")
     }
 }
 
-export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError};
+export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError}

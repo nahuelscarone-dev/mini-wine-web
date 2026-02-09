@@ -63,21 +63,22 @@
             </section>
         </div>
     </main>
+
         <button id="carrito-flotante" class="btn-flotante-carrito" aria-label="Ver carrito de compras">
             <img src="./recursos/imagenes/boton-carrito.svg" alt="Carrito" class="btn-flotante-icono">
-            <span class="carrito-contador">0</span>
+            <span class="carrito-contador" id="carrito-contador">0</span>
         </button>
 
-        <dialog class="carrito">
+        <dialog class="carrito" id="carrito">
             <header class="carrito__header">
-                <h2 class="carrito__titulo">Mi pedido (<span></span>)</h2>
-                <button class="carrito__boton-cerrar">
+                <h2 class="carrito__titulo">Mi pedido (<span id="carrito-titulo-cantidad"></span>)</h2>
+                <button class="carrito__boton-cerrar" id="boton-cerrar-carrito">
                     <img class="carrito__boton-imagen" src="./recursos/imagenes/icono-cerrar-menu.svg" alt="">
                 </button>
             </header>
 
             <div class="carrito__body">
-                <div class="carrito__productos">
+                <div class="carrito__productos" id="carrito-productos">
                   <article class="carrito-tarjeta">
                         <img src="" alt="" class="carrito-tarjeta__imagen">
                         <div class="carrito-tarjeta__info">
@@ -149,7 +150,7 @@
             </div>
 
             <footer class="carrito__footer">
-                <p class="carrito__total">Total productos: <span></span></p>
+                <p class="carrito__total">Total productos: <span id="carrito-precio-total"></span></p>
                 <button class="boton boton--whatsapp"> Continuar pedido por WhatsApp
                     <img class="icono-whatsapp" src="./recursos/imagenes/icono-whatsapp-boton.svg" alt="">
                 </button>

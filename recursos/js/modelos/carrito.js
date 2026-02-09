@@ -1,7 +1,7 @@
-let carrito = JSON.parse(localStorage.getItem('carritoCompras')) || []
+let carrito = JSON.parse(localStorage.getItem("carritoCompras")) || []
 
 function guardarCarrito() {
-    localStorage.setItem('carritoCompras', JSON.stringify(carrito))
+    localStorage.setItem("carritoCompras", JSON.stringify(carrito))
 }
 
 function agregarAlCarrito(productoNuevo) {
@@ -18,7 +18,7 @@ function agregarAlCarrito(productoNuevo) {
 }
 
 // --- NUEVA FUNCIÓN INDEPENDIENTE (GLOBAL) ---
-// La sacamos afuera para que 'actualizarCantidad' la pueda ver
+// La sacamos afuera para que "actualizarCantidad" la pueda ver
 function eliminarDelCarrito(idProducto) {
     const indice = carrito.findIndex(producto => producto.id == idProducto)
 

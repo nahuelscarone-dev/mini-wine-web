@@ -1,6 +1,6 @@
 function crearPlantillaMensajeContacto(datos) {
 
-    const { $nombre, $email, $telefono, $motivoContacto, $comentario } = datos;
+    const { $nombre, $email, $telefono, $motivoContacto, $comentario } = datos
 
     const mensajeContacto = `Mensaje proveniente de *CONTACTO* del sitio de Mini Wine:
 
@@ -9,15 +9,15 @@ function crearPlantillaMensajeContacto(datos) {
     *•Email*: ${$email}
     *•Teléfono*: ${$telefono}
     *•Comentario*: 
-    ${$comentario}`;
+    ${$comentario}`
 
     return mensajeContacto
 }
 
 function crearLinkMensajeWhatsapp(mensaje, numeroTelefono) {
 
-    const mensajeCodificado = encodeURIComponent(mensaje);
-    const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeCodificado}`;
+    const mensajeCodificado = encodeURIComponent(mensaje)
+    const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeCodificado}`
     return urlWhatsApp
 }
 
