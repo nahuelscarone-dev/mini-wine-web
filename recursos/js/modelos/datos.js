@@ -25,31 +25,3 @@ async function obtenerDatos(url){
 }
 
 export {obtenerDatos} // Exporta la función para poder usarla en otros archivos
-
-
-/*
-1
-2
-3
-
-4
-
-5
-
-6
-
-
-1
-2
-3
-4
-5
-6
-
-1
-4
-2
-5
-3
-6
-*/

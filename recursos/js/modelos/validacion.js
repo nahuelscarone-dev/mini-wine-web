@@ -4,16 +4,16 @@ function validarNombre(nombre, errores) {
         errores.push("El nombre no puede estar vacío.")
     }
     if (nombre.length < 2) {
-        errores.push("El nombre es demasiado corto.");
+        errores.push("El nombre es demasiado corto.")
     }
     if (nombre.length > 50) {
-        errores.push("El nombre es demasiado largo.");
+        errores.push("El nombre es demasiado largo.")
     }
 
     const nombreRegex = /^(?=.*[a-zA-ZÁÉÍÓÚáéíóúñÑüÜ])[a-zA-ZÁÉÍÓÚáéíóúñÑüÜ0-9\s'-]+$/
 
     if(nombreRegex.test(nombre) === false) {
-        errores.push("El nombre no es válido.");
+        errores.push("El nombre no es válido.")
     }
 }
 
@@ -40,7 +40,7 @@ function validarComentario(comentario, errores) {
     }
 
     if (comentario.length < 10) {
-        errores.push("El comentario es demasiado corto.");
+        errores.push("El comentario es demasiado corto.")
     }
 
     const comentarioRegex = /^(?=.*[a-zA-ZÁÉÍÓÚáéíóúñÑüÜ]).+$/
