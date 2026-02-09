@@ -1,12 +1,12 @@
 @font-face {
     font-family: "Open Sans";
-    src: url(/root/recursos/fuentes/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf);
+    src: url(../fuentes/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf);
     font-weight: normal;
 }
 
 @font-face {
     font-family: "Noto Serif";
-    src: url(/root/recursos/fuentes/NotoSerif/NotoSerif-VariableFont_wdth\,wght.ttf);
+    src: url(../fuentes/NotoSerif/NotoSerif-VariableFont_wdth\,wght.ttf);
     font-weight: 700;
 }
 
