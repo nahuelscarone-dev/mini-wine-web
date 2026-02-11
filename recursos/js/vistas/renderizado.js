@@ -157,4 +157,14 @@ function mostrarMensajeVacio(contenedor, titulo, texto) {
         </div>
     `
 }
-export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio}
+
+function cambiarVisibilidadCamposEnvio($camposEnvio, debeMostrarse) {
+    if(debeMostrarse) {
+        $camposEnvio.classList.remove("ocultar-campos-envio")
+    } else {
+        $camposEnvio.classList.add("ocultar-campos-envio")
+    }
+}
+
+
+export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadCamposEnvio}

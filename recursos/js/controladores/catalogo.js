@@ -1,5 +1,5 @@
 import { obtenerDatos } from "../modelos/datos.js"
-import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio } from "../vistas/renderizado.js"
+import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, cambiarVisibilidadCamposEnvio } from "../vistas/renderizado.js"
 import { agregarAlCarrito, eliminarDelCarrito, actualizarCantidad, obtenerCarrito } from "../modelos/carrito.js"
 
 const datos = await obtenerDatos("./datos/catalogo.json")
@@ -19,6 +19,8 @@ const $spanCantidadTotal = document.getElementById("carrito-titulo-cantidad")
 const $spanPrecioTotal = document.getElementById("carrito-precio-total")
 const $contadorFlotante = document.getElementById("carrito-contador")
 const $selectMetodoPago = document.getElementById("metodo-pago")
+const $inputsEntrega = document.querySelectorAll(".carrito__input-radio")
+const $camposEnvio = document.getElementById("campos-envio")
 
 $filtroPresentacion.addEventListener("change", () => {
     controlSelect()
@@ -36,6 +38,10 @@ $dialogCarrito.addEventListener("click", (event) => {
     if (event.target === $dialogCarrito) {
         ocultarCarrito($dialogCarrito)
     }
+})
+
+$inputsEntrega.forEach(elemento => {
+    elemento.addEventListener("change", manejarVisibilidadCamposEnvio)
 })
 
 
@@ -99,6 +105,11 @@ function agregarListenersBotonesCarrito() {
             actualizarVistaCarrito()
         })
     })
+}
+
+function manejarVisibilidadCamposEnvio(evento) {
+    const esEnvio = evento.target.id === "boton-envio"
+    cambiarVisibilidadCamposEnvio($camposEnvio, esEnvio)
 }
 
 function filtrarProductos() {
