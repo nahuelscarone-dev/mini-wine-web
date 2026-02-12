@@ -27,19 +27,19 @@ $formularioContacto.addEventListener("submit", (evento) => {
 
     evento.preventDefault()
 
-    const $nombre = document.getElementById("id-nombre").value.trim()
-    const $email = document.getElementById("id-email").value.trim()
-    const $telefono = document.getElementById("id-telefono").value.trim()
-    const $motivoContacto = document.getElementById("id-motivo").value.trim()
-    const $comentario = document.getElementById("id-comentario").value.trim()
+    const nombre = document.getElementById("id-nombre").value.trim()
+    const email = document.getElementById("id-email").value.trim()
+    const telefono = document.getElementById("id-telefono").value.trim()
+    const motivoContacto = document.getElementById("id-motivo").value.trim()
+    const comentario = document.getElementById("id-comentario").value.trim()
 
-    const errores = validarCamposFormularioContacto($nombre, $email, $telefono, $comentario)
+    const datos = {nombre, email, telefono, motivoContacto, comentario}
+
+    const errores = validarCamposFormularioContacto(datos)
 
     mostrarMensajeError($contenedorErrores, errores)
 
     if(errores.length === 0) {
-
-        const datosFormulario = {$nombre, $email, $telefono, $motivoContacto, $comentario}
 
         const textoMensaje = crearPlantillaMensajeContacto(datosFormulario)
 

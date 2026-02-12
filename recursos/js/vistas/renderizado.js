@@ -140,6 +140,7 @@ function mostrarMensajeError(contenedorErrores, errores) {
         contenedorErrores.style.display = "block"
         contenedorErrores.innerHTML = errores[0]
         contenedorErrores.style.color = "#ff4545"
+        contenedorErrores.style.fontWeight = "bold"
     }
 }
 

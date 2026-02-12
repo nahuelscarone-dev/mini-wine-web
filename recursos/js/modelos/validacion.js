@@ -67,12 +67,11 @@ function validarCodigoPostal(codigoPostal, errores) {
     }
  }
 
-function validarCamposFormularioContacto(nombre, email, telefono, comentario) {
+function validarCamposFormularioContacto(datos) {
     const errores = []
-    validarNombre(nombre, errores)
-    validarEmail(email, errores)
-    validarTelefono(telefono, errores)
-    validarComentario(comentario, errores)
+    validarNombre(datos.nombre, errores)
+    validarEmail(datos.email, errores)
+    validarComentario(datos.comentario, errores)
 
     return errores
 }
