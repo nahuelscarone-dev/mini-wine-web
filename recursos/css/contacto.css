@@ -43,11 +43,6 @@ h1 {
     margin: 0;
 }
 
-.formulario__errores {
-    text-align: center;   
-    display: none; 
-}
-
 .formulario__label {
     display: flex;
     flex-direction: column;

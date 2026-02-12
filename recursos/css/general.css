@@ -280,6 +280,11 @@ header > a {
     z-index: 1;
 }
 
+.errores {
+    text-align: center;   
+    display: none; 
+}
+
 /* Tablet */
 @media (min-width: 768px) {
     /* :root {

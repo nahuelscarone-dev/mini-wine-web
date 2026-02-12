@@ -1,8 +1,8 @@
 import { mostrarMensajeError } from "../vistas/renderizado.js"
-import { validarCampos } from "../modelos/validacion.js"
+import { validarCamposFormularioContacto } from "../modelos/validacion.js"
 import { crearPlantillaMensajeContacto, crearLinkMensajeWhatsapp } from "../modelos/mensaje.js"
 
-const $contenedorErrores = document.getElementById("formulario__errores")
+const $contenedorErrores = document.getElementById("errores")
 const $formularioContacto = document.getElementById("formulario-contacto")
 const numeroWhatsApp = "5493518519953" 
 
@@ -33,7 +33,7 @@ $formularioContacto.addEventListener("submit", (evento) => {
     const $motivoContacto = document.getElementById("id-motivo").value.trim()
     const $comentario = document.getElementById("id-comentario").value.trim()
 
-    const errores = validarCampos($nombre, $email, $telefono, $comentario)
+    const errores = validarCamposFormularioContacto($nombre, $email, $telefono, $comentario)
 
     mostrarMensajeError($contenedorErrores, errores)
 
