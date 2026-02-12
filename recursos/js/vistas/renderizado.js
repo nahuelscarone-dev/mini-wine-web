@@ -84,7 +84,7 @@ function renderizarCarrito(carrito, contenedorProductos, spanCantidadTotal, span
 function cargarSelectMetodoPago(datos, $selectMetodoPago) {
 
     const defaultOption = document.createElement("option")
-    defaultOption.textContent = "--- Seleccione una opción ---"
+    defaultOption.textContent = "Seleccione una opción"
     defaultOption.value = ""
     defaultOption.selected = true
     defaultOption.disabled = true
@@ -94,7 +94,7 @@ function cargarSelectMetodoPago(datos, $selectMetodoPago) {
     datos.forEach(metodo => {
         if(metodo.activo) {
             const option = document.createElement("option")
-            option.value = metodo.id
+            option.value = metodo.nombre
             option.textContent = metodo.nombre
 
             $selectMetodoPago.appendChild(option)
@@ -140,6 +140,7 @@ function mostrarMensajeError(contenedorErrores, errores) {
         contenedorErrores.style.display = "block"
         contenedorErrores.innerHTML = errores[0]
         contenedorErrores.style.color = "#ff4545"
+        contenedorErrores.style.fontWeight = "bold"
     }
 }
 
@@ -157,4 +158,25 @@ function mostrarMensajeVacio(contenedor, titulo, texto) {
         </div>
     `
 }
-export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio}
+
+function cambiarVisibilidadCamposEnvio($camposEnvio, debeMostrarse) {
+    if(debeMostrarse) {
+        $camposEnvio.classList.remove("ocultar-campos-envio")
+        
+    } else {
+        $camposEnvio.classList.add("ocultar-campos-envio")
+    }
+
+    const $inputsEnvio = $camposEnvio.querySelectorAll("input, select")
+
+    $inputsEnvio.forEach(elemento => {
+        elemento.required = debeMostrarse
+        
+        if(!debeMostrarse) {
+            elemento.value = ""
+        }
+    })
+}
+
+
+export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadCamposEnvio}

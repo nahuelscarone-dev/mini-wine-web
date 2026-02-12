@@ -1,8 +1,5 @@
 function validarNombre(nombre, errores) {
 
-    if(nombre === "") {
-        errores.push("El nombre no puede estar vacío.")
-    }
     if (nombre.length < 2) {
         errores.push("El nombre es demasiado corto.")
     }
@@ -35,9 +32,6 @@ function validarTelefono(telefono, errores) {
 }
 
 function validarComentario(comentario, errores) {
-    if(comentario === "") {
-        errores.push("El comentario no puede estar vacío.")
-    }
 
     if (comentario.length < 10) {
         errores.push("El comentario es demasiado corto.")
@@ -50,14 +44,50 @@ function validarComentario(comentario, errores) {
     }
 }
 
-function validarCampos(nombre, email, telefono, comentario) {
+function validarLocalidad(localidad, errores) {
+    const localidadRegex = /^[a-zA-ZÀ-ÿ0-9.\s'-]{3,50}$/
+
+    if(localidadRegex.test(localidad) === false) {
+        errores.push("La localidad no es válida.")
+    }
+}
+
+function validarDireccion(direccion, errores) {
+    const direccionRegex = /^[a-zA-ZÀ-ÿ0-9.\s',#-]{5,100}$/
+
+    if(direccionRegex.test(direccion) === false) {
+        errores.push("La dirección no es válida.")
+    }
+}
+
+function validarCodigoPostal(codigoPostal, errores) {
+    const codigoPostalRegex = /^([0-9]{4}|[A-Z][0-9]{4}[A-Z]{3})$/i
+    if(codigoPostalRegex.test(codigoPostal) === false) {
+        errores.push("El código postal no es válido")
+    }
+ }
+
+function validarCamposFormularioContacto(datos) {
     const errores = []
-    validarNombre(nombre, errores)
-    validarEmail(email, errores)
-    validarTelefono(telefono, errores)
-    validarComentario(comentario, errores)
+    validarNombre(datos.nombre, errores)
+    validarEmail(datos.email, errores)
+    validarComentario(datos.comentario, errores)
 
     return errores
 }
 
-export {validarCampos}
+function validarCamposFormularioCarrito(datos, esEnvio) {
+    const errores = []
+    validarNombre(datos.nombreApellido, errores)
+    validarEmail(datos.email, errores)
+
+    if(esEnvio) {
+        validarLocalidad(datos.localidad, errores)
+        validarDireccion(datos.direccion, errores)
+        validarCodigoPostal(datos.codigoPostal, errores)
+    }
+
+    return errores
+}
+
+export {validarCamposFormularioContacto, validarCamposFormularioCarrito}

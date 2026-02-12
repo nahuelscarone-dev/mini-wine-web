@@ -42,9 +42,7 @@
                 </div>
                 
                 <form class="formulario" id="formulario-contacto">
-
-                    <p class="formulario__errores" id="formulario__errores"></p>
-                    
+          
                     <label class="formulario__label" for="id-nombre">Nombre
                         <input class="formulario__campo" id="id-nombre" name="nombre" type="text" required>
                     </label>
@@ -53,13 +51,9 @@
                         <input class="formulario__campo" id="id-email" name="email" type="email" placeholder="ejemplo@email.com" required> 
                     </label>
 
-                    <label class="formulario__label" for="id-telefono">Teléfono
-                        <input class="formulario__campo" id="id-telefono" name="telefono" type="tel" placeholder="+54 9 11 1234-5678" required>
-                    </label>
-
                     <label class="formulario__label" for="id-motivo">Motivo de contacto
                         <select class="formulario__campo" name="motivo" id="id-motivo" required>
-                            <option disabled selected>---</option>
+                            <option disabled selected>Seleccione una opción</option>
                             <option>Quiero obtener los precios mayoristas</option>
                             <option>Quiero trabajar con Mini Wine</option>
                             <option>Otra consulta</option>
@@ -73,6 +67,8 @@
                     <button class="boton--formulario boton--whatsapp boton" type="submit">Enviar por WhatsApp
                         <img src="./recursos/imagenes/icono-whatsapp-boton.svg" alt="">
                     </button>
+
+                    <p class="errores" id="errores"></p>
                 </form>
             </section>
 

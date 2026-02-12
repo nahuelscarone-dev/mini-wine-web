@@ -14,6 +14,10 @@ function crearPlantillaMensajeContacto(datos) {
     return mensajeContacto
 }
 
+function crearPlantillaMensajeCarrito() {
+
+}
+
 function crearLinkMensajeWhatsapp(mensaje, numeroTelefono) {
 
     const mensajeCodificado = encodeURIComponent(mensaje)

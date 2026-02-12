@@ -1,6 +1,7 @@
 import { obtenerDatos } from "../modelos/datos.js"
-import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio } from "../vistas/renderizado.js"
+import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, cambiarVisibilidadCamposEnvio, mostrarMensajeError } from "../vistas/renderizado.js"
 import { agregarAlCarrito, eliminarDelCarrito, actualizarCantidad, obtenerCarrito } from "../modelos/carrito.js"
+import {validarCamposFormularioCarrito } from "../modelos/validacion.js"
 
 const datos = await obtenerDatos("./datos/catalogo.json")
 const datosMetodosPago = await obtenerDatos("./datos/metodos-pago.json")
@@ -19,6 +20,10 @@ const $spanCantidadTotal = document.getElementById("carrito-titulo-cantidad")
 const $spanPrecioTotal = document.getElementById("carrito-precio-total")
 const $contadorFlotante = document.getElementById("carrito-contador")
 const $selectMetodoPago = document.getElementById("metodo-pago")
+const $inputsEntrega = document.querySelectorAll(".carrito__input-radio")
+const $camposEnvio = document.getElementById("campos-envio")
+const $formularioCarrito = document.getElementById("carrito-formulario")
+const $contenedorErrores = document.getElementById("errores")
 
 $filtroPresentacion.addEventListener("change", () => {
     controlSelect()
@@ -37,6 +42,35 @@ $dialogCarrito.addEventListener("click", (event) => {
         ocultarCarrito($dialogCarrito)
     }
 })
+
+$inputsEntrega.forEach(elemento => {
+    elemento.addEventListener("change", manejarVisibilidadCamposEnvio)
+})
+
+$formularioCarrito.addEventListener("submit", (event) => {
+    event.preventDefault()
+
+    const entrega = document.querySelector(".carrito__input-radio:checked").value
+    const metodoPago = document.getElementById("metodo-pago").value
+    const nombreApellido = document.getElementById("nombre-apellido").value.trim()
+    const email = document.getElementById("email").value.trim()
+    const provincia = document.getElementById("provincia").value
+    const localidad = document.getElementById("localidad").value.trim()
+    const direccion = document.getElementById("direccion").value.trim()
+    const codigoPostal = document.getElementById("cp").value.trim()
+
+    const datos = {entrega, metodoPago, nombreApellido, email, provincia, localidad, direccion, codigoPostal}
+
+    const errores = validarCamposFormularioCarrito(datos, entrega === "envio")
+
+    console.log(errores)
+
+    mostrarMensajeError($contenedorErrores, errores)
+
+    if(errores.length === 0) {
+        
+    }
+}) 
 
 
 function actualizarVistaCarrito() {
@@ -99,6 +133,11 @@ function agregarListenersBotonesCarrito() {
             actualizarVistaCarrito()
         })
     })
+}
+
+function manejarVisibilidadCamposEnvio(evento) {
+    const esEnvio = evento.target.id === "boton-envio"
+    cambiarVisibilidadCamposEnvio($camposEnvio, esEnvio)
 }
 
 function filtrarProductos() {
