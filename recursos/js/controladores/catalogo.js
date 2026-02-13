@@ -2,6 +2,7 @@ import { obtenerDatos } from "../modelos/datos.js"
 import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, cambiarVisibilidadCamposEnvio, mostrarMensajeError } from "../vistas/renderizado.js"
 import { agregarAlCarrito, eliminarDelCarrito, actualizarCantidad, obtenerCarrito } from "../modelos/carrito.js"
 import {validarCamposFormularioCarrito } from "../modelos/validacion.js"
+import { crearLinkMensajeWhatsapp, crearPlantillaMensajeCarrito } from "../modelos/mensaje.js"
 
 const datos = await obtenerDatos("./datos/catalogo.json")
 const datosMetodosPago = await obtenerDatos("./datos/metodos-pago.json")
@@ -10,6 +11,8 @@ const $contenedor = document.getElementById("seccion-productos")
 const $filtroPresentacion = document.getElementById("id-presentacion")
 const $filtroTipoVino = document.getElementById("id-tipo-vino") 
 const $filtroBodega= document.getElementById("id-bodega")
+
+const numeroWhatsApp = "5493518519953" 
 
 //Carrito
 const $dialogCarrito = document.getElementById("carrito")
@@ -48,7 +51,11 @@ $inputsEntrega.forEach(elemento => {
 })
 
 $formularioCarrito.addEventListener("submit", (event) => {
+    
     event.preventDefault()
+
+    const productos = obtenerCarrito()
+    if(productos.length === 0) return
 
     const entrega = document.querySelector(".carrito__input-radio:checked").value
     const metodoPago = document.getElementById("metodo-pago").value
@@ -59,16 +66,24 @@ $formularioCarrito.addEventListener("submit", (event) => {
     const direccion = document.getElementById("direccion").value.trim()
     const codigoPostal = document.getElementById("cp").value.trim()
 
-    const datos = {entrega, metodoPago, nombreApellido, email, provincia, localidad, direccion, codigoPostal}
+    const datos = { productos, entrega, metodoPago, nombreApellido, email, provincia, localidad, direccion, codigoPostal}
 
-    const errores = validarCamposFormularioCarrito(datos, entrega === "envio")
+    //si el valor de la variable entrega es literalmente envío, entonces esEnvío es true, si no false
+    const esEnvio = entrega === 'envío'
+    const errores = validarCamposFormularioCarrito(datos, esEnvio)
 
     console.log(errores)
+
 
     mostrarMensajeError($contenedorErrores, errores)
 
     if(errores.length === 0) {
         
+        const textoMensaje = crearPlantillaMensajeCarrito(datos)
+
+        const urlWhatsApp = crearLinkMensajeWhatsapp(textoMensaje, numeroWhatsApp)
+
+         window.open(urlWhatsApp, "_blank")
     }
 }) 
 
