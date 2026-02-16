@@ -1,5 +1,5 @@
 import { obtenerDatos } from "../modelos/datos.js"
-import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, cambiarVisibilidadCamposEnvio, mostrarMensajeError } from "../vistas/renderizado.js"
+import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, mostrarMensajeError, cambiarVisibilidadElementosCarrito } from "../vistas/renderizado.js"
 import { agregarAlCarrito, eliminarDelCarrito, actualizarCantidad, obtenerCarrito } from "../modelos/carrito.js"
 import {validarCamposFormularioCarrito } from "../modelos/validacion.js"
 import { crearLinkMensajeWhatsapp, crearPlantillaMensajeCarrito } from "../modelos/mensaje.js"
@@ -10,7 +10,7 @@ const datosMetodosPago = await obtenerDatos("./datos/metodos-pago.json")
 const $contenedor = document.getElementById("seccion-productos")
 const $filtroPresentacion = document.getElementById("id-presentacion")
 const $filtroTipoVino = document.getElementById("id-tipo-vino") 
-const $filtroBodega= document.getElementById("id-bodega")
+const $filtroBodega = document.getElementById("id-bodega")
 
 const numeroWhatsApp = "5493518519953" 
 
@@ -23,10 +23,14 @@ const $spanCantidadTotal = document.getElementById("carrito-titulo-cantidad")
 const $spanPrecioTotal = document.getElementById("carrito-precio-total")
 const $contadorFlotante = document.getElementById("carrito-contador")
 const $selectMetodoPago = document.getElementById("metodo-pago")
-const $inputsEntrega = document.querySelectorAll(".carrito__input-radio")
+const $inputsEntrega = document.querySelectorAll(".carrito__boton-entrega")
+const $fieldsetEntrega = document.getElementById("fieldset-entrega")
 const $camposEnvio = document.getElementById("campos-envio")
+const $contenedorDatosPedido = document.getElementById("contenedor-datos-pedido")
 const $formularioCarrito = document.getElementById("carrito-formulario")
 const $contenedorErrores = document.getElementById("errores")
+const $footerCarrito = document.getElementById("carrito-footer")
+const $botonWspp = document.getElementById("boton-whatsapp")
 
 $filtroPresentacion.addEventListener("change", () => {
     controlSelect()
@@ -47,7 +51,10 @@ $dialogCarrito.addEventListener("click", (event) => {
 })
 
 $inputsEntrega.forEach(elemento => {
-    elemento.addEventListener("change", manejarVisibilidadCamposEnvio)
+    elemento.addEventListener("change", (evento) => {
+        const carrito = obtenerCarrito()
+        cambiarVisibilidadElementosCarrito(carrito, $formularioCarrito, $footerCarrito, $botonWspp, $fieldsetEntrega, $camposEnvio, $contenedorDatosPedido)
+    })
 })
 
 $formularioCarrito.addEventListener("submit", (event) => {
@@ -57,7 +64,7 @@ $formularioCarrito.addEventListener("submit", (event) => {
     const productos = obtenerCarrito()
     if(productos.length === 0) return
 
-    const entrega = document.querySelector(".carrito__input-radio:checked").value
+    const entrega = document.querySelector(".carrito__boton-entrega:checked").value
     const metodoPago = document.getElementById("metodo-pago").value
     const nombreApellido = document.getElementById("nombre-apellido").value.trim()
     const email = document.getElementById("email").value.trim()
@@ -68,12 +75,10 @@ $formularioCarrito.addEventListener("submit", (event) => {
 
     const datos = { productos, entrega, metodoPago, nombreApellido, email, provincia, localidad, direccion, codigoPostal}
 
-    //si el valor de la variable entrega es literalmente envío, entonces esEnvío es true, si no false
-    const esEnvio = entrega === 'envío'
+    const esEnvio = entrega === 'envio'
     const errores = validarCamposFormularioCarrito(datos, esEnvio)
 
     console.log(errores)
-
 
     mostrarMensajeError($contenedorErrores, errores)
 
@@ -92,6 +97,8 @@ function actualizarVistaCarrito() {
     const carrito = obtenerCarrito()
 
     renderizarCarrito(carrito, $contenedorProductos, $spanCantidadTotal, $spanPrecioTotal, $contadorFlotante)
+
+    cambiarVisibilidadElementosCarrito(carrito, $formularioCarrito, $footerCarrito, $botonWspp,   $fieldsetEntrega, $camposEnvio, $contenedorDatosPedido)
 
     agregarListenersBotonesCarrito()
 }
@@ -148,11 +155,6 @@ function agregarListenersBotonesCarrito() {
             actualizarVistaCarrito()
         })
     })
-}
-
-function manejarVisibilidadCamposEnvio(evento) {
-    const esEnvio = evento.target.id === "boton-envio"
-    cambiarVisibilidadCamposEnvio($camposEnvio, esEnvio)
 }
 
 function filtrarProductos() {

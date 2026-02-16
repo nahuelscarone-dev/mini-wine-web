@@ -159,24 +159,49 @@ function mostrarMensajeVacio(contenedor, titulo, texto) {
     `
 }
 
-function cambiarVisibilidadCamposEnvio($camposEnvio, debeMostrarse) {
-    if(debeMostrarse) {
-        $camposEnvio.classList.remove("ocultar-campos-envio")
+function cambiarVisibilidadElementosCarrito(productosCarrito, $formulario, $footer, $botonWspp,$fieldsetEntrega, $camposEnvio, $contenedorDatosPedido) {
+
+    let esEnvio = false
+
+    if(productosCarrito.length !== 0) {
+        $footer.classList.remove("ocultar-elemento-carrito")
+        $formulario.classList.remove("ocultar-elemento-carrito")
+
+        const $botonEntregaSeleccionado = $fieldsetEntrega.querySelector(".carrito__boton-entrega:checked")
         
+        if($botonEntregaSeleccionado) {
+            
+            $contenedorDatosPedido.classList.remove("ocultar-elemento-carrito")
+            $botonWspp.classList.remove("ocultar-elemento-carrito")
+            
+            esEnvio = $botonEntregaSeleccionado.value === 'envio'
+
+            if(esEnvio) {
+                $camposEnvio.classList.remove("ocultar-elemento-carrito")
+
+            } else {
+                $camposEnvio.classList.add("ocultar-elemento-carrito")
+            }
+
+        } else {
+            $contenedorDatosPedido.classList.add("ocultar-elemento-carrito")
+            $botonWspp.classList.add("ocultar-elemento-carrito")            
+        }
+
     } else {
-        $camposEnvio.classList.add("ocultar-campos-envio")
+        $formulario.classList.add("ocultar-elemento-carrito")
+        $footer.classList.add("ocultar-elemento-carrito")
+
+        const $botonesEntrega = $fieldsetEntrega.querySelectorAll(".carrito__boton-entrega")
+        $botonesEntrega.forEach(boton => boton.checked = false)
     }
 
-    const $inputsEnvio = $camposEnvio.querySelectorAll("input, select")
+    const $inputsEnvio = $camposEnvio.querySelectorAll('input, select');
 
     $inputsEnvio.forEach(elemento => {
-        elemento.required = debeMostrarse
-        
-        if(!debeMostrarse) {
-            elemento.value = ""
-        }
+        elemento.required = esEnvio
     })
 }
 
 
-export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadCamposEnvio}
+export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadElementosCarrito}

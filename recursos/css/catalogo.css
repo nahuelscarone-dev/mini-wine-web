@@ -360,14 +360,14 @@
     background-color: lightgray;
 }
 
-.carrito__radio-label:has(.carrito__input-radio:checked) {
+.carrito__radio-label:has(.carrito__boton-entrega:checked) {
     background: none;
     border: 2px solid var(--rojo);
     color: var(--rojo);
 
 }
 
-.carrito__input-radio {
+.carrito__boton-entrega {
     display: none;
 }
 
@@ -432,6 +432,10 @@
 }
 
 .ocultar-campos-envio {
+    display: none;
+}
+
+.ocultar-elemento-carrito {
     display: none;
 }
 

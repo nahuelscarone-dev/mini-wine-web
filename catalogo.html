@@ -99,80 +99,83 @@
                 <div class="carrito__contenedor-formulario">
                     <form class="carrito__formulario" id="carrito-formulario">
 
-                        <fieldset class="carrito__fieldset carrito__fieldset--entrega">
+                        <fieldset class="carrito__fieldset carrito__fieldset--entrega" id="fieldset-entrega">
                             <legend class="carrito__legend">Método de entrega</legend>
 
                             <label for="boton-retiro" class="carrito__radio-label">Retiro (Calandria 667)
-                                <input type="radio" id="boton-retiro" name="entrega" class="carrito__input-radio" value="retiro">
+                                <input type="radio" id="boton-retiro" name="entrega" class="carrito__boton-entrega" value="retiro">
                             </label>
 
                             <label for="boton-envio" class="carrito__radio-label">Envío
-                                <input type="radio" id="boton-envio" name="entrega"  class="carrito__input-radio" value="envio">
+                                <input type="radio" id="boton-envio" name="entrega"  class="carrito__boton-entrega" value="envio">
                             </label>
                         </fieldset>
 
-                        <label for="metodo-pago" class="carrito__label"> Método de pago
-                            <select id="metodo-pago" class="carrito__input" required></select>
-                        </label>
-
-                        <label for="nombre-apellido" class="carrito__label"> Nombre y apellido
-                            <input type="text" id="nombre-apellido" class="carrito__input" required>
-                        </label>
-
-                        <label for="email" class="carrito__label">Correo electrónico
-                            <input type="email" id="email" class="carrito__input" required>
-                        </label>
-
-                        <div id="campos-envio">
-                            <label for="provincia" class="carrito__label"> Provincia
-                                <select class="carrito__input" name="provincia" id="provincia" required>
-                                    <option value="" selected disabled default>Seleccione una opción</option>
-                                    <option value="Buenos Aires">Buenos Aires</option>
-                                    <option>Catamarca</option>
-                                    <option>Chaco</option>
-                                    <option>Chubut</option>
-                                    <option>Ciudad Autónoma de Buenos Aires (CABA)</option>
-                                    <option>Córdoba</option>
-                                    <option>Corrientes</option>
-                                    <option>Entre Ríos</option>
-                                    <option>Formosa</option>
-                                    <option>Jujuy</option>
-                                    <option>La Pampa</option>
-                                    <option>La Rioja</option>
-                                    <option>Mendonza</option>
-                                    <option>Misiones</option>
-                                    <option>Neuquén</option>
-                                    <option>Río Negro</option>
-                                    <option>Salta</option>
-                                    <option>San Juan</option>
-                                    <option>San Luis</option>
-                                    <option>Santa Cruz</option>
-                                    <option>Santa Fe</option>
-                                    <option>Santiago del Estero</option>
-                                    <option>Tierra del Fuego</option>
-                                    <option>Tucumán</option>
-                                </select>
+                        <div id="contenedor-datos-pedido">
+                            <label for="metodo-pago" class="carrito__label"> Método de pago
+                                <select id="metodo-pago" class="carrito__input" required></select>
                             </label>
 
-                            <label for="localidad" class="carrito__label"> Localidad
-                                <input type="text" id="localidad" class="carrito__input">
+                            <label for="nombre-apellido" class="carrito__label"> Nombre y apellido
+                                <input type="text" id="nombre-apellido" class="carrito__input" required>
                             </label>
 
-                            <label for="direccion" class="carrito__label"> Dirección (calle, altura, piso y departamento)
-                                <input type="text" id="direccion" class="carrito__input" placeholder="Av. Rivadavia 123, 2do B">
+                            <label for="email" class="carrito__label">Correo electrónico
+                                <input type="email" id="email" class="carrito__input" required>
                             </label>
-                            
-                            <label for="cp" class="carrito__label"> Código postal / Código postal argentino
-                                <input type="text" id="cp" class="carrito__input">
-                            </label>
+
+                            <div id="campos-envio">
+                                <label for="provincia" class="carrito__label"> Provincia
+                                    <select class="carrito__input" name="provincia" id="provincia" required>
+                                        <option value="" selected disabled default>Seleccione una opción</option>
+                                        <option value="Buenos Aires">Buenos Aires</option>
+                                        <option>Catamarca</option>
+                                        <option>Chaco</option>
+                                        <option>Chubut</option>
+                                        <option>Ciudad Autónoma de Buenos Aires (CABA)</option>
+                                        <option>Córdoba</option>
+                                        <option>Corrientes</option>
+                                        <option>Entre Ríos</option>
+                                        <option>Formosa</option>
+                                        <option>Jujuy</option>
+                                        <option>La Pampa</option>
+                                        <option>La Rioja</option>
+                                        <option>Mendonza</option>
+                                        <option>Misiones</option>
+                                        <option>Neuquén</option>
+                                        <option>Río Negro</option>
+                                        <option>Salta</option>
+                                        <option>San Juan</option>
+                                        <option>San Luis</option>
+                                        <option>Santa Cruz</option>
+                                        <option>Santa Fe</option>
+                                        <option>Santiago del Estero</option>
+                                        <option>Tierra del Fuego</option>
+                                        <option>Tucumán</option>
+                                    </select>
+                                </label>
+
+                                <label for="localidad" class="carrito__label"> Localidad
+                                    <input type="text" id="localidad" class="carrito__input">
+                                </label>
+
+                                <label for="direccion" class="carrito__label"> Dirección (calle, altura, piso y departamento)
+                                    <input type="text" id="direccion" class="carrito__input" placeholder="Av. Rivadavia 123, 2do B">
+                                </label>
+                                
+                                <label for="cp" class="carrito__label"> Código postal / Código postal argentino
+                                    <input type="text" id="cp" class="carrito__input">
+                                </label>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </div>
 
-            <footer class="carrito__footer">
+            <footer class="carrito__footer" id="carrito-footer">
                 <p class="carrito__total">Total productos: <span id="carrito-precio-total"></span></p>
-                <button type="submit" form="carrito-formulario" class="boton boton--whatsapp"> Continuar pedido por WhatsApp
+                <button type="submit" form="carrito-formulario" class="boton boton--whatsapp" id="boton-whatsapp"> Continuar pedido por WhatsApp
                     <img class="icono-whatsapp" src="./recursos/imagenes/icono-whatsapp-boton.svg" alt="">
                 </button>
                 <p class="errores" id="errores"></p>                
