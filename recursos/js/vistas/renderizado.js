@@ -5,7 +5,7 @@ function renderizarCatalogo(arreglo, $contenedor) {
         const HTMLproducto = `
 
             <article class="tarjeta-producto">
-                <img class="tarjeta-producto__imagen" src="${element.imagen.src}" alt="${element.imagen.alt}">
+                <img class="tarjeta-producto__imagen" width="100" height="100" src="${element.imagen.src}" alt="${element.imagen.alt}">
 
                 <div class="tarjeta-producto__informacion">
                     <h2 class="tarjeta-producto__titulo">${element.nombre}</h2>
@@ -145,7 +145,6 @@ function mostrarMensajeError(contenedorErrores, errores) {
 }
 
 function mostrarMensajeVacio(contenedor, titulo, texto) {
-    contenedor.innerHTML = ""
 
     contenedor.innerHTML = `
         <div class="mensaje-sin-resultados">

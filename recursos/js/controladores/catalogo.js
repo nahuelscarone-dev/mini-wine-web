@@ -1,10 +1,12 @@
 import { obtenerDatos } from "../modelos/datos.js"
-import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, mostrarMensajeError, cambiarVisibilidadElementosCarrito } from "../vistas/renderizado.js"
 import { agregarAlCarrito, eliminarDelCarrito, actualizarCantidad, obtenerCarrito } from "../modelos/carrito.js"
 import {validarCamposFormularioCarrito } from "../modelos/validacion.js"
 import { crearLinkMensajeWhatsapp, crearPlantillaMensajeCarrito } from "../modelos/mensaje.js"
+import { filtrarProductos } from "../modelos/filtros.js"
 
-const datos = await obtenerDatos("./datos/catalogo.json")
+import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, mostrarMensajeError, cambiarVisibilidadElementosCarrito } from "../vistas/renderizado.js"
+
+const datosCatalogo = await obtenerDatos("./datos/catalogo.json")
 const datosMetodosPago = await obtenerDatos("./datos/metodos-pago.json")
 
 const $contenedor = document.getElementById("seccion-productos")
@@ -34,11 +36,11 @@ const $botonWspp = document.getElementById("boton-whatsapp")
 
 $filtroPresentacion.addEventListener("change", () => {
     controlSelect()
-    filtrarProductos()
+    aplicarFiltrado()
 })
 
-$filtroTipoVino.addEventListener("change", filtrarProductos)
-$filtroBodega.addEventListener("change", filtrarProductos)
+$filtroTipoVino.addEventListener("change", aplicarFiltrado)
+$filtroBodega.addEventListener("change", aplicarFiltrado)
 
 $btnAbrirCarrito.addEventListener("click", () => mostrarCarrito($dialogCarrito))
 
@@ -116,7 +118,7 @@ function agregarListenersBotonesCatalogo() {
             const idProducto = e.currentTarget.dataset.id
             // 4. Buscar el objeto producto completo en nuestro array "datos"
             // Usamos "==" para comparar por si el ID es número y el dataset es string
-            const productoSeleccionado = datos.find(producto => producto.id == idProducto)
+            const productoSeleccionado = datosCatalogo.find(producto => producto.id == idProducto)
 
             // 5. Si encontramos el producto, llamamos a la función del carrito
             if (productoSeleccionado) {
@@ -157,35 +159,12 @@ function agregarListenersBotonesCarrito() {
     })
 }
 
-function filtrarProductos() {
-
+function aplicarFiltrado() {
     const presentacionElegida = $filtroPresentacion.value
     const tipoVinoElegido = $filtroTipoVino.value
     const bodegaElegida = $filtroBodega.value
 
-    let datosFiltrados = [...datos]
-
-    //packs = -1, individual= 1, todos= 0 
-    if(presentacionElegida !== "todos") {
-
-        if(presentacionElegida === -1){
-            datosFiltrados = datosFiltrados.filter(producto=>producto.presentacion>1
-            )
-        }
-        else{datosFiltrados = datosFiltrados.filter(
-            producto => producto.presentacion === presentacionElegida
-        )}
-    }
-
-    if(tipoVinoElegido !== "todos") {
-        datosFiltrados = datosFiltrados.filter(
-            producto => producto.tipo === tipoVinoElegido
-        )
-    }
-
-    if(bodegaElegida !== "todos"){
-        datosFiltrados = datosFiltrados.filter(producto=>producto.bodega == bodegaElegida)
-    }
+    const datosFiltrados = filtrarProductos(datosCatalogo, presentacionElegida, tipoVinoElegido, bodegaElegida)
 
     if (datosFiltrados.length === 0) {
         mostrarMensajeVacio($contenedor, "No se encontraron productos", "Prueba seleccionando otra bodega o tipo de vino.")
@@ -208,9 +187,9 @@ function controlSelect() {
     }
 }
 
-cargarFiltroCatalogo(datos, $filtroPresentacion, "Todos los productos", "presentacion")
-cargarFiltroCatalogo(datos, $filtroTipoVino, "Todos los tipos", "tipo")
-cargarFiltroCatalogo(datos, $filtroBodega, "Todas las bodegas", "bodega")
+cargarFiltroCatalogo(datosCatalogo, $filtroPresentacion, "Todos los productos", "presentacion")
+cargarFiltroCatalogo(datosCatalogo, $filtroTipoVino, "Todos los tipos", "tipo")
+cargarFiltroCatalogo(datosCatalogo, $filtroBodega, "Todas las bodegas", "bodega")
 cargarSelectMetodoPago(datosMetodosPago, $selectMetodoPago)
-filtrarProductos()
+aplicarFiltrado()
 actualizarVistaCarrito()
