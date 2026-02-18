@@ -4,7 +4,7 @@ import {validarCamposFormularioCarrito } from "../modelos/validacion.js"
 import { crearLinkMensajeWhatsapp, crearPlantillaMensajeCarrito } from "../modelos/mensaje.js"
 import { filtrarProductos } from "../modelos/filtros.js"
 
-import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, mostrarMensajeError, cambiarVisibilidadElementosCarrito } from "../vistas/renderizado.js"
+import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, mostrarMensajeError, cambiarVisibilidadElementosCarrito, ocultarMensajeError } from "../vistas/renderizado.js"
 
 const datosCatalogo = await obtenerDatos("./datos/catalogo.json")
 const datosMetodosPago = await obtenerDatos("./datos/metodos-pago.json")
@@ -56,6 +56,7 @@ $inputsEntrega.forEach(elemento => {
     elemento.addEventListener("change", (evento) => {
         const carrito = obtenerCarrito()
         cambiarVisibilidadElementosCarrito(carrito, $formularioCarrito, $footerCarrito, $botonWspp, $fieldsetEntrega, $camposEnvio, $contenedorDatosPedido)
+        ocultarMensajeError($contenedorErrores)
     })
 })
 
@@ -90,7 +91,7 @@ $formularioCarrito.addEventListener("submit", (event) => {
 
         const urlWhatsApp = crearLinkMensajeWhatsapp(textoMensaje, numeroWhatsApp)
 
-         window.open(urlWhatsApp, "_blank")
+        window.open(urlWhatsApp, "_blank")
     }
 }) 
 
@@ -127,6 +128,7 @@ function agregarListenersBotonesCatalogo() {
                 // import { abrirCarrito } from "./carrito.js"
                 // abrirCarrito()
                 actualizarVistaCarrito()
+                ocultarMensajeError($contenedorErrores)
             }
         })
     })

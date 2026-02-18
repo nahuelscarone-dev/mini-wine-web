@@ -144,6 +144,11 @@ function mostrarMensajeError(contenedorErrores, errores) {
     }
 }
 
+function ocultarMensajeError(contenedorErrores) {
+    contenedorErrores.style.display = "none"
+    contenedorErrores.innerHTML = ""
+}
+
 function mostrarMensajeVacio(contenedor, titulo, texto) {
 
     contenedor.innerHTML = `
@@ -203,4 +208,4 @@ function cambiarVisibilidadElementosCarrito(productosCarrito, $formulario, $foot
 }
 
 
-export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadElementosCarrito}
+export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadElementosCarrito, ocultarMensajeError}
