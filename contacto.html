@@ -9,6 +9,8 @@
     <title>Mini Wine - Contacto</title>
 </head>
 <body class="cuerpo">
+    <a href="#contenido-principal" class="saltar-contenido">Saltar al contenido principal</a>
+
      <header class="cabecera">
         <a href="./">
             <img class="cabecera__logotipo" src="./recursos/imagenes/logotipo-miniwine.webp" alt="Logotipo de Mini Wine"  width="100px">
@@ -23,15 +25,15 @@
             </ul>
         </nav>
 
-        <button class="navegacion__boton" id="navegacion__boton">
-            <img class="navegacion__icono" id="navegacion__icono" src="./recursos/imagenes/icono menú.svg" alt="Ícono del menú">   
+        <button class="navegacion__boton" id="navegacion__boton" aria-expanded="false" aria-controls="navegacion" aria-label="Abrir menú de navegación">
+            <img class="navegacion__icono" id="navegacion__icono" src="./recursos/imagenes/icono menú.svg" alt="" aria-hidden="true">   
         </button>
         
         <div class="overlay-menu" id="overlay-menu">
         </div>
     </header>
 
-    <main class="principal principal--contacto">
+    <main class="principal principal--contacto" id="contenido-principal">
 
         <div class="contenedor-contenido-principal">
             <section class="seccion-formulario">
@@ -65,10 +67,10 @@
                     </label>
 
                     <button class="boton--formulario boton--whatsapp boton" type="submit">Enviar por WhatsApp
-                        <img src="./recursos/imagenes/icono-whatsapp-boton.svg" alt="">
+                        <img src="./recursos/imagenes/icono-whatsapp-boton.svg" alt="" aria-hidden="true">
                     </button>
 
-                    <p class="errores" id="errores"></p>
+                    <p class="errores" id="errores" role="alert" aria-live="assertive"></p>
                 </form>
             </section>
 

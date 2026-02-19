@@ -63,12 +63,12 @@ function renderizarCarrito(carrito, contenedorProductos, spanCantidadTotal, span
             </div>
             <div class="carrito-tarjeta__controles">
                 <div class="carrito-tarjeta__cantidad">
-                    <button class="carrito-tarjeta__boton-cantidad" data-accion="restar" data-id="${producto.id}">-</button>
-                    <span class="carrito-tarjeta__cantidad-valor">${producto.cantidad}</span>
-                    <button class="carrito-tarjeta__boton-cantidad" data-accion="sumar" data-id="${producto.id}">+</button>
+                    <button class="carrito-tarjeta__boton-cantidad" aria-label="Disminuir cantidad de ${producto.nombre}" data-accion="restar" data-id="${producto.id}">-</button>
+                    <span class="carrito-tarjeta__cantidad-valor" aria-live="polite">${producto.cantidad}</span>
+                    <button class="carrito-tarjeta__boton-cantidad" aria-label="Aumentar cantidad de ${producto.nombre}" data-accion="sumar" data-id="${producto.id}">+</button>
                 </div>
-                <button class="carrito-tarjeta__boton-eliminar" data-id="${producto.id}">
-                    <img src="./recursos/imagenes/icono-borrar.svg" alt="Eliminar">
+                <button class="carrito-tarjeta__boton-eliminar" aria-label="Eliminar ${producto.nombre} del carrito" data-id="${producto.id}">
+                    <img src="./recursos/imagenes/icono-borrar.svg" alt="" alt="" aria-hidden="true">
                 </button>
             </div>
         `
