@@ -93,7 +93,6 @@
     display: flex;
     flex-direction: column;
     padding: 5%;
-    gap: 1rem;
     /* Agregado para que ocupe el alto disponible */
     flex-grow: 1;
     justify-content: space-between;

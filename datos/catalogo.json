@@ -6,7 +6,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Suave, aterciopelado y equilibrado, con notas frutales. Perfecto para acompañar con pastas rellenas, quesos semiduros y tablas gourmet.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/AA MERLOT DI CANDI.webp",
             "alt": "Botella de vino tinto Merlot de Di Candi"
@@ -19,7 +19,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Taninos firmes y carácter profundo con final persistente. Perfecto para acompañar con carnes asadas, embutidos premium y sabores ahumados.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/AA TANNAT DI CANDI.webp",
             "alt": "Botella de vino tinto Tannat de Di Candi"
@@ -32,7 +32,7 @@
         "tipo": "Blanco",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Aromas florales intensos con boca fresca y elegante. Perfecto para acompañar con quesos suaves, frutos secos y tapeos ligeros.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/AA TORRONTES DI CANDI.webp",
             "alt": "Botella de vino blanco Torrontés de Di Candi"
@@ -45,7 +45,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Complejo, equilibrado y expresivo; relleno de capas aromáticas. Perfecto para acompañar con carnes braseadas, pastas con salsas especiadas y quesos maduros.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/BB BLEND PIEDRA MORA.webp",
             "alt": "Botella de vino tinto Blend de Piedra Mora"
@@ -58,7 +58,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Jugoso, vibrante y de gran frescura natural. Perfecto para acompañar con pizzas artesanales, empanadas criollas y charcutería.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/BB BONARDA PIEDRA MORA.webp",
             "alt": "Botella de vino tinto Bonarda de Piedra Mora"
@@ -71,7 +71,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Potente, estructurado y con personalidad serrana marcada. Perfecto para acompañar con platos de cocción lenta fiambres curados y quesos intensos.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/BB TANNAT PIEDRA MORA.webp",
             "alt": "Botella de vino tinto Tannat de Piedra Mora" 
@@ -84,7 +84,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Vibrante, fresco y con una acidez refinada que realza su elegancia. Perfecto para acompañar con antipastos, pastas livianas y quesos jóvenes.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/CC BARBERA NEBBIOLO SANTOS QUIROGA.webp",
             "alt": "Botella de vino tinto Barbera de Nebbiolo de Santos Quiroga" 
@@ -97,7 +97,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Suave, equilibrado y de perfil moderno con notas frutales. Perfecto para acompañar con parrilla, risottos y picadas premium.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/CC MALBEC SANTOS QUIROGA.webp",
             "alt": "Botella de vino tinto Malbec de Santos Quiroga" 
@@ -110,7 +110,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Armonioso, profundo y sofisticado, con gran presencia en boca. Perfecto para acompañar con carnes rojas, quesos estacionados y platos especiados.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/CC TRI-VARIETAL SANTOS QUIROGA.webp",
             "alt": "Botella Trivarietal de Santos Quiroga" 
@@ -123,7 +123,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Redondo, especiado y elegante, con sutil paso por roble. Perfecto para acompañar carnes grilladas, provoleta y pastas intensas.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/DD MALBEC ROBLE SIERRA Y MONTE.webp",
             "alt": "Botella Malbec Roble de Sierra y Monte" 
@@ -136,7 +136,7 @@
         "tipo": "Tinto",
         "precio": 5500,
         "presentacion": "Individual",
-        "descripcion": "Herbal, aromático y refrescante; sello distintivo de la serranía. Perfecto para acompañar con aceitunas, quesos suaves y charcutería fina.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/DD VERMOUTH SIERRE Y MONTE.webp",
             "alt": "Botella Vermouth de Sierra y Monte" 
@@ -149,7 +149,7 @@
         "tipo": "",
         "precio": 13000,
         "presentacion": "Pack",
-        "descripcion": "Una elección curada para descubrir nuevos perfiles sin saber de antemano qué varietales llegarán. Ideal para una degustación rápida o para sumar un toque inesperado a cualquier momento.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/PACK DE 2 BLANCO.webp",
             "alt": "Pack de 4 botellas de vino" 
@@ -162,7 +162,7 @@
         "tipo": "",
         "precio": 24000,
         "presentacion": "Pack",
-        "descripcion": "Una selección pensada para recorrer distintos estilos en una sola experiencia, combinando varietales y perfiles que invitan a explorar. Perfecto para degustar con calma o compartir descubrimientos.",
+        "descripcion": "",
         "imagen": {
             "src": "./recursos/imagenes/catalogo/PACK DE 4 BLANCO.webp",
             "alt": "Pack de 4 botellas de vino" 
