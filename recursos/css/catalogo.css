@@ -1,42 +1,31 @@
-.hr {
-    height: 0.1rem;
-    width: 100%;
-    background-color: #d9d9cc;
-}
-
-.contenedor-boton {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding-top: 5rem;
-}
-
-.boton-precios-mayoristas {
-    width: 15rem;
-    background: #006bb3;
-    color: white;
-    border: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 1rem;
-    border-radius: 1rem;
-}
-
 .seccion-titulo {
     display: flex;
     flex-direction: column;
 }
 
-.seccion-titulo__titulo {
-    margin: 0;
+.seccion-titulo__parrafo {
+    text-align: center;
+}
+
+.seccion-titulo__link {
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+.seccion-titulo__link:hover {
+    color: var(--bordo);
 }
 
 .seccion-filtros {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-top: -6rem;
-    margin-bottom: -6rem;
+    margin-bottom: -4rem;
+    /* border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    padding: 2rem; */
 }
 
 .seccion-filtros__label {
