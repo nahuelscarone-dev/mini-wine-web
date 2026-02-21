@@ -38,7 +38,7 @@ $formularioContacto.addEventListener("submit", (evento) => {
 
     if(errores.length === 0) {
 
-        const textoMensaje = crearPlantillaMensajeContacto(datosFormulario)
+        const textoMensaje = crearPlantillaMensajeContacto(datos)
 
         const urlWhatsApp = crearLinkMensajeWhatsapp(textoMensaje, numeroWhatsApp)
 

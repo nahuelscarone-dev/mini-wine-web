@@ -1,15 +1,14 @@
 function crearPlantillaMensajeContacto(datos) {
 
-    const { $nombre, $email, $telefono, $motivoContacto, $comentario } = datos
+    const { nombre, email, motivoContacto, comentario } = datos
 
     const mensajeContacto = `Mensaje proveniente de *CONTACTO* del sitio de Mini Wine:
 
-    *•Motivo de contacto:* ${$motivoContacto}
-    *•Nombre*: ${$nombre}
-    *•Email*: ${$email}
-    *•Teléfono*: ${$telefono}
+    *•Motivo de contacto:* ${motivoContacto}
+    *•Nombre*: ${nombre}
+    *•Email*: ${email}
     *•Comentario*: 
-    ${$comentario}`
+    ${comentario}`
 
     return mensajeContacto
 }
