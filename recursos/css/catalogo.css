@@ -141,7 +141,8 @@
     align-items: center;
     cursor: pointer;
     z-index: 900;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--sombra-header-footer);
+    -webkit-box-shadow: var(--sombra-header-footer);
     transition: transform 0.3s ease;
 }
 
