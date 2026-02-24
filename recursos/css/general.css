@@ -243,14 +243,12 @@ header > a {
     color: var(--bordo);
 }
 
-
 .pie {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-
-    background-color: #ffffff;
+    padding: 3rem 2rem;
+    background-color: #ffffef; /* Cambiado para que coincida con el fondo crema de la foto */
     box-shadow: var(--sombra-header-footer);
     -webkit-box-shadow: var(--sombra-header-footer);
     -moz-box-shadow: var(--sombra-header-footer);
@@ -259,18 +257,43 @@ header > a {
 .pie__informacion {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center; /* <-- Magia acá: pasamos de flex-start a center */
+    font-style: normal; 
+    gap: 2.5rem;
 }
 
 .pie__link {
-    display: flex;
+display: flex;
     align-items: center;
+    gap: 1.5rem;
+    color: var(--marron);
+    transition: color 0.3s ease;
+    
+    /* LAS DOS LÍNEAS NUEVAS: */
+    width: 22rem; /* Le damos el ancho del elemento más largo (el mail) */
+    justify-content: flex-start; /* Obligamos a que ícono y texto arranquen desde la izquierda */
+}
+
+.pie__link:hover {
+    color: var(--bordo);
+}
+
+.pie__logo {
+    height: 3.3rem;
+    width: auto;
+    mix-blend-mode: multiply;
+    margin-right: 5rem;
 }
 
 .pie__icono {
-    width: 4rem;
+    width: 3rem;
+    height: 3rem;
 }
 
+.pie__texto {
+    font-size: var(--parrafo);
+    font-weight: 600;
+}
 .seccion-introduccion {
     height: var(--ajusteViewport); /* Alto del viewport - alto de la barra de navegación */
     overflow: hidden; /* Para que la iamgen no se exceda del tamaño del contenedor (elemento padre) */
@@ -343,7 +366,11 @@ header > a {
 
     .pie__informacion {
         flex-direction: row;
-        gap: 3.3rem;
+        align-items: center; /* Centra los elementos verticalmente */
+        gap: 4rem; /* Los separa más a lo ancho */
+    }
+    .pie__link {
+        width: auto; /* Le devolvemos la libertad en escritorio */
     }
 
     .navegacion {
