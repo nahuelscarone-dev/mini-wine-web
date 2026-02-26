@@ -1,6 +1,14 @@
+.seccion-historia__parrafo {
+    margin-bottom: var(--espaciado-chico);
+}
+
 .contenedor {
     display: grid;
-    gap: 2.4rem;
+    gap: var(--espaciado-medio);
+}
+
+.seccion-historia__parrafo:last-child {
+    margin-bottom: 0;
 }
 
 .articulo-mvv {
@@ -15,12 +23,13 @@
 }
 
 .mvv-informacion {
-    padding: 4rem;
+    padding: var(--padding);
     color: white;
     border-radius: 0 0 15px 15px;
 }
 
 .mvv-informacion__titulo {
+    margin-bottom: var(--espaciado-chico);
     margin-top: 0;
 }
 
