@@ -4,13 +4,13 @@
     align-items: center;
 }
 
-.seccion-productos__titulo {
+/* .seccion-productos__titulo {
     margin-bottom: 3.2rem;
-}
+} */
 
 .contenedor {
     display: grid;
-    gap: 2.4rem;
+    gap: var(--espaciado-medio);
 }
 
 .articulo-producto {
@@ -25,9 +25,13 @@
 }
 
 .producto-informacion {
-    padding: 4rem;
+    padding: var(--padding);
     color: white;
     border-radius: 0 0 15px 15px;
+}
+
+.producto-informacion__titulo {
+    margin-bottom: var(--espaciado-chico);
 }
 
 .producto-informacion--packs {
@@ -39,32 +43,32 @@
 }
 
 .boton--ver-catalogo {
-    margin-top: 4.8rem;
+    margin-top: var(--espaciado-grande);
 }
 
 .seccion-delivery__contenedor {
     /* Mantenemos tu ajuste manual si lo necesitas por el gap del main */
     display: grid;
-    gap: 2.4rem;
+    gap: var(--espaciado-medio);
 }
 
 /* LISTA DE BARRIOS */
 .seccion-delivery__lista {
     list-style: none;
-    margin: 1rem 0;   
+    margin-top: var(--espaciado-chico);   
 }
 
 .seccion-delivery__lista li {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
+    margin-bottom: var(--espaciado-chico);
+    padding-left: var(--espaciado-extra-chico);
     /* Usamos tu variable de color para el borde */
-    border-left: 4px solid var(--bordo); 
+    border-left: 0.45rem solid var(--bordo); 
 }
 
 /* MAPA*/
 
 .seccion-delivery__titulo-mapa {
-    margin-bottom: 1rem;
+    margin-bottom: var(--espaciado-chico);
 }
 
 .seccion-delivery__tarjeta-mapa {
@@ -88,7 +92,7 @@ iframe {
 }
 
 .boton--suma-tu-bodega {
-    margin-top: 4.8rem;
+    margin-top: var(--espaciado-grande);
 }
 
 /*El texto descriptivo */
