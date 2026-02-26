@@ -19,12 +19,11 @@ Tamaños de letras:
     -Subtítulos: 24px
     -Títulos: 32px
 
-Espaciados entre elementos.
-    -Espaciado extra chico: 8px;
-    -Espaciado chico: 16px;
-    -Espaciado medio: 24px;
-    -Espaciado grande: 32px; 
-    -Espaciado extra grande: 64px;
+Espaciados entre elementos:
+    -Extra chico: partes de un mismo dato (ej. un icono y su palabra, el signo "$" y el precio)
+    -Chico: elementos adentro de una misma caja, tarjeta, o contenedor.
+    -Medio: bloques distintos en la pantalla (ej. el gran título de arriba y las tarjetas de abajo, o la columna izquierda y la derecha)
+    -Grande: terminó el tema y empieza otra sección completamente nueva (ej. de Productos a Contacto)
 
 Padding:
     -24px
@@ -38,9 +37,8 @@ Padding:
     --padding: 2.4rem;
     --espaciado-extra-chico: 0.8rem;
     --espaciado-chico: 1.6rem;
-    --espaciado-medio: 2.4rem;
-    --espaciado-grande: 3.2rem; 
-    --espaciado-extra-grande: 6.4rem;
+    --espaciado-medio: 3.2rem; 
+    --espaciado-grande: 6.4rem;
 
     --titulo-sombra: 0 0 0.07em rgba(0, 0, 0, 0.30);
     --sombra-header-footer: 1px 0px 10px 1px rgba(0, 0, 0, 0.13);
@@ -71,10 +69,10 @@ body {
 .contenedor-contenido-principal {
     max-width: 120rem;
     margin: 0 auto;
-    padding: 4.8rem var(--padding);
+    padding: var(--espaciado-grande) var(--padding);
     display: flex;
     flex-direction: column;
-    gap: var(--espaciado-extra-grande);
+    gap: var(--espaciado-grande);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,13 +82,13 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2 {
     font-size: var(--titulo);
     text-align: center;
-    margin-bottom: var(--espaciado-grande);
+    margin-bottom: var(--espaciado-medio);
     text-shadow: var(--titulo-sombra);
     color: var(--bordo); 
 }
 
 h3 {
-    margin-bottom: var(--espaciado-grande); 
+    margin-bottom: var(--espaciado-medio); 
 }
 
 h3, h4 {
@@ -294,7 +292,7 @@ display: flex;
     height: 5rem;
     width: auto;
     mix-blend-mode: multiply;
-    margin-bottom: var(--espaciado-grande);
+    margin-bottom: var(--espaciado-medio);
 }
 
 .pie__icono {
@@ -382,7 +380,7 @@ display: flex;
     }
 
     .pie__logo {
-        margin-right: var(--espaciado-grande);
+        margin-right: var(--espaciado-medio);
         margin-bottom: 0;
     }
 

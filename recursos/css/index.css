@@ -10,7 +10,7 @@
 
 .contenedor {
     display: grid;
-    gap: var(--espaciado-medio);
+    gap: var(--espaciado-chico);
 }
 
 .articulo-producto {
@@ -43,26 +43,36 @@
 }
 
 .boton--ver-catalogo {
-    margin-top: var(--espaciado-grande);
+    margin-top: var(--espaciado-medio);
 }
 
 .seccion-delivery__contenedor {
-    /* Mantenemos tu ajuste manual si lo necesitas por el gap del main */
     display: grid;
     gap: var(--espaciado-medio);
+}
+
+.seccion-delivery__texto {
+    margin-bottom: var(--espaciado-chico);
 }
 
 /* LISTA DE BARRIOS */
 .seccion-delivery__lista {
     list-style: none;
-    margin-top: var(--espaciado-chico);   
 }
 
 .seccion-delivery__lista li {
-    margin-bottom: var(--espaciado-chico);
+    margin-bottom: var(--espaciado-extra-chico);
     padding-left: var(--espaciado-extra-chico);
     /* Usamos tu variable de color para el borde */
     border-left: 0.45rem solid var(--bordo); 
+}
+
+.seccion-delivery__lista li:last-child {
+    margin-bottom: 0;
+}
+
+.seccion-delivery__mensaje {
+    margin-top: var(--espaciado-chico);
 }
 
 /* MAPA*/
@@ -92,7 +102,7 @@ iframe {
 }
 
 .boton--suma-tu-bodega {
-    margin-top: var(--espaciado-grande);
+    margin-top: var(--espaciado-medio);
 }
 
 /*El texto descriptivo */

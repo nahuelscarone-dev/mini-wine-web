@@ -21,7 +21,7 @@
 .seccion-filtros {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--espaciado-chico);
     margin-bottom: -4rem;
     /* border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
