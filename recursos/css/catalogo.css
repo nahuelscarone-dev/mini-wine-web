@@ -1,3 +1,7 @@
+.contenedor-contenido-principal {
+    gap: var(--espaciado-medio);
+}
+
 .seccion-titulo {
     display: flex;
     flex-direction: column;
@@ -21,8 +25,7 @@
 .seccion-filtros {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-bottom: -4rem;
+    gap: var(--espaciado-chico);
     /* border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
     padding: 2rem; */
@@ -32,13 +35,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: var(--espaciado-extra-chico);
 }
 
 .seccion-filtros__select {
     border-radius: 3rem;
     border: 1px solid #d9d9cc;
     font-family: "Open Sans";
-    padding: 1rem;
     background-color: white;
 }
 
@@ -46,7 +49,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
     justify-content: center;
-    gap: 5rem;
+    gap: var(--espaciado-chico);
 }
 
 .tarjeta-producto {
@@ -63,26 +66,24 @@
 
 .tarjeta-producto__titulo {
     text-align: left;
-    font-size: 3.2rem;
     margin: 0;
 }
 
 .tarjeta-producto__bodega {
-    font-size: 2.4rem;
     margin: 0;
     text-shadow: var(--titulo-sombra);
     color: var(--bordo);
 }
 
 .tarjeta-producto__precio {
-    font-size: 2.4rem;
+    font-size: var(--subtitulo);
 }
 
 .tarjeta-producto__informacion {
     display: flex;
     flex-direction: column;
-    padding: 5%;
-    gap: 1rem;
+    padding: var(--padding);
+    gap: var(--espaciado-chico);
     flex-grow: 1;
     justify-content: space-between;
 }
@@ -95,18 +96,23 @@
 }
 
 .tarjeta-producto__tipo-vino {
-    font-size: 1.6rem;
+    font-size: var(--parrafo);
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     color: #777;
-    border-left: 3px solid var(--bordo);
-    padding-left: 1rem;
 }
 
 .boton--agregar-al-carrito {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tarjeta-producto__elementos-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaciado-extra-chico);
 }
 
 .tarjeta-producto__icono-carrito {
@@ -119,7 +125,6 @@
 
 .tarjeta-producto__parrafo-carrito {
     margin: 0;
-    font-size: 1.5rem;
     font-weight: 600;
     color: white; /* BLANCO: para que resalte sobre el fondo bordo */
 }
@@ -129,10 +134,10 @@
    ========================================================================== */
 .btn-flotante-carrito {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 8rem;
-    height: 8rem;
+    top: calc(var(--padding) + 8rem);
+    right: var(--padding);
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
     background-color: white;
     border: 2px solid var(--bordo);
@@ -151,8 +156,8 @@
 }
 
 .btn-flotante-icono {
-    width: 3rem;
-    height: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
 }
 
 .carrito-contador {
@@ -163,8 +168,8 @@
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    width: 3rem;
-    height: 3rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -254,15 +259,15 @@
 .carrito__productos {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2.4rem;
+    margin-bottom: var(--espaciado-medio);
 }
 
 .carrito-tarjeta {
     display: flex;
     align-items: center;
     border-bottom: 1px solid lightgray;
-    padding: 1rem 0;
-    gap: 1rem;
+    padding: var(--padding-chico) 0;
+    gap: var(--espaciado-chico);
 }
 
 .carrito-tarjeta__info {
@@ -279,8 +284,8 @@
 
 .carrito-tarjeta__boton-cantidad {
     background-color: var(--rojo);
-    width: 3rem;
-    height: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
     border-radius: 50%;
     color: white;
     border: none;
@@ -293,8 +298,8 @@
 }
 
 .carrito-tarjeta__imagen {
-    height: 8rem;
-    width: 8rem;
+    height: 7rem;
+    width: 7rem;
     object-fit: cover;
     border-radius: 1rem;
 }
@@ -311,7 +316,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: var(--espaciado-extra-chico);
 }
 
 .carrito-tarjeta__titulo {
@@ -325,9 +330,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3rem;
-    width: 3rem;
-
+    height: 2.8rem;
+    width: 2.8rem;
 }
 
 .carrito-tarjeta__boton-eliminar:hover {
@@ -335,10 +339,15 @@
     background-color: lightgray;
 }
 
+.carrito-tarjeta__boton-eliminar img {
+    height: 2rem;
+    width: 2rem;
+}
+
 .carrito__formulario {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: var(--espaciado-medio);
 }
 
 .carrito__label {
@@ -346,7 +355,7 @@
     flex-direction: column;
     font-size: var(--parrafo);
     font-weight: bold;
-    gap: 1rem;
+    gap: var(--espaciado-extra-chico);
 }
 
 .carrito__legend {
@@ -367,14 +376,13 @@
 
 .carrito__entrega-label {
     width: 100%;
-    height: 5rem;
     background-color: rgb(235, 235, 235);
     font-weight: bold;
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding:var(--padding-chico);
 }
 
 .carrito__entrega-label:hover {
@@ -396,14 +404,13 @@
 .carrito__datos-pedido, .carrito__campos-envio {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: var(--espaciado-chico);
 }
 
 .carrito__input {
-    height: 4.4rem;
     border-radius: 1rem;
     border: 1px solid lightgray;
-    padding: 1rem;
+    padding: var(--padding-chico);
     font-family: "Open Sans";
 }
 
@@ -420,12 +427,17 @@
 .carrito__footer {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: var(--espaciado-chico);
     box-shadow: var(--sombra-header-footer);
 }
 
-.carrito__header, .carrito__body, .carrito__footer {
-    padding: 2rem;
+.carrito__body {
+    padding: var(--padding-chico);
+    padding-bottom: var(--espaciado-grande);
+}
+
+.carrito__header, .carrito__footer {
+    padding: var(--padding-chico);
 }
 
 .carrito__total {
@@ -469,9 +481,30 @@
 
 @media (min-width: 768px) {
 
-}
+    .carrito__body {
+        padding: var(--padding);
+        padding-bottom: var(--espaciado-grande);
+    }
 
-@media (min-width: 768px) {}
+    .carrito__header, .carrito__footer {
+        padding: var(--padding);
+    }
+
+    .btn-flotante-carrito {
+        height: 8rem;
+        width: 8rem;
+    }
+
+    .carrito-contador {
+        height: 2.8rem;
+        width: 2.8rem;
+    }
+
+    .btn-flotante-icono {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
 
 @media (min-width: 630px) {
     .seccion-filtros {
