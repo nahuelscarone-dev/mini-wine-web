@@ -15,18 +15,22 @@
     
 /* 
 Tamaños de letras:
-    -Párrafos: 16px 
-    -Subtítulos: 24px
-    -Títulos: 32px
+    Escala: Múltiplos de 4
+        -Párrafos: 16px 
+        -Subtítulos: 24px
+        -Títulos: 32px
+
+Padding:
+    Escala: Múltiplos de 8 (Excepción para botones e inputs, con múltiplos de 4)
 
 Espaciados entre elementos:
+    Escala: Múltiplos de 8
     -Extra chico: partes de un mismo dato (ej. un icono y su palabra, el signo "$" y el precio)
     -Chico: elementos adentro de una misma caja, tarjeta, o contenedor.
     -Medio: bloques distintos en la pantalla (ej. el gran título de arriba y las tarjetas de abajo, o la columna izquierda y la derecha)
     -Grande: terminó el tema y empieza otra sección completamente nueva (ej. de Productos a Contacto)
 
-Padding:
-    -24px
+
 */
 
     --navegacion: 1.6rem;
@@ -35,6 +39,7 @@ Padding:
     --parrafo: 1.6rem;
     --hero: 2rem;
     --padding: 2.4rem;
+    --padding-chico: 1.2rem;
     --espaciado-extra-chico: 0.8rem;
     --espaciado-chico: 1.6rem;
     --espaciado-medio: 3.2rem; 
@@ -135,10 +140,10 @@ p, input, textarea, select, label, li {
     font-weight: bold;
     background-color: var(--rojo);
     color: white;
-    padding: 1.2rem var(--padding);
     border-radius: 1rem;
     border: none;
     cursor: pointer;
+    padding: var(--padding-chico) 1.6rem;  
 }
 
 .boton:hover {
@@ -151,7 +156,7 @@ p, input, textarea, select, label, li {
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
-    gap: 1rem;
+    gap: var(--espaciado-extra-chico);
 }
 
 .boton--whatsapp:hover {
@@ -172,6 +177,10 @@ button {
 header > a {
     display: flex;
     align-items: center;
+}
+
+input, select, textarea {
+    padding: var(--padding-chico) 1.6rem; 
 }
 
 .cabecera {
