@@ -246,7 +246,7 @@ input, select, textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: var(--espaciado-chico);
+    gap: 2.4rem;
     margin-top: 8rem;
     padding: var(--padding);
 }
@@ -353,7 +353,7 @@ display: flex;
     max-width: 120rem;
     text-transform: uppercase;
     font-weight: bold;
-    /* text-align: center; */
+    text-align: center;
 }
 
 .imagen-fondo {
@@ -443,5 +443,9 @@ display: flex;
 
     .overlay-menu {
         display: none;
+    }
+
+    .seccion-introduccion__parrafo {
+        text-align: left;
     }
 }
