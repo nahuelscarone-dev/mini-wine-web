@@ -57,14 +57,15 @@
 
 /* LISTA DE BARRIOS */
 .seccion-delivery__lista {
-    list-style: none;
+    /* list-style: none; */
+    list-style-position: inside;
 }
 
 .seccion-delivery__lista li {
     margin-bottom: var(--espaciado-extra-chico);
-    padding-left: var(--espaciado-extra-chico);
+    /* padding-left: var(--espaciado-extra-chico); */
     /* Usamos tu variable de color para el borde */
-    border-left: 0.45rem solid var(--bordo); 
+    /* border-left: 0.3rem solid var(--bordo);  */
 }
 
 .seccion-delivery__lista li:last-child {

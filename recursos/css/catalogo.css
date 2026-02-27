@@ -66,19 +66,17 @@
 
 .tarjeta-producto__titulo {
     text-align: left;
-    font-size: 3.2rem;
     margin: 0;
 }
 
 .tarjeta-producto__bodega {
-    font-size: var(--subtitulo);
     margin: 0;
     text-shadow: var(--titulo-sombra);
     color: var(--bordo);
 }
 
 .tarjeta-producto__precio {
-    font-size: 2.4rem;
+    font-size: var(--subtitulo);
 }
 
 .tarjeta-producto__informacion {
@@ -102,8 +100,6 @@
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     color: #777;
-    border-left: 3px solid var(--bordo);
-    padding-left: var(--espaciado-extra-chico);
 }
 
 .boton--agregar-al-carrito {
@@ -138,8 +134,8 @@
    ========================================================================== */
 .btn-flotante-carrito {
     position: fixed;
-    top: 9rem;
-    right: 1rem;
+    top: calc(var(--padding) + 8rem);
+    right: var(--padding);
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
@@ -160,8 +156,8 @@
 }
 
 .btn-flotante-icono {
-    width: 3rem;
-    height: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
 }
 
 .carrito-contador {
@@ -172,8 +168,8 @@
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -288,8 +284,8 @@
 
 .carrito-tarjeta__boton-cantidad {
     background-color: var(--rojo);
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.8rem;
+    height: 2.8rem;
     border-radius: 50%;
     color: white;
     border: none;
@@ -334,8 +330,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 2.4rem;
-    width: 2.4rem;
+    height: 2.8rem;
+    width: 2.8rem;
 }
 
 .carrito-tarjeta__boton-eliminar:hover {
@@ -344,14 +340,14 @@
 }
 
 .carrito-tarjeta__boton-eliminar img {
-    height: 1.6rem;
-    width: 1.6rem;
+    height: 2rem;
+    width: 2rem;
 }
 
 .carrito__formulario {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: var(--espaciado-medio);
 }
 
 .carrito__label {
@@ -494,9 +490,21 @@
         padding: var(--padding);
     }
 
-}
+    .btn-flotante-carrito {
+        height: 8rem;
+        width: 8rem;
+    }
 
-@media (min-width: 768px) {}
+    .carrito-contador {
+        height: 2.8rem;
+        width: 2.8rem;
+    }
+
+    .btn-flotante-icono {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
 
 @media (min-width: 630px) {
     .seccion-filtros {

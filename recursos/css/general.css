@@ -32,18 +32,39 @@ Espaciados entre elementos:
 
 
 */
-
+    /* Escala de 4px */
     --navegacion: 1.6rem;
-    --titulo: 3.2rem;
-    --subtitulo: 2.4rem;
     --parrafo: 1.6rem;
-    --hero: 2rem;
+    --subtitulo: 2.4rem;
+    --titulo: 2.8rem;
+    --hero: 3.2rem;
+   
+    /* Escala de 8px */
+    --padding-chico: 0.8rem;
+    --padding: 1.6rem;
+
+    /* Escala de 8 px*/
+    --espaciado-extra-chico: 0.4rem; /* Excepción con escala de 4px */
+    --espaciado-chico: 0.8rem;
+    --espaciado-medio: 1.6rem; 
+    --espaciado-grande: 4rem;
+
+    /* 
+    
+    --navegacion: 1.6rem;
+    --parrafo: 1.6rem;
+    --hero: 2rem;  
+    --subtitulo: 2.4rem;
+    --titulo: 3.2rem;
+    
     --padding: 2.4rem;
     --padding-chico: 1.2rem;
     --espaciado-extra-chico: 0.8rem;
     --espaciado-chico: 1.6rem;
     --espaciado-medio: 3.2rem; 
-    --espaciado-grande: 6.4rem;
+    --espaciado-grande: 6.4rem; 
+    
+    */
 
     --titulo-sombra: 0 0 0.07em rgba(0, 0, 0, 0.30);
     --sombra-header-footer: 1px 0px 10px 1px rgba(0, 0, 0, 0.13);
@@ -180,7 +201,7 @@ header > a {
 }
 
 input, select, textarea {
-    padding: var(--padding-chico) 1.6rem; 
+    padding: var(--padding-chico); 
 }
 
 .cabecera {
@@ -202,7 +223,7 @@ input, select, textarea {
 }
 
 .cabecera__logotipo {
-    height: 100%;
+    height: 4rem;
     width: auto;
 }
 
@@ -298,9 +319,8 @@ display: flex;
 }
 
 .pie__logo {
-    height: 5rem;
+    height: 4rem;
     width: auto;
-    mix-blend-mode: multiply;
     margin-bottom: var(--espaciado-medio);
 }
 
@@ -331,6 +351,8 @@ display: flex;
     padding: var(--padding);
     font-size: var(--hero);
     max-width: 120rem;
+    text-transform: uppercase;
+    font-weight: bold;
     /* text-align: center; */
 }
 
@@ -360,20 +382,29 @@ display: flex;
 
 /* Tablet */
 @media (min-width: 768px) {
-    /* :root {
-        --parrafo: 2.5rem; 
-        --input: 1.8rem;
-        --titulo: 5rem;
-        --subtitulo: 4rem;
-    } */
+    :root {
+
+        /* Escala de 4px */
+        --navegacion: 1.6rem;
+        --parrafo: 1.6rem;
+        --subtitulo: 2.8rem;
+        --titulo: 3.2rem;
+        --hero: 5.6rem;
+    
+        /* Escala de 8px */
+        --padding-chico: 1.6rem;
+        --padding: 2.4rem;
+
+        /* Escala de 8px */
+        --espaciado-extra-chico: 0.8rem;
+        --espaciado-chico: 1.6rem;
+        --espaciado-medio: 3.2rem; 
+        --espaciado-grande: 6.4rem;
+    }
 }
 
 /* Escritorio */
 @media (min-width: 1024px) {
-
-    /* :root {
-        --navegacion: 2rem;
-    } */
 
     .cabecera {
         justify-content: space-around;
