@@ -14,14 +14,33 @@ const datosCatalogo = jsonCatalogo.productos;
 
 // 3. Traemos los métodos de pago
 const jsonMetodosPago = await obtenerDatos("./datos/metodos-pago.json");
-const datosMetodosPago = jsonMetodosPago.metodos_pago; // Asumiendo que le pusiste ese nombre al array
+const datosMetodosPago = jsonMetodosPago.metodos_pago; 
+
+// 4. Traemos los datos globales (Textos del footer)
+const datosGlobales = await obtenerDatos("./datos/globales.json");
+
+// Inyectamos los datos en el Footer
+document.getElementById("texto-wpp-footer").textContent = datosGlobales.whatsapp_mostrar;
+document.getElementById("link-wpp-footer").href = `https://wa.me/${datosGlobales.whatsapp_numero}`;
+
+document.getElementById("texto-ig-footer").textContent = datosGlobales.instagram_usuario;
+document.getElementById("link-ig-footer").href = datosGlobales.instagram_link;
+
+document.getElementById("texto-mail-footer").textContent = datosGlobales.email;
+document.getElementById("link-mail-footer").href = `mailto:${datosGlobales.email}`;
+
+// Inyectamos las imágenes en el Footer
+document.getElementById("img-logo-footer").src = datosGlobales.logo_footer;
+document.getElementById("img-wpp-footer").src = datosGlobales.icono_wpp;
+document.getElementById("img-ig-footer").src = datosGlobales.icono_ig;
+document.getElementById("img-email-footer").src = datosGlobales.icono_email;
 
 const $contenedor = document.getElementById("seccion-productos")
 const $filtroPresentacion = document.getElementById("id-presentacion")
 const $filtroTipoVino = document.getElementById("id-tipo-vino") 
 const $filtroBodega = document.getElementById("id-bodega")
 
-const numeroWhatsApp = "5493518519953" 
+const numeroWhatsApp = datosGlobales.whatsapp_numero;
 
 //Carrito
 const $dialogCarrito = document.getElementById("carrito")

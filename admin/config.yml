@@ -9,19 +9,20 @@ media_folder: "recursos/imagenes/catalogo" # Dónde se guardan
 public_folder: "./recursos/imagenes/catalogo" # Cómo se escriben en el JSON
 
 collections:
+  # --- COLECCIÓN 1: BASE DE DATOS (PRODUCTOS Y MÉTODOS DE PAGO) ---
   - name: "base_datos"
     label: "Base de Datos de la Tienda"
     files:
       - label: "Catálogo de Productos"
         name: "productos"
-        file: "datos/catalogo.json" # OJO ACÁ: Asegurate de que esta sea la ruta correcta a tu JSON
+        file: "datos/catalogo.json" 
         fields:
-          - name: "productos" # Este es el nombre del array adentro de tu JSON
+          - name: "productos" 
             label: "Lista de Productos"
             widget: "list"
             fields:
-              - {label: "ID", name: "id", widget: "number", value_type: "int"} # Cambiado a número entero
-              - {label: "Nombre del Vino", name: "nombre", widget: "string"} # Cambiado de "titulo" a "nombre"
+              - {label: "ID", name: "id", widget: "number", value_type: "int"} 
+              - {label: "Nombre del Vino", name: "nombre", widget: "string"} 
               - {label: "Bodega", name: "bodega", widget: "string", required: false}
               - {label: "Precio", name: "precio", widget: "number", value_type: "float"}
               - {label: "Tipo de Vino", name: "tipo", widget: "string", required: false}
@@ -32,3 +33,21 @@ collections:
                 fields:
                   - {label: "Archivo de foto", name: "src", widget: "image"}
                   - {label: "Texto alternativo (Para no videntes)", name: "alt", widget: "string"}
+
+  # --- COLECCIÓN 2: TEXTOS EDITABLES DE LA PÁGININA ---
+  - name: "contenido_web"
+    label: "Contenido de la Página"
+    files:
+      - label: "Textos Globales (Pie de página y Contacto)"
+        name: "globales"
+        file: "datos/globales.json"
+        fields:
+          - {label: "Logo del Footer", name: "logo_footer", widget: "image"}
+          - {label: "Ícono de WhatsApp", name: "icono_wpp", widget: "image"}
+          - {label: "Ícono de Instagram", name: "icono_ig", widget: "image"}
+          - {label: "Ícono de Email", name: "icono_email", widget: "image"}
+          - {label: "Número de WhatsApp (Para el link, con 549)", name: "whatsapp_numero", widget: "string"}
+          - {label: "Número de WhatsApp (Para mostrar en pantalla)", name: "whatsapp_mostrar", widget: "string"}
+          - {label: "Correo Electrónico", name: "email", widget: "string"}
+          - {label: "Usuario de Instagram", name: "instagram_usuario", widget: "string"}
+          - {label: "Link de Instagram", name: "instagram_link", widget: "string"}
