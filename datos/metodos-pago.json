@@ -1,4 +1,5 @@
-[
+{
+    "metodos_pago":[
     {
         "id": "1",
         "nombre": "Efectivo",
@@ -9,4 +10,4 @@
         "nombre": "Transferencia",
         "activo": true
     }
-]
+]}

@@ -6,8 +6,15 @@ import { filtrarProductos } from "../modelos/filtros.js"
 
 import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, mostrarMensajeError, cambiarVisibilidadElementosCarrito, ocultarMensajeError } from "../vistas/renderizado.js"
 
-const datosCatalogo = await obtenerDatos("./datos/catalogo.json")
-const datosMetodosPago = await obtenerDatos("./datos/metodos-pago.json")
+// 1. Traemos todo el archivo JSON completo (la caja grande)
+const jsonCatalogo = await obtenerDatos("./datos/catalogo.json");
+
+// 2. Extraemos solo el array de productos (abrimos la caja chica)
+const datosCatalogo = jsonCatalogo.productos;
+
+// 3. Traemos los métodos de pago
+const jsonMetodosPago = await obtenerDatos("./datos/metodos-pago.json");
+const datosMetodosPago = jsonMetodosPago.metodos_pago; // Asumiendo que le pusiste ese nombre al array
 
 const $contenedor = document.getElementById("seccion-productos")
 const $filtroPresentacion = document.getElementById("id-presentacion")

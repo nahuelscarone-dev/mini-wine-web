@@ -1,159 +1,160 @@
-[
+{
+  "productos": [
     {
-        "id": 1,
-        "nombre": "Merlot",
-        "bodega":"Di-Candi",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/AA MERLOT DI CANDI.webp",
-            "alt": "Botella de vino tinto Merlot de Di Candi"
-        }
+      "id": 1,
+      "nombre": "TEST",
+      "bodega": "Di-Candi",
+      "tipo": "Tinto",
+      "precio": 9999,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/AA MERLOT DI CANDI.webp",
+        "alt": "Botella de vino tinto Merlot de Di Candi"
+      }
     },
     {
-        "id": 2,
-        "nombre": "Tannat",
-        "bodega":"Di-Candi",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/AA TANNAT DI CANDI.webp",
-            "alt": "Botella de vino tinto Tannat de Di Candi"
-        }
+      "id": 2,
+      "nombre": "Tannat",
+      "bodega": "Di-Candi",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/AA TANNAT DI CANDI.webp",
+        "alt": "Botella de vino tinto Tannat de Di Candi"
+      }
     },
     {
-        "id": 3,
-        "nombre": "Torrontés",
-        "bodega":"Di-Candi",
-        "tipo": "Blanco",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/AA TORRONTES DI CANDI.webp",
-            "alt": "Botella de vino blanco Torrontés de Di Candi"
-        }
+      "id": 3,
+      "nombre": "Torrontés",
+      "bodega": "Di-Candi",
+      "tipo": "Blanco",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/AA TORRONTES DI CANDI.webp",
+        "alt": "Botella de vino blanco Torrontés de Di Candi"
+      }
     },
     {
-        "id": 4,
-        "nombre": "Blend",
-        "bodega":"Piedra Mora",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/BB BLEND PIEDRA MORA.webp",
-            "alt": "Botella de vino tinto Blend de Piedra Mora"
-        }
+      "id": 4,
+      "nombre": "Blend",
+      "bodega": "Piedra Mora",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/BB BLEND PIEDRA MORA.webp",
+        "alt": "Botella de vino tinto Blend de Piedra Mora"
+      }
     },
     {
-        "id": 5,
-        "nombre": "Bonarda",
-        "bodega":"Piedra Mora",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/BB BONARDA PIEDRA MORA.webp",
-            "alt": "Botella de vino tinto Bonarda de Piedra Mora"
-        }
+      "id": 5,
+      "nombre": "Bonarda",
+      "bodega": "Piedra Mora",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/BB BONARDA PIEDRA MORA.webp",
+        "alt": "Botella de vino tinto Bonarda de Piedra Mora"
+      }
     },
     {
-        "id": 6,
-        "nombre": "Tannat",
-        "bodega":"Piedra Mora",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/BB TANNAT PIEDRA MORA.webp",
-            "alt": "Botella de vino tinto Tannat de Piedra Mora" 
-        }
+      "id": 6,
+      "nombre": "Tannat",
+      "bodega": "Piedra Mora",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/BB TANNAT PIEDRA MORA.webp",
+        "alt": "Botella de vino tinto Tannat de Piedra Mora"
+      }
     },
     {
-        "id": 7,
-        "nombre": "Barbera Nebbiolo",
-        "bodega":"Santos Quiroga",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/CC BARBERA NEBBIOLO SANTOS QUIROGA.webp",
-            "alt": "Botella de vino tinto Barbera de Nebbiolo de Santos Quiroga" 
-        }
+      "id": 7,
+      "nombre": "Barbera Nebbiolo",
+      "bodega": "Santos Quiroga",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/CC BARBERA NEBBIOLO SANTOS QUIROGA.webp",
+        "alt": "Botella de vino tinto Barbera de Nebbiolo de Santos Quiroga"
+      }
     },
     {
-        "id": 8,
-        "nombre": "Malbec",
-        "bodega":"Santos Quiroga",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/CC MALBEC SANTOS QUIROGA.webp",
-            "alt": "Botella de vino tinto Malbec de Santos Quiroga" 
-        }
+      "id": 8,
+      "nombre": "Malbec",
+      "bodega": "Santos Quiroga",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/CC MALBEC SANTOS QUIROGA.webp",
+        "alt": "Botella de vino tinto Malbec de Santos Quiroga"
+      }
     },
     {
-        "id": 9,
-        "nombre": "Trivarietal",
-        "bodega":"Santos Quiroga",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/CC TRI-VARIETAL SANTOS QUIROGA.webp",
-            "alt": "Botella Trivarietal de Santos Quiroga" 
-        }
+      "id": 9,
+      "nombre": "Trivarietal",
+      "bodega": "Santos Quiroga",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/CC TRI-VARIETAL SANTOS QUIROGA.webp",
+        "alt": "Botella Trivarietal de Santos Quiroga"
+      }
     },
     {
-        "id": 10,
-        "nombre": "Malbec Roble",
-        "bodega":"Sierra y Monte",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/DD MALBEC ROBLE SIERRA Y MONTE.webp",
-            "alt": "Botella Malbec Roble de Sierra y Monte" 
-        }
+      "id": 10,
+      "nombre": "Malbec Roble",
+      "bodega": "Sierra y Monte",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/DD MALBEC ROBLE SIERRA Y MONTE.webp",
+        "alt": "Botella Malbec Roble de Sierra y Monte"
+      }
     },
     {
-        "id": 11,
-        "nombre": "Vermouth",
-        "bodega":"Sierra y Monte",
-        "tipo": "Tinto",
-        "precio": 5500,
-        "presentacion": "Individual",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/DD VERMOUTH SIERRE Y MONTE.webp",
-            "alt": "Botella Vermouth de Sierra y Monte" 
-        }
+      "id": 11,
+      "nombre": "Vermouth",
+      "bodega": "Sierra y Monte",
+      "tipo": "Tinto",
+      "precio": 5500,
+      "presentacion": "Individual",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/DD VERMOUTH SIERRE Y MONTE.webp",
+        "alt": "Botella Vermouth de Sierra y Monte"
+      }
     },
     {
-        "id": 12,
-        "nombre": "Pack de 2 vinos elegidos por Mini Wine",
-        "bodega":"",
-        "tipo": "",
-        "precio": 13000,
-        "presentacion": "Pack",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/PACK DE 2 BLANCO.webp",
-            "alt": "Pack de 4 botellas de vino" 
-        }
+      "id": 12,
+      "nombre": "Pack de 2 vinos elegidos por Mini Wine",
+      "bodega": "",
+      "tipo": "",
+      "precio": 13000,
+      "presentacion": "Pack",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/PACK DE 2 BLANCO.webp",
+        "alt": "Pack de 4 botellas de vino"
+      }
     },
     {
-        "id": 13,
-        "nombre": "Pack de 4 vinos elegidos por Mini Wine",
-        "bodega":"",
-        "tipo": "",
-        "precio": 24000,
-        "presentacion": "Pack",
-        "imagen": {
-            "src": "./recursos/imagenes/catalogo/PACK DE 4 BLANCO.webp",
-            "alt": "Pack de 4 botellas de vino" 
-        }
+      "id": 13,
+      "nombre": "Pack de 4 vinos elegidos por Mini Wine",
+      "bodega": "",
+      "tipo": "",
+      "precio": 24000,
+      "presentacion": "Pack",
+      "imagen": {
+        "src": "./recursos/imagenes/catalogo/PACK DE 4 BLANCO.webp",
+        "alt": "Pack de 4 botellas de vino"
+      }
     }
-
-]
+  ]
+}

@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main # La rama donde se guardarán los cambios
+
+local_backend: true # Esto es la magia para probar en tu PC sin gastar Netlify
+
+# Rutas donde Decap guardará y leerá las fotos que suba el cliente
+media_folder: "recursos/imagenes/catalogo" # Dónde se guardan
+public_folder: "./recursos/imagenes/catalogo" # Cómo se escriben en el JSON
+
+collections:
+  - name: "base_datos"
+    label: "Base de Datos de la Tienda"
+    files:
+      - label: "Catálogo de Productos"
+        name: "productos"
+        file: "datos/catalogo.json" # OJO ACÁ: Asegurate de que esta sea la ruta correcta a tu JSON
+        fields:
+          - name: "productos" # Este es el nombre del array adentro de tu JSON
+            label: "Lista de Productos"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"} # Cambiado a número entero
+              - {label: "Nombre del Vino", name: "nombre", widget: "string"} # Cambiado de "titulo" a "nombre"
+              - {label: "Bodega", name: "bodega", widget: "string", required: false}
+              - {label: "Precio", name: "precio", widget: "number", value_type: "float"}
+              - {label: "Tipo de Vino", name: "tipo", widget: "string", required: false}
+              - {label: "Presentación", name: "presentacion", widget: "string"}
+              - name: "imagen"
+                label: "Datos de la Imagen"
+                widget: "object"
+                fields:
+                  - {label: "Archivo de foto", name: "src", widget: "image"}
+                  - {label: "Texto alternativo (Para no videntes)", name: "alt", widget: "string"}
