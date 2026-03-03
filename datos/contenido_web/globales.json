@@ -1,0 +1,35 @@
+{
+  "logo_footer": "./recursos/imagenes/logotipo-miniwine.webp",
+  "enlaces_contacto": [
+    {
+      "plataforma": "WhatsApp",
+      "url": "https://wa.me/+5493518519953",
+      "texto": "3512455552",
+      "icono": "./recursos/imagenes/icono whatsapp.svg"
+    },
+    {
+      "plataforma": "Instagram",
+      "url": "https://www.instagram.com/miniwine_/",
+      "texto": "@miniwine",
+      "icono": "./recursos/imagenes/icono instagram.svg"
+    },
+    {
+      "plataforma": "Facebook",
+      "url": "https://www.facebook.com/",
+      "icono": "recursos/imagenes/catalogo/icono-facebook.svg",
+      "texto": "miniWine"
+    },
+    {
+      "plataforma": "TikTok",
+      "url": "https://www.tiktok.com/",
+      "texto": "_TiktokMiniW",
+      "icono": "recursos/imagenes/catalogo/icono-tiktok.svg"
+    },
+    {
+      "plataforma": "Email",
+      "url": "mailto:miniwineargentina@gmail.com",
+      "texto": "miniwine@gmail.com",
+      "icono": "./recursos/imagenes/icono-email.svg"
+    }
+  ]
+}

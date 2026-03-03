@@ -16,31 +16,38 @@ const datosCatalogo = jsonCatalogo.productos;
 const jsonMetodosPago = await obtenerDatos("./datos/metodos-pago.json");
 const datosMetodosPago = jsonMetodosPago.metodos_pago; 
 
-// 4. Traemos los datos globales (Textos del footer)
+// 4. Traemos los datos globales
 const datosGlobales = await obtenerDatos("./datos/globales.json");
 
-// Inyectamos los datos en el Footer
-document.getElementById("texto-wpp-footer").textContent = datosGlobales.whatsapp_mostrar;
-document.getElementById("link-wpp-footer").href = `https://wa.me/${datosGlobales.whatsapp_numero}`;
-
-document.getElementById("texto-ig-footer").textContent = datosGlobales.instagram_usuario;
-document.getElementById("link-ig-footer").href = datosGlobales.instagram_link;
-
-document.getElementById("texto-mail-footer").textContent = datosGlobales.email;
-document.getElementById("link-mail-footer").href = `mailto:${datosGlobales.email}`;
-
-// Inyectamos las imágenes en el Footer
+// Inyectamos el logo
 document.getElementById("img-logo-footer").src = datosGlobales.logo_footer;
-document.getElementById("img-wpp-footer").src = datosGlobales.icono_wpp;
-document.getElementById("img-ig-footer").src = datosGlobales.icono_ig;
-document.getElementById("img-email-footer").src = datosGlobales.icono_email;
+
+// Inyectamos las redes de forma dinámica
+const $contenedorRedes = document.getElementById("contenedor-redes-footer");
+$contenedorRedes.innerHTML = ""; // Limpiamos por las dudas
+
+datosGlobales.enlaces_contacto.forEach(enlace => {
+    // Creamos la estructura HTML de cada enlace
+    const htmlEnlace = `
+        <a class="pie__link" href="${enlace.url}" target="_blank" rel="noopener noreferrer">
+            <img class="pie__icono" src="${enlace.icono}" alt="Ícono de ${enlace.plataforma}" aria-hidden="true">
+            <span class="pie__texto">${enlace.texto}</span>
+        </a>
+    `;
+    // Lo pegamos en el HTML
+    $contenedorRedes.insertAdjacentHTML('beforeend', htmlEnlace);
+});
+
+// Rescate del número de WhatsApp para tu carrito:
+// Busca en la lista cuál es WhatsApp y le extrae solo los números a la URL
+const linkWhatsApp = datosGlobales.enlaces_contacto.find(red => red.plataforma.toLowerCase() === "whatsapp");
+const numeroWhatsApp = linkWhatsApp ? linkWhatsApp.url.replace(/\D/g, '') : "5493518519953";
+
 
 const $contenedor = document.getElementById("seccion-productos")
 const $filtroPresentacion = document.getElementById("id-presentacion")
 const $filtroTipoVino = document.getElementById("id-tipo-vino") 
 const $filtroBodega = document.getElementById("id-bodega")
-
-const numeroWhatsApp = datosGlobales.whatsapp_numero;
 
 //Carrito
 const $dialogCarrito = document.getElementById("carrito")

@@ -1,15 +1,13 @@
 backend:
   name: git-gateway
-  branch: main # La rama donde se guardarán los cambios
+  branch: main 
 
-local_backend: true # Esto es la magia para probar en tu PC sin gastar Netlify
+local_backend: true 
 
-# Rutas donde Decap guardará y leerá las fotos que suba el cliente
-media_folder: "recursos/imagenes/catalogo" # Dónde se guardan
-public_folder: "./recursos/imagenes/catalogo" # Cómo se escriben en el JSON
+media_folder: "recursos/imagenes/catalogo" 
+public_folder: "./recursos/imagenes/catalogo" 
 
 collections:
-  # --- COLECCIÓN 1: BASE DE DATOS (PRODUCTOS Y MÉTODOS DE PAGO) ---
   - name: "base_datos"
     label: "Base de Datos de la Tienda"
     files:
@@ -34,7 +32,6 @@ collections:
                   - {label: "Archivo de foto", name: "src", widget: "image"}
                   - {label: "Texto alternativo (Para no videntes)", name: "alt", widget: "string"}
 
-  # --- COLECCIÓN 2: TEXTOS EDITABLES DE LA PÁGININA ---
   - name: "contenido_web"
     label: "Contenido de la Página"
     files:
@@ -43,11 +40,11 @@ collections:
         file: "datos/globales.json"
         fields:
           - {label: "Logo del Footer", name: "logo_footer", widget: "image"}
-          - {label: "Ícono de WhatsApp", name: "icono_wpp", widget: "image"}
-          - {label: "Ícono de Instagram", name: "icono_ig", widget: "image"}
-          - {label: "Ícono de Email", name: "icono_email", widget: "image"}
-          - {label: "Número de WhatsApp (Para el link, con 549)", name: "whatsapp_numero", widget: "string"}
-          - {label: "Número de WhatsApp (Para mostrar en pantalla)", name: "whatsapp_mostrar", widget: "string"}
-          - {label: "Correo Electrónico", name: "email", widget: "string"}
-          - {label: "Usuario de Instagram", name: "instagram_usuario", widget: "string"}
-          - {label: "Link de Instagram", name: "instagram_link", widget: "string"}
+          - name: "enlaces_contacto"
+            label: "Enlaces de Contacto y Redes Sociales"
+            widget: "list"
+            fields:
+              - {label: "Nombre de la Plataforma (Ej: WhatsApp, TikTok)", name: "plataforma", widget: "string"}
+              - {label: "Enlace / URL (Ej: https://wa.me/... o mailto:...)", name: "url", widget: "string"}
+              - {label: "Texto a mostrar (Ej: @miniwine)", name: "texto", widget: "string"}
+              - {label: "Ícono (PNG o SVG oscuro)", name: "icono", widget: "image"}
