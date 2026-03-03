@@ -209,5 +209,25 @@ function cambiarVisibilidadElementosCarrito(productosCarrito, $formulario, $foot
     })
 }
 
+function renderizarFooter(datosGlobales, $imgLogo, $contenedorRedes) {
+    // 1. Dibuja el logo
+    if ($imgLogo) {
+        $imgLogo.src = datosGlobales.logo_footer;
+    }
 
-export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadElementosCarrito, ocultarMensajeError}
+    // 2. Dibuja las redes
+    if ($contenedorRedes) {
+        $contenedorRedes.innerHTML = ""; 
+        datosGlobales.enlaces_contacto.forEach(enlace => {
+            const htmlEnlace = `
+                <a class="pie__link" href="${enlace.url}" target="_blank" rel="noopener noreferrer">
+                    <img class="pie__icono" src="${enlace.icono}" alt="Ícono de ${enlace.plataforma}" aria-hidden="true">
+                    <span class="pie__texto">${enlace.texto}</span>
+                </a>
+            `;
+            $contenedorRedes.insertAdjacentHTML('beforeend', htmlEnlace);
+        });
+    }
+}
+
+export { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeError, mostrarMensajeVacio, cambiarVisibilidadElementosCarrito, ocultarMensajeError, renderizarFooter}

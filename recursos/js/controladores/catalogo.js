@@ -6,6 +6,8 @@ import { filtrarProductos } from "../modelos/filtros.js"
 
 import { renderizarCatalogo, renderizarCarrito, cargarSelectMetodoPago, cargarFiltroCatalogo, mostrarCarrito, ocultarCarrito, mostrarMensajeVacio, mostrarMensajeError, cambiarVisibilidadElementosCarrito, ocultarMensajeError } from "../vistas/renderizado.js"
 
+import { numeroWhatsApp } from "./global.js";
+
 // 1. Traemos todo el archivo JSON completo (la caja grande)
 const jsonCatalogo = await obtenerDatos("./datos/base_datos/catalogo.json");
 
@@ -15,34 +17,6 @@ const datosCatalogo = jsonCatalogo.productos;
 // 3. Traemos los métodos de pago
 const jsonMetodosPago = await obtenerDatos("./datos/base_datos/metodos-pago.json");
 const datosMetodosPago = jsonMetodosPago.metodos_pago; 
-
-// 4. Traemos los datos globales
-const datosGlobales = await obtenerDatos("./datos/contenido_web/globales.json");
-
-// Inyectamos el logo
-document.getElementById("img-logo-footer").src = datosGlobales.logo_footer;
-
-// Inyectamos las redes de forma dinámica
-const $contenedorRedes = document.getElementById("contenedor-redes-footer");
-$contenedorRedes.innerHTML = ""; // Limpiamos por las dudas
-
-datosGlobales.enlaces_contacto.forEach(enlace => {
-    // Creamos la estructura HTML de cada enlace
-    const htmlEnlace = `
-        <a class="pie__link" href="${enlace.url}" target="_blank" rel="noopener noreferrer">
-            <img class="pie__icono" src="${enlace.icono}" alt="Ícono de ${enlace.plataforma}" aria-hidden="true">
-            <span class="pie__texto">${enlace.texto}</span>
-        </a>
-    `;
-    // Lo pegamos en el HTML
-    $contenedorRedes.insertAdjacentHTML('beforeend', htmlEnlace);
-});
-
-// Rescate del número de WhatsApp para tu carrito:
-// Busca en la lista cuál es WhatsApp y le extrae solo los números a la URL
-const linkWhatsApp = datosGlobales.enlaces_contacto.find(red => red.plataforma.toLowerCase() === "whatsapp");
-const numeroWhatsApp = linkWhatsApp ? linkWhatsApp.url.replace(/\D/g, '') : "5493518519953";
-
 
 const $contenedor = document.getElementById("seccion-productos")
 const $filtroPresentacion = document.getElementById("id-presentacion")
