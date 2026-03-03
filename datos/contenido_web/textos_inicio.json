@@ -40,7 +40,7 @@
     "url_mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.0848561154467!2d-64.2596519254984!3d-31.384223674276512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329ed860f9b437%3A0x4029eda61444094a!2sCalandria%20667%2C%20X5003%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1766868835049!5m2!1ses!2sar"
   },
   "seccion_bodega": {
-    "titulo": "Sumá tu bodega a enfermos psicóticos",
+    "titulo": "Sumá tu bodega a Mini Wine",
     "parrafo": "Llevamos tus vinos a nuevos clientes sin que te preocupes por la logística. Expandí tu mercado hoy mismo. Unite a nuestra selección exclusiva de etiquetas. Buscamos bodegas con historia y calidad para ofrecer a nuestra comunidad.",
     "texto_boton": "Quiero sumar mi bodega",
     "url_boton": "./contacto.html?motivo=bodega"
