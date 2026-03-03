@@ -1,0 +1,56 @@
+{
+  "bodegas": [
+    {
+      "nombre": "Di-Candi"
+    },
+    {
+      "nombre": "Piedra Mora"
+    },
+    {
+      "nombre": "Nobile"
+    },
+    {
+      "nombre": "Terra Camiare"
+    },
+    {
+      "nombre": "La Caroyense"
+    },
+    {
+      "nombre": "MACETERO"
+    }
+  ],
+  "tipos": [
+    {
+      "nombre": "Tinto"
+    },
+    {
+      "nombre": "Blanco"
+    },
+    {
+      "nombre": "Rosado"
+    },
+    {
+      "nombre": "Espumante"
+    },
+    {
+      "nombre": "Blend"
+    },
+    {
+      "nombre": "INEXPERTOASADjjafdf"
+    }
+  ],
+  "presentaciones": [
+    {
+      "nombre": "Individual"
+    },
+    {
+      "nombre": "Pack"
+    },
+    {
+      "nombre": "Caja"
+    },
+    {
+      "nombre": "XD"
+    }
+  ]
+}

@@ -8,8 +8,37 @@ media_folder: "recursos/imagenes/catalogo"
 public_folder: "./recursos/imagenes/catalogo" 
 
 collections:
+  # 1. TABLA MAESTRA (El CRUD dinámico que te faltaba)
+  - name: "configuracion"
+    label: "⚙️ Ajustes de la Tienda"
+    delete: false
+    files:
+      - label: "Listas Desplegables"
+        name: "maestros"
+        file: "datos/base_datos/listas_maestras.json"
+        fields:
+          - label: "Bodegas Disponibles"
+            name: "bodegas"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields: 
+              - {label: "Nombre", name: "nombre", widget: "string"}
+          - label: "Tipos de Vino"
+            name: "tipos"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields: 
+              - {label: "Nombre", name: "nombre", widget: "string"}
+          - label: "Presentaciones"
+            name: "presentaciones"
+            widget: "list"
+            summary: "{{fields.nombre}}"
+            fields: 
+              - {label: "Nombre", name: "nombre", widget: "string"}
+
+  # 2. INVENTARIO (Conectado a la Tabla Maestra)
   - name: "base_datos"
-    label: "Base de Datos de la Tienda"
+    label: "📦 Inventario"
     files:
       - label: "Catálogo de Productos"
         name: "productos"
@@ -21,149 +50,138 @@ collections:
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"} 
               - {label: "Nombre del Vino", name: "nombre", widget: "string"} 
-              - {label: "Bodega", name: "bodega", widget: "string", required: false}
+              - label: "Bodega"
+                name: "bodega"
+                widget: "relation"
+                collection: "configuracion"
+                file: "maestros"
+                search_fields: ["bodegas.*.nombre"]
+                display_fields: ["bodegas.*.nombre"]
+                value_field: "bodegas.*.nombre"
+                required: false
               - {label: "Precio", name: "precio", widget: "number", value_type: "float"}
-              - {label: "Tipo de Vino", name: "tipo", widget: "string", required: false}
-              - {label: "Presentación", name: "presentacion", widget: "string"}
+              - label: "Tipo de Vino"
+                name: "tipo"
+                widget: "relation"
+                collection: "configuracion"
+                file: "maestros"
+                search_fields: ["tipos.*.nombre"]
+                display_fields: ["tipos.*.nombre"]
+                value_field: "tipos.*.nombre"
+                required: false
+              - label: "Presentación"
+                name: "presentacion"
+                widget: "relation"
+                collection: "configuracion"
+                file: "maestros"
+                search_fields: ["presentaciones.*.nombre"]
+                display_fields: ["presentaciones.*.nombre"]
+                value_field: "presentaciones.*.nombre"
               - name: "imagen"
-                label: "Datos de la Imagen"
+                label: "Imagen"
                 widget: "object"
                 fields:
-                  - {label: "Archivo de foto", name: "src", widget: "image"}
-                  - {label: "Texto alternativo (Para no videntes)", name: "alt", widget: "string"}
+                  - {label: "Archivo", name: "src", widget: "image"}
+                  - {label: "Alt", name: "alt", widget: "string"}
 
+  # 3. CONTENIDO WEB
   - name: "contenido_web"
-    label: "Contenido de la Página"
+    label: "🌐 Contenido Web"
     files:
-      - label: "Textos Globales (Pie de página y Contacto)"
+      - label: "Globales (Footer)"
         name: "globales"
         file: "datos/contenido_web/globales.json"
         fields:
-          - {label: "Logo del Footer", name: "logo_footer", widget: "image"}
+          - {label: "Logo Footer", name: "logo_footer", widget: "image"}
           - name: "enlaces_contacto"
-            label: "Enlaces de Contacto y Redes Sociales"
+            label: "Redes Sociales"
             widget: "list"
             fields:
-              - {label: "Nombre de la Plataforma (Ej: WhatsApp, TikTok)", name: "plataforma", widget: "string"}
-              - {label: "Enlace / URL (Ej: https://wa.me/... o mailto:...)", name: "url", widget: "string"}
-              - {label: "Texto a mostrar (Ej: @miniwine)", name: "texto", widget: "string"}
-              - {label: "Ícono (PNG o SVG oscuro)", name: "icono", widget: "image"}
-              
-      - label: "Textos de la página: Catálogo"
-        name: "textos_catalogo"
-        file: "datos/contenido_web/textos_catalogo.json"
-        fields:
-          - {label: "Título Principal", name: "titulo_pagina", widget: "string"}
-          - {label: "Texto de aclaración (Precios minoristas)", name: "texto_minorista", widget: "string"}
-          - {label: "Texto del enlace (Mayoristas)", name: "texto_enlace_mayorista", widget: "string"}
-          - {label: "URL del enlace (Hacia dónde lleva)", name: "enlace_mayorista", widget: "string"}
+              - {label: "Plataforma", name: "plataforma", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Texto", name: "texto", widget: "string"}
+              - {label: "Ícono", name: "icono", widget: "image"}
 
-      - label: "Textos de la página: Inicio"
+      - label: "Inicio (Home)"
         name: "textos_inicio"
         file: "datos/contenido_web/textos_inicio.json"
         fields:
           - name: "hero"
-            label: "1. Sección Principal (Hero)"
+            label: "Hero"
             widget: "object"
             fields:
-              - {label: "Imagen de fondo", name: "imagen", widget: "image"}
-              - {label: "Texto principal", name: "texto", widget: "string"}
+              - {label: "Imagen", name: "imagen", widget: "image"}
+              - {label: "Texto", name: "texto", widget: "string"}
           - name: "seccion_nosotros"
-            label: "2. Sección Nosotros (Mini Wine)"
+            label: "Nosotros"
             widget: "object"
             fields:
               - {label: "Título", name: "titulo", widget: "string"}
               - {label: "Párrafo", name: "parrafo", widget: "text"}
           - name: "seccion_productos"
-            label: "3. Sección Productos"
+            label: "Productos Destacados"
             widget: "object"
             fields:
-              - {label: "Título de la sección", name: "titulo", widget: "string"}
+              - {label: "Título", name: "titulo", widget: "string"}
               - name: "producto_1"
-                label: "Producto 1 (Individual)"
+                label: "Producto 1"
                 widget: "object"
                 fields:
                   - {label: "Imagen", name: "imagen", widget: "image"}
                   - {label: "Título", name: "titulo", widget: "string"}
                   - {label: "Párrafo", name: "parrafo", widget: "text"}
               - name: "producto_2"
-                label: "Producto 2 (Packs)"
+                label: "Producto 2"
                 widget: "object"
                 fields:
                   - {label: "Imagen", name: "imagen", widget: "image"}
                   - {label: "Título", name: "titulo", widget: "string"}
                   - {label: "Párrafo", name: "parrafo", widget: "text"}
           - name: "seccion_delivery"
-            label: "4. Sección Delivery"
+            label: "Delivery"
             widget: "object"
             fields:
               - {label: "Título", name: "titulo", widget: "string"}
-              - {label: "Texto previo a los barrios", name: "texto_barrios", widget: "string"}
-              - label: "Lista de Barrios"
+              - {label: "Texto Barrios", name: "texto_barrios", widget: "string"}
+              - label: "Lista Barrios"
                 name: "barrios"
                 widget: "list"
-                field: {label: "Nombre del Barrio", name: "barrio", widget: "string"}
-              - {label: "Aclaración otras zonas", name: "texto_otras_zonas", widget: "string"}
-              - {label: "Texto sobre el mapa", name: "texto_mapa", widget: "string"}
-              - {label: "URL del Mapa", name: "url_mapa", widget: "string"}
+                field: {label: "Barrio", name: "barrio", widget: "string"}
+              - {label: "URL Mapa", name: "url_mapa", widget: "string"}
           - name: "seccion_bodega"
-            label: "5. Sección Sumar Bodega"
+            label: "Sumar Bodega"
             widget: "object"
             fields:
               - {label: "Título", name: "titulo", widget: "string"}
               - {label: "Párrafo", name: "parrafo", widget: "text"}
-              - {label: "Texto del botón", name: "texto_boton", widget: "string"}
-              - {label: "Enlace del botón", name: "url_boton", widget: "string"}
-      - label: "Textos de la página: Acerca de Mini Wine"
+              - {label: "Texto Botón", name: "texto_boton", widget: "string"}
+              - {label: "Enlace Botón", name: "url_boton", widget: "string"}
+
+      - label: "Catálogo (Textos)"
+        name: "textos_catalogo"
+        file: "datos/contenido_web/textos_catalogo.json"
+        fields:
+          - {label: "Título", name: "titulo_pagina", widget: "string"}
+          - {label: "Aclaración Precios", name: "texto_minorista", widget: "string"}
+          - {label: "Enlace Mayorista", name: "enlace_mayorista", widget: "string"}
+
+      - label: "Acerca de"
         name: "textos_acerca_de"
         file: "datos/contenido_web/textos_acerca_de.json"
         fields:
-          - name: "hero"
-            label: "1. Sección Principal (Hero)"
-            widget: "object"
-            fields:
-              - {label: "Imagen de fondo", name: "imagen", widget: "image"}
-              - {label: "Texto principal", name: "texto", widget: "string"}
-              
           - name: "seccion_historia"
-            label: "2. Sección Historia"
+            label: "Historia"
             widget: "object"
             fields:
               - {label: "Título", name: "titulo", widget: "string"}
               - name: "parrafos"
-                label: "Párrafos de la historia"
+                label: "Párrafos"
                 widget: "list"
-                field: {label: "Párrafo", name: "parrafo", widget: "text"}
-                
-          - name: "seccion_identidad"
-            label: "3. Sección Identidad (Misión, Visión, Valores)"
-            widget: "object"
-            fields:
-              - {label: "Título de la sección", name: "titulo", widget: "string"}
-              - name: "mision"
-                label: "Misión"
-                widget: "object"
-                fields:
-                  - {label: "Imagen", name: "imagen", widget: "image"}
-                  - {label: "Título", name: "titulo", widget: "string"}
-                  - {label: "Texto", name: "parrafo", widget: "text"}
-              - name: "vision"
-                label: "Visión"
-                widget: "object"
-                fields:
-                  - {label: "Imagen", name: "imagen", widget: "image"}
-                  - {label: "Título", name: "titulo", widget: "string"}
-                  - {label: "Texto", name: "parrafo", widget: "text"}
-              - name: "valores"
-                label: "Valores"
-                widget: "object"
-                fields:
-                  - {label: "Imagen", name: "imagen", widget: "image"}
-                  - {label: "Título", name: "titulo", widget: "string"}
-                  - {label: "Texto", name: "parrafo", widget: "text"}        
-      - label: "Textos de la página: Contacto"
+                field: {label: "Texto", name: "parrafo", widget: "text"}
+
+      - label: "Contacto"
         name: "textos_contacto"
         file: "datos/contenido_web/textos_contacto.json"
         fields:
-          - {label: "Título de la página", name: "titulo_pagina", widget: "string"}
-          - {label: "Párrafo descriptivo", name: "parrafo_principal", widget: "text"}
+          - {label: "Título", name: "titulo_pagina", widget: "string"}
+          - {label: "Párrafo", name: "parrafo_principal", widget: "text"}

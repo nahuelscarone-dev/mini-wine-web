@@ -3,10 +3,10 @@
     {
       "id": 1,
       "nombre": "TEST",
-      "bodega": "Di-Candi",
-      "tipo": "Tinto",
+      "bodega": "MACETERO",
+      "tipo": "INEXPERTOASADjjafdf",
       "precio": 9999,
-      "presentacion": "Individual",
+      "presentacion": "XD",
       "imagen": {
         "src": "./recursos/imagenes/catalogo/AA MERLOT DI CANDI.webp",
         "alt": "Botella de vino tinto Merlot de Di Candi"

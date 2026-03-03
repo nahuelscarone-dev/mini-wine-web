@@ -244,38 +244,42 @@ function renderizarTextosCatalogo(textos) {
 }
 
 function renderizarTextosInicio(textos) {
-    // Hero
-    const $heroImg = document.getElementById("hero-img");
-    const $heroTexto = document.getElementById("hero-texto");
-    if ($heroImg) $heroImg.src = textos.hero.imagen;
-    if ($heroTexto) $heroTexto.textContent = textos.hero.texto;
+    // Función auxiliar interna para seguridad (Null-safety)
+    const safeSet = (id, propiedad, valor) => {
+        const el = document.getElementById(id);
+        if (el && valor !== undefined) el[propiedad] = valor;
+    };
 
-    // Nosotros
-    const $nosotrosTitulo = document.getElementById("nosotros-titulo");
-    const $nosotrosParrafo = document.getElementById("nosotros-parrafo");
-    if ($nosotrosTitulo) $nosotrosTitulo.textContent = textos.seccion_nosotros.titulo;
-    if ($nosotrosParrafo) $nosotrosParrafo.textContent = textos.seccion_nosotros.parrafo;
+    // 1. Hero
+    safeSet("hero-img", "src", textos.hero.imagen);
+    safeSet("hero-texto", "textContent", textos.hero.texto);
 
-    // Productos
-    const $prodTitulo = document.getElementById("productos-titulo");
-    if ($prodTitulo) $prodTitulo.textContent = textos.seccion_productos.titulo;
+    // 2. Nosotros
+    safeSet("nosotros-titulo", "textContent", textos.seccion_nosotros.titulo);
+    safeSet("nosotros-parrafo", "textContent", textos.seccion_nosotros.parrafo);
+
+    // 3. Productos
+    safeSet("productos-titulo", "textContent", textos.seccion_productos.titulo);
     
-    document.getElementById("prod1-img").src = textos.seccion_productos.producto_1.imagen;
-    document.getElementById("prod1-titulo").textContent = textos.seccion_productos.producto_1.titulo;
-    document.getElementById("prod1-parrafo").textContent = textos.seccion_productos.producto_1.parrafo;
+    // Producto 1
+    safeSet("prod1-img", "src", textos.seccion_productos.producto_1.imagen);
+    safeSet("prod1-titulo", "textContent", textos.seccion_productos.producto_1.titulo);
+    safeSet("prod1-parrafo", "textContent", textos.seccion_productos.producto_1.parrafo);
 
-    document.getElementById("prod2-img").src = textos.seccion_productos.producto_2.imagen;
-    document.getElementById("prod2-titulo").textContent = textos.seccion_productos.producto_2.titulo;
-    document.getElementById("prod2-parrafo").textContent = textos.seccion_productos.producto_2.parrafo;
+    // Producto 2
+    safeSet("prod2-img", "src", textos.seccion_productos.producto_2.imagen);
+    safeSet("prod2-titulo", "textContent", textos.seccion_productos.producto_2.titulo);
+    safeSet("prod2-parrafo", "textContent", textos.seccion_productos.producto_2.parrafo);
 
-    // Delivery
-    document.getElementById("delivery-titulo").textContent = textos.seccion_delivery.titulo;
-    document.getElementById("delivery-texto-barrios").textContent = textos.seccion_delivery.texto_barrios;
-    document.getElementById("delivery-texto-otras").textContent = textos.seccion_delivery.texto_otras_zonas;
-    document.getElementById("delivery-texto-mapa").textContent = textos.seccion_delivery.texto_mapa;
-    document.getElementById("delivery-mapa").src = textos.seccion_delivery.url_mapa;
+    // 4. Delivery
+    safeSet("delivery-titulo", "textContent", textos.seccion_delivery.titulo);
+    safeSet("delivery-texto-barrios", "textContent", textos.seccion_delivery.texto_barrios);
+    safeSet("delivery-texto-otras", "textContent", textos.seccion_delivery.texto_otras_zonas);
+    safeSet("delivery-texto-mapa", "textContent", textos.seccion_delivery.texto_mapa);
+    
+    const $mapa = document.getElementById("delivery-mapa");
+    if ($mapa) $mapa.src = textos.seccion_delivery.url_mapa;
 
-    // Barrios (Lista dinámica)
     const $listaBarrios = document.getElementById("delivery-lista-barrios");
     if ($listaBarrios) {
         $listaBarrios.innerHTML = "";
@@ -284,9 +288,10 @@ function renderizarTextosInicio(textos) {
         });
     }
 
-    // Bodega
-    document.getElementById("bodega-titulo").textContent = textos.seccion_bodega.titulo;
-    document.getElementById("bodega-parrafo").textContent = textos.seccion_bodega.parrafo;
+    // 5. Bodega
+    safeSet("bodega-titulo", "textContent", textos.seccion_bodega.titulo);
+    safeSet("bodega-parrafo", "textContent", textos.seccion_bodega.parrafo);
+    
     const $bodegaBoton = document.getElementById("bodega-boton");
     if ($bodegaBoton) {
         $bodegaBoton.textContent = textos.seccion_bodega.texto_boton;
