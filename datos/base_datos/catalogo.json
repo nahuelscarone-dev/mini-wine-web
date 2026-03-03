@@ -2,14 +2,14 @@
   "productos": [
     {
       "id": 1,
-      "nombre": "TEST",
-      "bodega": "MACETERO",
-      "tipo": "INEXPERTOASADjjafdf",
+      "nombre": "Malbec de la Casa",
+      "bodega": "Mendoza",
+      "tipo": "Tinto",
       "precio": 9999,
-      "presentacion": "XD",
+      "presentacion": "Individual",
       "imagen": {
         "src": "./recursos/imagenes/catalogo/AA MERLOT DI CANDI.webp",
-        "alt": "Botella de vino tinto Merlot de Di Candi"
+        "alt": "Botella de vino tinto Malbec de la Casa de Mendoza"
       }
     },
     {
