@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="./recursos/imagenes/favicon-copa.png">
     <script src="./recursos/js/vistas/menu.js" defer></script>
     <script type="module" src="./recursos/js/controladores/global.js"></script>
+    <script type="module" src="./recursos/js/controladores/inicio.js"></script>
     <title>Mini Wine - Inicio</title>
 </head>
 <body>
@@ -37,18 +38,39 @@
 
     <main id="contenido-principal">
         <section class="seccion-introduccion">
-
-            <img class="imagen-fondo" src="./recursos/imagenes/hero-inicio.webp" alt="Copa de vino">
-
-            <p class="seccion-introduccion__parrafo">Vinos cordobeses en pequeño formato. Grandes historias en cada copa.</p>
+            <img class="imagen-fondo" id="hero-img" src="./recursos/imagenes/hero-inicio.webp" alt="Copa de vino">
+            <p class="seccion-introduccion__parrafo" id="hero-texto">Vinos cordobeses en pequeño formato. Grandes historias en cada copa.</p>
             <div class="imagen-fondo__overlay"></div>
         </section>
 
         <div class="contenedor-contenido-principal">
 
-            <section class="seccion-miniwine">
-                <h1 class="seccion-miniwine__titulo">Mini Wine</h1>
-                <p class="seccion-miniwine__parrafo">En Mini Wine seleccionamos vinos cordobeses de bodegas boutique y los presentamos en un formato de degustación que redefine la experiencia de beber vino. Nuestro propósito es acercar la vitivinicultura local a más personas, conectando el trabajo de cada bodega con quienes valoran la calidad, la historia y la autenticidad detrás de cada botella. Trabajamos de manera directa con productores de Córdoba para ofrecer varietales cuidados, expresivos y únicos, en un tamaño pensado para disfrutar, descubrir y compartir. Mini Wine es más que un producto: es cultura, identidad y experiencia en 187 ml.</p>
+           <section class="seccion-miniwine">
+                <h1 class="seccion-miniwine__titulo" id="nosotros-titulo">Mini Wine</h1>
+                <p class="seccion-miniwine__parrafo" id="nosotros-parrafo">En Mini Wine seleccionamos vinos cordobeses...</p>
+            </section>
+
+            <section class="seccion-productos">
+                <h2 class="seccion-productos__titulo" id="productos-titulo">Nuestros productos</h2>
+    
+                <div class="contenedor">
+                    <article class="articulo-producto">
+                        <img class="articulo-producto__imagen" id="prod1-img" src="./recursos/imagenes/Individual.webp" alt="Individual">
+                        <div class="producto-informacion producto-informacion--individual">
+                            <h3 class="producto-informacion__titulo" id="prod1-titulo">Individual</h3>
+                            <p id="prod1-parrafo">Cada botella individual de Mini Wine...</p>
+                        </div>
+                    </article>
+
+                    <article class="articulo-producto">
+                        <img class="articulo-producto__imagen" id="prod2-img" src="./recursos/imagenes/packs.webp" alt="Packs">
+                        <div class="producto-informacion producto-informacion--packs">
+                            <h3 class="producto-informacion__titulo" id="prod2-titulo">Packs</h3>
+                            <p id="prod2-parrafo">Una curaduría de vinos cordobeses...</p>
+                        </div>
+                    </article>
+                </div>
+                <a href="./catalogo.html" class="boton boton--ver-catalogo">Ver catálogo completo</a>
             </section>
 
             <section class="seccion-productos">
@@ -84,40 +106,29 @@
                 </div>
                 <a href="./catalogo.html" class="boton boton--ver-catalogo">Ver catálogo completo</a>
             </section>
-            <section class="seccion-delivery">
-                <h2 class="seccion-delivery__titulo">Formas de entrega</h2>
+          <section class="seccion-delivery">
+                <h2 class="seccion-delivery__titulo" id="delivery-titulo">Formas de entrega</h2>
                 <div class="seccion-delivery__contenedor">
                     <div class="seccion-delivery__info">
-                        <p class="seccion-delivery__texto">Delivery gratis en los siguientes barrios de Córdoba:
-                        </p>
-                            <ul class="seccion-delivery__lista">
-                                <li>Chateau Carreras</li>
-                                <li>Todo Valle Escondido</li>
-                                <li>Villa Belgrano</li>
-                                <li>Cerro de las Rosas</li>
-                                <li>Urca</li>
-                                <li>Quebrada de las Rosas</li>
-                                <li>Don Bosco</li>
-                                <li>Bajo Palermo</li>
-                                <li>Los Robles</li>
-                                <li>San Ignacio</li>
-                            </ul>
-                        <p class="seccion-delivery__mensaje">En otras zonas de Córdoba capital envío gratis a partir de $54.800</p>
+                        <p class="seccion-delivery__texto" id="delivery-texto-barrios">Delivery gratis en los siguientes barrios:</p>
+                        <ul class="seccion-delivery__lista" id="delivery-lista-barrios">
+                            <li>Chateau Carreras</li>
+                        </ul>
+                        <p class="seccion-delivery__mensaje" id="delivery-texto-otras">En otras zonas...</p>
                     </div>
                     <div class="seccion-delivery__mapa">
-                        <p class="seccion-delivery__titulo-mapa">Entrega gratis retirando por <strong>PUNTO DE ENTREGA MINI WINE</strong></p>
+                        <p class="seccion-delivery__titulo-mapa" id="delivery-texto-mapa">Entrega gratis retirando...</p>
                         <div class="seccion-delivery__tarjeta-mapa">
-                            <iframe title="Mapa de ubicación de puntos de entrega"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.0848561154467!2d-64.2596519254984!3d-31.384223674276512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329ed860f9b437%3A0x4029eda61444094a!2sCalandria%20667%2C%20X5003%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1766868835049!5m2!1ses!2sar"
-                                width="100%" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
+                            <iframe id="delivery-mapa" title="Mapa" src="..." width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section class="seccion-sumar-bodega">
+                <h2 class="seccion-sumar-bodega__titulo" id="bodega-titulo">Sumá tu bodega a Mini Wine</h2>
+                <p class="seccion-sumar-bodega__texto" id="bodega-parrafo">Llevamos tus vinos a nuevos clientes...</p>
+                <a class="boton--suma-tu-bodega boton" id="bodega-boton" href="contacto.html?motivo=bodega">Quiero sumar mi bodega</a>
             </section>
             <section class="seccion-sumar-bodega">
                 <h2 class="seccion-sumar-bodega__titulo">Sumá tu bodega a Mini Wine</h2>

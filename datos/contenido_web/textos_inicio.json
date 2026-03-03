@@ -4,7 +4,7 @@
     "texto": "Vinos cordobeses en pequeño formato. Grandes historias en cada copa."
   },
   "seccion_nosotros": {
-    "titulo": "Mini Wine",
+    "titulo": "Mini Wine Córdoba",
     "parrafo": "En Mini Wine seleccionamos vinos cordobeses de bodegas boutique y los presentamos en un formato de degustación que redefine la experiencia de beber vino. Nuestro propósito es acercar la vitivinicultura local a más personas, conectando el trabajo de cada bodega con quienes valoran la calidad, la historia y la autenticidad detrás de cada botella. Trabajamos de manera directa con productores de Córdoba para ofrecer varietales cuidados, expresivos y únicos, en un tamaño pensado para disfrutar, descubrir y compartir. Mini Wine es más que un producto: es cultura, identidad y experiencia en 187 ml."
   },
   "seccion_productos": {
@@ -24,7 +24,16 @@
     "titulo": "Formas de entrega",
     "texto_barrios": "Delivery gratis en los siguientes barrios de Córdoba:",
     "barrios": [
-      "Chateau Carreras", "Todo Valle Escondido", "Villa Belgrano", "Cerro de las Rosas", "Urca", "Quebrada de las Rosas", "Don Bosco", "Bajo Palermo", "Los Robles", "San Ignacio"
+      "Chateau Carreras",
+      "Todo Valle Escondido",
+      "Villa Belgrano",
+      "Cerro de las Rosas",
+      "Urca",
+      "Quebrada de las Rosas",
+      "Don Bosco",
+      "Bajo Palermo",
+      "Los Robles",
+      "San Ignacio"
     ],
     "texto_otras_zonas": "En otras zonas de Córdoba capital envío gratis a partir de $54.800",
     "texto_mapa": "Entrega gratis retirando por PUNTO DE ENTREGA MINI WINE",
