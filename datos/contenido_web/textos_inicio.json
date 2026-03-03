@@ -1,7 +1,7 @@
 {
   "hero": {
     "imagen": "./recursos/imagenes/hero-inicio.webp",
-    "texto": "Vinos cordobeses en pequeño formato. Grandes historias en cada copa."
+    "texto": "Vinos cordobeses en pequeño formato. Grandes historias en cada copa. ja"
   },
   "seccion_nosotros": {
     "titulo": "Mini Wine Córdoba",
@@ -43,6 +43,6 @@
     "titulo": "Sumá tu bodega a enfermos psicóticos",
     "parrafo": "Llevamos tus vinos a nuevos clientes sin que te preocupes por la logística. Expandí tu mercado hoy mismo. Unite a nuestra selección exclusiva de etiquetas. Buscamos bodegas con historia y calidad para ofrecer a nuestra comunidad.",
     "texto_boton": "Quiero sumar mi bodega",
-    "url_boton": "contacto.html?motivo=bodega"
+    "url_boton": "./contacto.html?motivo=bodega"
   }
 }

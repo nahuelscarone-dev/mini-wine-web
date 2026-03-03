@@ -1,56 +1,40 @@
-import { mostrarMensajeError } from "../vistas/renderizado.js"
-import { validarCamposFormularioContacto } from "../modelos/validacion.js"
-import { crearPlantillaMensajeContacto, crearLinkMensajeWhatsapp } from "../modelos/mensaje.js"
-
-import { obtenerDatos } from "../modelos/datos.js";
-import { renderizarTextosContacto } from "../vistas/renderizado.js";
-
-
-// 1. Cargamos los textos desde el JSON y los mandamos a la vista
-const textosContacto = await obtenerDatos("./datos/contenido_web/textos_contacto.json");
-renderizarTextosContacto(textosContacto);
-
-const $contenedorErrores = document.getElementById("errores")
-const $formularioContacto = document.getElementById("formulario-contacto")
-const numeroWhatsApp = "5493518519953" 
-
-//Agregamos el escuchador
-document.addEventListener("DOMContentLoaded", ()=>{
-    //Buscamos si hay parámetros en la URL
-    const parametrosURL = new URLSearchParams(window.location.search)
-    const motivo = parametrosURL.get("motivo")
-    const $selectMotivo = document.getElementById("id-motivo")
+// 1. DOMContentLoaded: Esperamos a que todo el HTML (tu formulario) termine de cargar
+// antes de intentar buscar elementos. Si no hacemos esto, el JS no encontrará el select.
+document.addEventListener("DOMContentLoaded", () => {
     
-    //Si el motivo es bodega, se selecciona la opción en el select que deseemos
-    if(motivo === "bodega"){    
-        $selectMotivo.value = "Quiero trabajar con Mini Wine" 
-    } else if(motivo === "mayorista") {
-        $selectMotivo.value = "Quiero obtener los precios mayoristas"
+    // 2. Leemos la URL de la página actual para buscar el parámetro (ej: ?motivo=bodega)
+    const parametrosUrl = new URLSearchParams(window.location.search);
+    const motivo = parametrosUrl.get("motivo");
+
+    // 3. Capturamos TU select usando el ID exacto que tenés en el HTML
+    const $selectMotivo = document.getElementById("id-motivo");
+
+    // 4. Verificamos que el select exista en esta página y que haya venido un motivo en la URL
+    if (motivo && $selectMotivo) {
+        
+        let textoABuscar = "";
+
+        // 5. Asignamos el texto EXACTO que tenés en las etiquetas <option> de tu HTML
+        if (motivo === "bodega") {
+            textoABuscar = "Quiero trabajar con Mini Wine";
+        } else if (motivo === "mayorista") {
+            textoABuscar = "Quiero obtener los precios mayoristas";
+        }
+
+        // 6. Si logramos identificar qué buscaba el usuario (bodega o mayorista)
+        if (textoABuscar !== "") {
+            
+            // Convertimos las opciones del select en un arreglo (Array) para recorrerlas
+            const opciones = Array.from($selectMotivo.options);
+            
+            // Recorremos cada <option>
+            opciones.forEach(opcion => {
+                // Comparamos el texto de la opción con nuestro texto a buscar
+                if (opcion.text === textoABuscar) {
+                    // ¡Match! Seleccionamos esta opción automáticamente
+                    opcion.selected = true; 
+                }
+            });
+        }
     }
-})
-
-$formularioContacto.addEventListener("submit", (evento) => {
-
-    evento.preventDefault()
-
-    const nombre = document.getElementById("id-nombre").value.trim()
-    const email = document.getElementById("id-email").value.trim()
-    const motivoContacto = document.getElementById("id-motivo").value.trim()
-    const comentario = document.getElementById("id-comentario").value.trim()
-
-    const datos = {nombre, email, motivoContacto, comentario}
-
-    const errores = validarCamposFormularioContacto(datos)
-
-    mostrarMensajeError($contenedorErrores, errores)
-
-    if(errores.length === 0) {
-
-        const textoMensaje = crearPlantillaMensajeContacto(datos)
-
-        const urlWhatsApp = crearLinkMensajeWhatsapp(textoMensaje, numeroWhatsApp)
-
-        window.open(urlWhatsApp, "_blank")
-    }
-})
-
+});
