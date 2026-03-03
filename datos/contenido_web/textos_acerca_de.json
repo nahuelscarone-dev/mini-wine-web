@@ -1,7 +1,7 @@
 {
   "hero": {
-    "imagen": "recursos/imagenes/catalogo/AA MERLOT DI CANDI.webp",
-    "texto": "Maxi y Joaco se la comen"
+    "imagen": "./recursos/imagenes/hero-acerca-de.webp",
+    "texto": "Una propuesta boutique en formato de degustación."
   },
   "seccion_historia": {
     "titulo": "Nuestra historia",
